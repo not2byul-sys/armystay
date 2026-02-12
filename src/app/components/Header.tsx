@@ -86,23 +86,9 @@ export const Header = ({
         <div className="flex items-center gap-1">
           <button
             onClick={handleUserClick}
-            className={`p-2 rounded-full transition-colors ${isAuthenticated
-              ? 'bg-purple-50 text-purple-700 hover:bg-purple-100'
-              : 'text-[#333] hover:bg-gray-100'
-              }`}
+            className="p-2 text-[#333] hover:bg-gray-100 rounded-full transition-colors"
           >
-            {isAuthenticated && user ? (
-              <div className="flex items-center gap-2 pr-1">
-                <span className="text-[10px] font-extrabold text-purple-700 bg-purple-100/80 px-2 py-0.5 rounded-full max-w-[70px] truncate uppercase tracking-tighter">
-                  {user.user_metadata?.name || user.email?.split('@')[0]}
-                </span>
-                <div className="bg-purple-600 rounded-full p-1 shadow-sm shadow-purple-200">
-                  <User className="w-[14px] h-[14px] text-white" strokeWidth={3} />
-                </div>
-              </div>
-            ) : (
-              <User className="w-[22px] h-[22px]" strokeWidth={2} />
-            )}
+            <User className="w-[22px] h-[22px]" strokeWidth={2} />
           </button>
           {onBookmarks && (
             <button
