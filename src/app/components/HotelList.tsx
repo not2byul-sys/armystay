@@ -490,6 +490,17 @@ export const HotelList = ({ onSelectHotel, t, currentLang = 'en', initialSort = 
                 <span className="text-xs font-medium text-gray-500">{filteredItems.length} results in {activeCity}</span>
               </div>
 
+              {/* DEBUG INFO - REMOVE LATER */}
+              <div className="mb-3 p-3 bg-yellow-50 border border-yellow-200 rounded-lg text-xs">
+                <div><strong>Debug Info:</strong></div>
+                <div>Active City: {activeCity}</div>
+                <div>Active Sort: {activeSort}</div>
+                <div>Total Items: {items.length}</div>
+                <div>Filtered Items: {filteredItems.length}</div>
+                <div>Hotels to Render: {hotels.length}</div>
+                <div>First 3 hotels: {hotels.slice(0, 3).map(h => `${h.name} (${h.city})`).join(', ')}</div>
+              </div>
+
               <div className="flex flex-col gap-5">
                 {hotels.map((hotel, index) => {
                   const imageUrl = hotel.image_url || hotel.image || '';
