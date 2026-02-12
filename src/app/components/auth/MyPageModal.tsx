@@ -77,20 +77,6 @@ export const MyPageModal = () => {
                     >
                         <X size={20} />
                     </button>
-
-                    <button
-                        onClick={() => {
-                            const confirmLogout = window.confirm("Are you sure you want to log out?");
-                            if (confirmLogout) {
-                                logout();
-                                setShowMyPageModal(false);
-                            }
-                        }}
-                        className="absolute top-6 left-6 p-2 text-white/60 hover:text-white hover:bg-white/10 rounded-full transition-colors"
-                        title="Sign Out"
-                    >
-                        <LogOut size={18} />
-                    </button>
                 </div>
 
                 <div className="p-6 space-y-6">
@@ -160,6 +146,22 @@ export const MyPageModal = () => {
                             </button>
                         </form>
                     </section>
+
+                    {/* Sign Out Section */}
+                    <div className="pt-6 mt-2 border-t border-gray-100">
+                        <button
+                            onClick={() => {
+                                const confirmLogout = window.confirm("Are you sure you want to log out?");
+                                if (confirmLogout) {
+                                    logout();
+                                    setShowMyPageModal(false);
+                                }
+                            }}
+                            className="w-full text-center text-gray-500 hover:text-red-600 transition-colors text-base font-medium"
+                        >
+                            Sign Out
+                        </button>
+                    </div>
                 </div>
             </motion.div>
         </div>
