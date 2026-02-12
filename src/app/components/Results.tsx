@@ -491,7 +491,7 @@ export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'r
               </div>
 
               <div className="flex flex-col gap-5">
-                {hotels.map((hotel, index) => {
+                {filteredItems.filter(i => i.type === 'stay').map((hotel, index) => {
                   const imageUrl = hotel.image_url || hotel.image || '';
                   const name = hotel.name_en || hotel.name;
                   const price = hotel.price_usd ? `$ ${hotel.price_usd}` : formatPrice(hotel.price);
