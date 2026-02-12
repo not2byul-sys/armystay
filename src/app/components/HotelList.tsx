@@ -256,12 +256,14 @@ export const HotelList = ({ onSelectHotel, t, currentLang = 'en', initialSort = 
   };
 
   const filteredItems = useMemo(() => {
+    console.log('[HotelList] Filtering with:', { activeCity, activeCategory, activeSort, itemsCount: items.length });
     let filtered = items.filter(item => {
       const cityMatch = item.city === activeCity;
       const categoryMatch = activeCategory === 'all' || item.type === activeCategory;
       const availabilityMatch = !showAvailableOnly || (item.rooms_left !== undefined && item.rooms_left > 0);
       return cityMatch && categoryMatch && availabilityMatch;
     });
+    console.log('[HotelList] After city filter:', filtered.length, 'items');
 
     if (activeCategory === 'stay' || activeCategory === 'all') {
       switch (activeSort) {
@@ -303,10 +305,15 @@ export const HotelList = ({ onSelectHotel, t, currentLang = 'en', initialSort = 
       }
     }
 
+    console.log('[HotelList] After sorting:', activeSort, filtered.slice(0, 3).map(f => ({ name: f.name, city: f.city, price: f.price })));
     return filtered;
   }, [activeCity, activeCategory, items, activeSort, showAvailableOnly]);
 
-  const hotels = useMemo(() => filteredItems.filter(i => i.type === 'stay'), [filteredItems]);
+  const hotels = useMemo(() => {
+    const result = filteredItems.filter(i => i.type === 'stay');
+    console.log('[HotelList] Hotels to render:', result.length, result.slice(0, 3).map(h => ({ name: h.name, city: h.city })));
+    return result;
+  }, [filteredItems]);
   const selectedItem = useMemo(() => items.find(i => i.id === selectedMarkerId), [selectedMarkerId, items]);
 
   const sortOptions: { id: SortOption; label: string; icon: React.ReactNode }[] = [
