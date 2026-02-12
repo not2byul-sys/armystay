@@ -1,0 +1,32 @@
+{
+  "insights": [
+    {
+      "category": "Price",
+      "insight": "International fans report 5-10x price hikes in Goyang near KINTEX."
+    },
+    {
+      "category": "Safety",
+      "insight": "Concerns about high-density crowd management and solo travel safety after 10 PM."
+    },
+    {
+      "category": "Transport",
+      "insight": "High demand for dedicated shuttle services to avoid taxi scarcity."
+    },
+    {
+      "category": "Policy",
+      "insight": "Fears of 'Foreigner-only' booking cancellations reported in fan communities."
+    }
+  ],
+  "need_priorities": {
+    "budget_sensitivity": 0.95,
+    "location_transit": 0.88,
+    "cancellation_flexibility": 0.82,
+    "safety_late_night": 0.75,
+    "concert_logistics": 0.7
+  },
+  "hotel_matching_criteria": {
+    "price_cap_multiplier": 1.5,
+    "min_english_service_score": 4.0,
+    "max_walking_dist_meters": 1500
+  }
+}

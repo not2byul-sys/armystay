@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTS FESTA 2026 - Concert Data Preview</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            justify-content: center;
+        }
+
+        .tab {
+            padding: 12px 24px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .tab:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .tab.active {
+            background: white;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .concert-card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            display: none;
+        }
+
+        .concert-card.active {
+            display: block;
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .concert-title {
+            font-size: 2rem;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .concert-venue {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            border-radius: 12px;
+            color: white;
+        }
+
+        .info-box h3 {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-bottom: 8px;
+        }
+
+        .info-box p {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .dates {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+
+        .dates h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .date-list {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .date-badge {
+            background: #667eea;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .description {
+            line-height: 1.6;
+            color: #555;
+            margin: 20px 0;
+        }
+
+        .stats {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+
+        .stats h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+        }
+
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .transportation {
+            background: #e8f5e9;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .transportation h4 {
+            color: #2e7d32;
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎉 BTS FESTA 2026</h1>
+            <p>3개 도시, 9일간의 특별한 여정</p>
+        </div>
+
+        <div class="tabs">
+            <button class="tab active" onclick="showConcert('seoul')">서울 Seoul</button>
+            <button class="tab" onclick="showConcert('goyang')">고양 Goyang</button>
+            <button class="tab" onclick="showConcert('busan')">부산 Busan</button>
+        </div>
+
+        <div id="seoul" class="concert-card active">
+            <h2 class="concert-title">BTS FESTA 2026 - Seoul</h2>
+            <p class="concert-venue">🏟️ 잠실 올림픽 주경기장 (Jamsil Olympic Stadium)</p>
+
+            <div class="info-grid">
+                <div class="info-box">
+                    <h3>도시</h3>
+                    <p>서울 Seoul</p>
+                </div>
+                <div class="info-box">
+                    <h3>수용 인원</h3>
+                    <p>69,950명</p>
+                </div>
+                <div class="info-box">
+                    <h3>공연 일수</h3>
+                    <p>3일</p>
+                </div>
+            </div>
+
+            <div class="dates">
+                <h3>📅 공연 날짜</h3>
+                <div class="date-list">
+                    <span class="date-badge">2026-03-13</span>
+                    <span class="date-badge">2026-03-14</span>
+                    <span class="date-badge">2026-03-15</span>
+                </div>
+            </div>
+
+            <div class="transportation">
+                <h4>🚇 교통편</h4>
+                <p>2호선, 9호선 - 종합운동장역 (6번 출구)</p>
+                <p>도보 약 5분</p>
+            </div>
+
+            <p class="description">
+                서울 잠실 올림픽 주경기장에서 펼쳐지는 BTS FESTA 2026을 경험하세요.
+                음악과 공연, 그리고 ARMY의 하나됨을 느낄 수 있는 잊지 못할 3일간의 축제!
+            </p>
+        </div>
+
+        <div id="goyang" class="concert-card">
+            <h2 class="concert-title">BTS FESTA 2026 - Goyang</h2>
+            <p class="concert-venue">🏢 킨텍스 (KINTEX)</p>
+
+            <div class="info-grid">
+                <div class="info-box">
+                    <h3>도시</h3>
+                    <p>고양 Goyang</p>
+                </div>
+                <div class="info-box">
+                    <h3>수용 인원</h3>
+                    <p>40,000명</p>
+                </div>
+                <div class="info-box">
+                    <h3>공연 일수</h3>
+                    <p>3일</p>
+                </div>
+            </div>
+
+            <div class="dates">
+                <h3>📅 공연 날짜</h3>
+                <div class="date-list">
+                    <span class="date-badge">2026-04-13</span>
+                    <span class="date-badge">2026-04-14</span>
+                    <span class="date-badge">2026-04-15</span>
+                </div>
+            </div>
+
+            <div class="transportation">
+                <h4>🚇 교통편</h4>
+                <p>3호선 - 대화역 또는 주엽역</p>
+                <p>도보 약 10분</p>
+            </div>
+
+            <p class="description">
+                고양 킨텍스에서 BTS와 함께하는 특별한 FESTA를 경험하세요.
+                가까운 거리에서 멤버들과 함께할 수 있는 완벽한 공간!
+            </p>
+        </div>
+
+        <div id="busan" class="concert-card">
+            <h2 class="concert-title">BTS FESTA 2026 - Busan</h2>
+            <p class="concert-venue">🏟️ 부산 아시아드 주경기장 (Busan Asiad Main Stadium)</p>
+
+            <div class="info-grid">
+                <div class="info-box">
+                    <h3>도시</h3>
+                    <p>부산 Busan</p>
+                </div>
+                <div class="info-box">
+                    <h3>수용 인원</h3>
+                    <p>53,769명</p>
+                </div>
+                <div class="info-box">
+                    <h3>공연 일수</h3>
+                    <p>3일</p>
+                </div>
+            </div>
+
+            <div class="dates">
+                <h3>📅 공연 날짜</h3>
+                <div class="date-list">
+                    <span class="date-badge">2026-06-13</span>
+                    <span class="date-badge">2026-06-14</span>
+                    <span class="date-badge">2026-06-15</span>
+                </div>
+            </div>
+
+            <div class="transportation">
+                <h4>🚇 교통편</h4>
+                <p>3호선 - 종합운동장역</p>
+                <p>도보 약 8분</p>
+            </div>
+
+            <p class="description">
+                BTS가 FESTA 2026으로 부산에 돌아옵니다!
+                콘서트와 함께 아름다운 부산의 해변과 문화를 즐겨보세요.
+            </p>
+        </div>
+
+        <div class="stats">
+            <h3>📊 전체 통계</h3>
+            <div class="stat-grid">
+                <div class="stat-item">
+                    <div class="stat-value">3</div>
+                    <div class="stat-label">도시</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">9</div>
+                    <div class="stat-label">공연일</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">163,719</div>
+                    <div class="stat-label">총 수용 인원</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showConcert(city) {
+            // 모든 탭과 카드 비활성화
+            document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.concert-card').forEach(card => card.classList.remove('active'));
+
+            // 선택한 탭과 카드 활성화
+            event.target.classList.add('active');
+            document.getElementById(city).classList.add('active');
+        }
+    </script>
+</body>
+
+</html>
