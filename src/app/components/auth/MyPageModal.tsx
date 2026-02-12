@@ -161,13 +161,6 @@ export const MyPageModal = () => {
                         </form>
                     </section>
                 </div>
-
-                {/* Helper Tip */}
-                <div className="px-6 pb-6 text-center">
-                    <p className="text-[10px] text-gray-400 font-medium">
-                        Hand-picked for ARMYs with 💜
-                    </p>
-                </div>
             </motion.div>
         </div>
     );
