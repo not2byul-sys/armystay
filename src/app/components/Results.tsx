@@ -45,7 +45,7 @@ const createCategoryIcon = (color: string, iconHtml: string, isSelected: boolean
   iconAnchor: [18, 18]
 });
 
-type SortOption = 'lowest_price' | 'distance' | 'available' | 'popular' | 'army_density' | 'closing_soon';
+type SortOption = 'recommended' | 'lowest_price' | 'distance' | 'available' | 'popular' | 'army_density' | 'closing_soon';
 
 interface ResultsProps {
   onSelectHotel: (hotelId: string) => void;
@@ -276,8 +276,9 @@ export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'r
           break;
         case 'distance':
           filtered.sort((a, b) => {
-            const distA = calculateDistance(a.coords.lat, a.coords.lng, JAMSIL_COORDS.lat, JAMSIL_COORDS.lng);
-            const distB = calculateDistance(b.coords.lat, b.coords.lng, JAMSIL_COORDS.lat, JAMSIL_COORDS.lng);
+            const venueCoords = SPECIAL_LOCATIONS[activeCity]?.venue || JAMSIL_COORDS;
+            const distA = calculateDistance(a.coords.lat, a.coords.lng, venueCoords.lat, venueCoords.lng);
+            const distB = calculateDistance(b.coords.lat, b.coords.lng, venueCoords.lat, venueCoords.lng);
             return distA - distB;
           });
           break;
@@ -298,6 +299,11 @@ export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'r
           break;
         case 'recommended':
         default:
+          filtered.sort((a, b) => {
+            const scoreA = (a.rating || 0) * 0.5 + (a.army_density?.value || 0) * 0.5;
+            const scoreB = (b.rating || 0) * 0.5 + (b.army_density?.value || 0) * 0.5;
+            return scoreB - scoreA;
+          });
           break;
       }
     }
