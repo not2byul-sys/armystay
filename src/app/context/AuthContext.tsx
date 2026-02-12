@@ -20,6 +20,8 @@ interface AuthContextType {
   setShowLoginModal: (show: boolean) => void;
   showMyPageModal: boolean;
   setShowMyPageModal: (show: boolean) => void;
+  showBookmarksModal: boolean;
+  setShowBookmarksModal: (show: boolean) => void;
   isLoading: boolean;
 }
 
@@ -33,6 +35,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [bookmarks, setBookmarks] = useState<Set<string>>(new Set());
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showMyPageModal, setShowMyPageModal] = useState(false);
+  const [showBookmarksModal, setShowBookmarksModal] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
   const fetchBookmarks = async (token: string) => {
@@ -229,6 +232,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       setShowLoginModal,
       showMyPageModal,
       setShowMyPageModal,
+      showBookmarksModal,
+      setShowBookmarksModal,
       isLoading
     }}>
       {children}
@@ -256,6 +261,8 @@ export const useAuth = () => {
       setShowLoginModal: () => { },
       showMyPageModal: false,
       setShowMyPageModal: () => { },
+      showBookmarksModal: false,
+      setShowBookmarksModal: () => { },
       isLoading: false
     } as AuthContextType;
   }

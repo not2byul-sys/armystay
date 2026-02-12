@@ -5,6 +5,7 @@ import { Results, City } from '@/app/components/Results';
 import { HotelList } from '@/app/components/HotelList';
 import { Detail } from '@/app/components/Detail';
 import { Bookmarks } from '@/app/components/Bookmarks';
+import { BookmarksModal } from '@/app/components/BookmarksModal';
 import { ConcertInsights } from '@/app/components/ConcertInsights';
 import { AboutUs } from '@/app/components/AboutUs';
 import { PrivacyPolicy } from '@/app/components/PrivacyPolicy';
@@ -24,7 +25,7 @@ import { getOverrideImage } from '@/app/customImages';
 // Re-export SortOption for backward compatibility
 export type { SortOption } from '@/app/types';
 
-type Screen = 'landing' | 'results' | 'detail' | 'bookmarks' | 'concerts' | 'about' | 'privacy' | 'hotel-list';
+type Screen = 'landing' | 'results' | 'detail' | 'concerts' | 'about' | 'privacy' | 'hotel-list';
 
 const DATA_URL = "/concert_recommendations.json";
 
@@ -73,7 +74,7 @@ function ArmyStayContent() {
   const [fetchedData, setFetchedData] = useState<any>(null);
   const [showTopBtn, setShowTopBtn] = useState(false);
 
-  const { isAuthenticated, user, logout, setShowLoginModal, setShowMyPageModal } = useAuth();
+  const { isAuthenticated, user, logout, setShowLoginModal, setShowMyPageModal, setShowBookmarksModal } = useAuth();
 
 
   // Login Redirect Logic
@@ -457,25 +458,20 @@ function ArmyStayContent() {
   const handleBack = () => {
     if (currentScreen === 'detail') {
       navigateTo('results');
-    } else if (currentScreen === 'results' || currentScreen === 'bookmarks' || currentScreen === 'hotel-list') {
+    } else if (currentScreen === 'results' || currentScreen === 'hotel-list') {
       navigateTo('landing');
     }
   };
 
   const handleBookmarksClick = () => {
-    // Navigate immediately to bookmarks screen regardless of auth state
-    navigateTo('bookmarks');
-
-    // If not authenticated, show login modal on top of the bookmarks screen
-    if (!isAuthenticated) {
-      setShowLoginModal(true);
-    }
+    setShowBookmarksModal(true);
   };
 
   return (
     <div className="min-h-screen bg-gray-50 font-sans text-gray-900 selection:bg-purple-100 relative">
       <LoginModal />
       <MyPageModal />
+      <BookmarksModal items={items} onSelectHotel={handleSelectHotel} t={t} />
 
       <div className="max-w-md mx-auto bg-white min-h-screen shadow-2xl overflow-hidden relative border-x border-gray-100">
 
@@ -532,9 +528,7 @@ function ArmyStayContent() {
             <Detail onBack={handleBack} t={t} hotelId={selectedHotelId} items={items} onSelectHotel={handleSelectHotel} />
           )}
 
-          {currentScreen === 'bookmarks' && (
-            <Bookmarks items={items} onSelectHotel={handleSelectHotel} t={t} />
-          )}
+
 
           {currentScreen === 'concerts' && (
             <ConcertInsights data={fetchedData?.concerts || {}} />

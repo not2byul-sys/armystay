@@ -90,11 +90,11 @@ export const MyPageModal = () => {
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 className="flex-1 bg-gray-50 border border-gray-200 rounded-xl py-3 px-4 text-sm font-medium focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all"
-                                placeholder="Enter new email"
+                                placeholder={user.email}
                             />
                             <button
                                 type="submit"
-                                disabled={isUpdatingEmail || email === user.email}
+                                disabled={isUpdatingEmail || email === user.email || !email}
                                 className="bg-purple-100 text-purple-700 p-3 rounded-xl hover:bg-purple-200 disabled:opacity-40 disabled:hover:bg-purple-100 transition-all"
                                 title="Update Email"
                             >
