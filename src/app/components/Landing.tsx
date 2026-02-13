@@ -283,16 +283,9 @@ export const Landing = ({ onSearch, t, dateRange, setDateRange, stats, items = i
                 <button
                   key={item.id}
                   onClick={() => {
-                    if (item.id === 'all') {
-                      setPreferences(['all']);
-                    } else {
-                      setPreferences(prev => {
-                        const withoutAll = prev.filter(p => p !== 'all');
-                        return withoutAll.includes(item.id)
-                          ? withoutAll.filter(p => p !== item.id)
-                          : [...withoutAll, item.id];
-                      });
-                    }
+                    setPreferences(prev =>
+                      prev.includes(item.id) ? [] : [item.id]
+                    );
                   }}
                   className={clsx(
                     "flex flex-row items-center justify-center gap-2 px-4 py-3 rounded-xl border transition-all duration-200",
