@@ -179,19 +179,15 @@ export const Landing = ({ onSearch, t, dateRange, setDateRange, stats, items = i
                 {
                   id: 'seoul',
                   city: 'seoul' as City,
-                  month: 'Mar',
-                  day: '21',
                   targetDate: new Date(2026, 2, 21),
                   eventName: 'Seoul',
                   eventType: 'Comeback Show',
-                  venue: 'Gwanghwamun Square',
+                  venue: 'Gwanghwamun Square · Mar 21',
                   dateRange: { from: new Date(2026, 2, 21), to: new Date(2026, 2, 22) },
                 },
                 {
                   id: 'goyang',
                   city: 'goyang' as City,
-                  month: 'Apr',
-                  day: '09',
                   targetDate: new Date(2026, 3, 9),
                   eventName: 'Goyang',
                   eventType: 'Concert',
@@ -201,8 +197,6 @@ export const Landing = ({ onSearch, t, dateRange, setDateRange, stats, items = i
                 {
                   id: 'busan',
                   city: 'busan' as City,
-                  month: 'Jun',
-                  day: '12',
                   targetDate: new Date(2026, 5, 12),
                   eventName: 'Busan',
                   eventType: 'Concert',
@@ -219,14 +213,12 @@ export const Landing = ({ onSearch, t, dateRange, setDateRange, stats, items = i
                   {upcomingConcerts.map((concert) => {
                     const dDay = getDDay(concert.targetDate);
                     return (
-                      <div key={concert.id} className="bg-black/20 rounded-lg p-2.5 flex items-center gap-3 p-[12px]">
-                        <div className="bg-purple-500/20 rounded min-w-[50px] text-center py-1 relative">
-                          <span className="block text-[10px] text-purple-200 font-bold uppercase">{concert.month}</span>
-                          <span className="block text-sm font-bold text-white leading-none">{concert.day}</span>
-                          <span className={`absolute -top-2 -right-2 text-[9px] font-extrabold px-1.5 py-0.5 rounded-full shadow-md ${dDay === 'D-DAY' ? 'bg-red-500 text-white animate-pulse' : 'bg-yellow-400 text-gray-900'}`}>{dDay}</span>
-                        </div>
+                      <div key={concert.id} className="bg-black/20 rounded-lg flex items-center gap-3 p-[12px]">
                         <div className="flex-1 min-w-0">
-                          <h3 className="text-sm font-bold text-white leading-tight mb-0.5 truncate">{concert.eventName} <span className="text-[10px] font-normal text-purple-200 ml-1">{concert.eventType}</span></h3>
+                          <h3 className="text-sm font-bold text-white leading-tight mb-0.5 truncate flex items-center gap-1.5">
+                            {concert.eventName} <span className="text-[10px] font-normal text-purple-200">{concert.eventType}</span>
+                            <span className={`text-[9px] font-extrabold px-1.5 py-0.5 rounded-full ${dDay === 'D-DAY' ? 'bg-red-500 text-white animate-pulse' : 'bg-yellow-400 text-gray-900'}`}>{dDay}</span>
+                          </h3>
                           <p className="text-[11px] text-gray-300 truncate">{concert.venue}</p>
                         </div>
                         <button
