@@ -33,22 +33,22 @@ export const Landing = ({ onSearch, t, dateRange, setDateRange, stats, items = i
   const stayItems = items.filter(item => item.type === 'stay');
   const totalStays = stats?.availableCount ?? stayItems.length;
   const minPrice = stats?.lowestPrice ?? Math.min(...stayItems.map(item => item.price));
-  
+
   // Currency Conversion
   // @ts-ignore
   const rate = t.currencyRate || 1;
   // @ts-ignore
   const symbol = t.currencySymbol || '$';
-  
+
   const minPriceConverted = Math.round(minPrice * rate);
   const minPriceFormatted = minPriceConverted.toLocaleString();
 
 
   // Toggle preference logic
   const togglePreference = (id: string) => {
-    setPreferences(prev => 
-      prev.includes(id) 
-        ? prev.filter(p => p !== id) 
+    setPreferences(prev =>
+      prev.includes(id)
+        ? prev.filter(p => p !== id)
         : [...prev, id]
     );
   };
@@ -88,10 +88,10 @@ export const Landing = ({ onSearch, t, dateRange, setDateRange, stats, items = i
   };
 
   // Custom formatting for the display date range
-  const displayDate = dateRange?.from 
+  const displayDate = dateRange?.from
     ? `${format(dateRange.from, 'MMM d')}${dateRange.to ? ` - ${format(dateRange.to, 'MMM d')}` : ''}`
     : t.dateValue;
-    
+
   // City formatting
   const getCityLabel = (city: City) => {
     // @ts-ignore
@@ -145,8 +145,8 @@ export const Landing = ({ onSearch, t, dateRange, setDateRange, stats, items = i
     <div className="flex flex-col min-h-[calc(100vh-56px)] pb-10 relative">
       {/* Hero Section */}
       <section className="relative px-6 pt-[40px] pb-[80px] bg-purple-900 text-white overflow-hidden pr-[24px] pl-[24px]">
-        
-        <div 
+
+        <div
           className="relative z-10"
         >
           <h1 className="font-extrabold leading-tight mb-4 tracking-tight whitespace-pre-wrap text-white text-[32px]">
@@ -162,93 +162,115 @@ export const Landing = ({ onSearch, t, dateRange, setDateRange, stats, items = i
               <Ticket className="w-4 h-4 text-purple-300" />
               <span className="text-xs font-bold tracking-widest text-purple-100 uppercase">2026 Tour Schedule</span>
             </div>
-            
-            <div className="space-y-2">
-              <div className="bg-black/20 rounded-lg p-2.5 flex items-center gap-3 p-[12px]">
-                <div className="bg-purple-500/20 rounded min-w-[50px] text-center py-1">
-                  <span className="block text-[10px] text-purple-200 font-bold uppercase">Mar</span>
-                  <span className="block text-sm font-bold text-white leading-none">21</span>
-                </div>
-                <div className="flex-1 min-w-0">
-                  <h3 className="text-sm font-bold text-white leading-tight mb-0.5 truncate">Seoul <span className="text-[10px] font-normal text-purple-200 ml-1">Comeback Show</span></h3>
-                  <p className="text-[11px] text-gray-300 truncate">Gwanghwamun Square</p>
-                </div>
-                <button 
-                  onClick={() => {
-                    setDateRange({ from: new Date(2026, 2, 21), to: new Date(2026, 2, 22) });
-                    onSearch('recommended', 'seoul');
-                  }}
-                  className="bg-white text-purple-900 text-[12px] font-bold px-[12px] py-[6px] rounded-full hover:bg-purple-50 transition-colors whitespace-nowrap shadow-sm"
-                >
-                  Find Stays {items.filter(item => item.city === 'seoul' && item.status !== 'Sold Out').length}
-                </button>
-              </div>
 
-              <div className="bg-black/20 rounded-lg p-2.5 flex items-center gap-3 p-[12px]">
-                 <div className="bg-purple-500/20 rounded min-w-[50px] text-center py-1">
-                  <span className="block text-[10px] text-purple-200 font-bold uppercase">Apr</span>
-                  <span className="block text-sm font-bold text-white leading-none">09</span>
-                </div>
-                <div className="flex-1 min-w-0">
-                  <h3 className="text-sm font-bold text-white leading-tight mb-0.5 truncate">Goyang <span className="text-[10px] font-normal text-purple-200 ml-1">Stadium</span></h3>
-                  <p className="text-[11px] text-gray-300 truncate">Apr 9, 11, 12</p>
-                </div>
-                <button 
-                  onClick={() => {
-                    setDateRange({ from: new Date(2026, 3, 9), to: new Date(2026, 3, 12) });
-                    onSearch('recommended', 'goyang');
-                  }}
-                  className="bg-white text-purple-900 text-[12px] font-bold px-[12px] py-[6px] rounded-full hover:bg-purple-50 transition-colors whitespace-nowrap shadow-sm"
-                >
-                  Find Stays {items.filter(item => item.city === 'goyang' && item.status !== 'Sold Out').length}
-                </button>
-              </div>
+            {/* D-Day calculation helper */}
+            {(() => {
+              const getDDay = (targetDate: Date) => {
+                const now = new Date();
+                const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+                const target = new Date(targetDate.getFullYear(), targetDate.getMonth(), targetDate.getDate());
+                const diff = Math.ceil((target.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
+                if (diff > 0) return `D-${diff}`;
+                if (diff === 0) return 'D-DAY';
+                return `D+${Math.abs(diff)}`;
+              };
 
-              <div className="bg-black/20 rounded-lg p-2.5 flex items-center gap-3 p-[12px]">
-                 <div className="bg-purple-500/20 rounded min-w-[50px] text-center py-1">
-                  <span className="block text-[10px] text-purple-200 font-bold uppercase">Jun</span>
-                  <span className="block text-sm font-bold text-white leading-none">12</span>
+              const seoulDDay = getDDay(new Date(2026, 2, 21));
+              const goyangDDay = getDDay(new Date(2026, 3, 9));
+              const busanDDay = getDDay(new Date(2026, 5, 12));
+
+              return (
+                <div className="space-y-2">
+                  <div className="bg-black/20 rounded-lg p-2.5 flex items-center gap-3 p-[12px]">
+                    <div className="bg-purple-500/20 rounded min-w-[50px] text-center py-1 relative">
+                      <span className="block text-[10px] text-purple-200 font-bold uppercase">Mar</span>
+                      <span className="block text-sm font-bold text-white leading-none">21</span>
+                      <span className={`absolute -top-2 -right-2 text-[9px] font-extrabold px-1.5 py-0.5 rounded-full shadow-md ${seoulDDay === 'D-DAY' ? 'bg-red-500 text-white animate-pulse' : seoulDDay.startsWith('D+') ? 'bg-gray-500 text-white' : 'bg-yellow-400 text-gray-900'}`}>{seoulDDay}</span>
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-sm font-bold text-white leading-tight mb-0.5 truncate">Seoul <span className="text-[10px] font-normal text-purple-200 ml-1">Comeback Show</span></h3>
+                      <p className="text-[11px] text-gray-300 truncate">Gwanghwamun Square</p>
+                    </div>
+                    <button
+                      onClick={() => {
+                        setDateRange({ from: new Date(2026, 2, 21), to: new Date(2026, 2, 22) });
+                        onSearch('recommended', 'seoul');
+                      }}
+                      className="bg-white text-purple-900 text-[12px] font-bold px-[12px] py-[6px] rounded-full hover:bg-purple-50 transition-colors whitespace-nowrap shadow-sm"
+                    >
+                      Find Stays {items.filter(item => item.city === 'seoul' && item.status !== 'Sold Out').length}
+                    </button>
+                  </div>
+
+                  <div className="bg-black/20 rounded-lg p-2.5 flex items-center gap-3 p-[12px]">
+                    <div className="bg-purple-500/20 rounded min-w-[50px] text-center py-1 relative">
+                      <span className="block text-[10px] text-purple-200 font-bold uppercase">Apr</span>
+                      <span className="block text-sm font-bold text-white leading-none">09</span>
+                      <span className={`absolute -top-2 -right-2 text-[9px] font-extrabold px-1.5 py-0.5 rounded-full shadow-md ${goyangDDay === 'D-DAY' ? 'bg-red-500 text-white animate-pulse' : goyangDDay.startsWith('D+') ? 'bg-gray-500 text-white' : 'bg-yellow-400 text-gray-900'}`}>{goyangDDay}</span>
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-sm font-bold text-white leading-tight mb-0.5 truncate">Goyang <span className="text-[10px] font-normal text-purple-200 ml-1">Stadium</span></h3>
+                      <p className="text-[11px] text-gray-300 truncate">Apr 9, 11, 12</p>
+                    </div>
+                    <button
+                      onClick={() => {
+                        setDateRange({ from: new Date(2026, 3, 9), to: new Date(2026, 3, 12) });
+                        onSearch('recommended', 'goyang');
+                      }}
+                      className="bg-white text-purple-900 text-[12px] font-bold px-[12px] py-[6px] rounded-full hover:bg-purple-50 transition-colors whitespace-nowrap shadow-sm"
+                    >
+                      Find Stays {items.filter(item => item.city === 'goyang' && item.status !== 'Sold Out').length}
+                    </button>
+                  </div>
+
+                  <div className="bg-black/20 rounded-lg p-2.5 flex items-center gap-3 p-[12px]">
+                    <div className="bg-purple-500/20 rounded min-w-[50px] text-center py-1 relative">
+                      <span className="block text-[10px] text-purple-200 font-bold uppercase">Jun</span>
+                      <span className="block text-sm font-bold text-white leading-none">12</span>
+                      <span className={`absolute -top-2 -right-2 text-[9px] font-extrabold px-1.5 py-0.5 rounded-full shadow-md ${busanDDay === 'D-DAY' ? 'bg-red-500 text-white animate-pulse' : busanDDay.startsWith('D+') ? 'bg-gray-500 text-white' : 'bg-yellow-400 text-gray-900'}`}>{busanDDay}</span>
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-sm font-bold text-white leading-tight mb-0.5 truncate">Busan <span className="text-[10px] font-normal text-purple-200 ml-1">Expected</span></h3>
+                      <p className="text-[11px] text-gray-300 truncate">Jun 12, 13</p>
+                    </div>
+                    <button
+                      onClick={() => {
+                        setDateRange({ from: new Date(2026, 5, 12), to: new Date(2026, 5, 13) });
+                        onSearch('recommended', 'busan');
+                      }}
+                      className="bg-white text-purple-900 text-[12px] font-bold px-[12px] py-[6px] rounded-full hover:bg-purple-50 transition-colors whitespace-nowrap shadow-sm"
+                    >
+                      Find Stays {items.filter(item => item.city === 'busan' && item.status !== 'Sold Out').length}
+                    </button>
+                  </div>
                 </div>
-                <div className="flex-1 min-w-0">
-                  <h3 className="text-sm font-bold text-white leading-tight mb-0.5 truncate">Busan <span className="text-[10px] font-normal text-purple-200 ml-1">Expected</span></h3>
-                  <p className="text-[11px] text-gray-300 truncate">Jun 12, 13</p>
-                </div>
-                <button 
-                  onClick={() => {
-                    setDateRange({ from: new Date(2026, 5, 12), to: new Date(2026, 5, 13) });
-                    onSearch('recommended', 'busan');
-                  }}
-                  className="bg-white text-purple-900 text-[12px] font-bold px-[12px] py-[6px] rounded-full hover:bg-purple-50 transition-colors whitespace-nowrap shadow-sm"
-                >
-                  Find Stays {items.filter(item => item.city === 'busan' && item.status !== 'Sold Out').length}
-                </button>
-              </div>
-            </div>
+              ); /* end getDDay IIFE */
+            })()}
           </div>
         </div>
       </section>
 
       {/* Filter Section - Overlapping the Hero */}
       <div className="px-5 -mt-12 relative z-20">
-        <div 
+        <div
           className="bg-white rounded-3xl shadow-xl border border-gray-100 p-[20px]"
         >
           {/* Date and Concert Selection */}
           <div className="mb-6">
             <label className="block text-sm font-semibold text-gray-700 mb-3">{t.dateLabel} & Concert</label>
             <div className="flex flex-col md:flex-row gap-2">
-                            <button 
+              <button
                 onClick={() => setIsConcertOpen(true)}
                 className="flex-1 flex items-center gap-3 p-3 bg-[rgb(249,249,249)] rounded-2xl border border-gray-200 hover:bg-gray-100 transition-colors text-left group cursor-pointer p-[12px]"
               >
                 <MapPin size={22} className="text-[#333] group-hover:scale-110 transition-transform shrink-0" />
                 <div className="min-w-0">
-                 <span className="text-xs text-gray-900 font-medium text-[14px] truncate block font-bold">
+                  <span className="text-xs text-gray-900 font-medium text-[14px] truncate block font-bold">
                     {selectedConcert}
                   </span>
                 </div>
               </button>
-              <button 
+              <button
                 onClick={() => setIsCalendarOpen(true)}
                 className="flex-1 flex items-center gap-3 p-3 bg-[rgb(249,249,249)] rounded-2xl border border-gray-200 hover:bg-gray-100 transition-colors text-left group cursor-pointer p-[12px]"
               >
@@ -279,8 +301,8 @@ export const Landing = ({ onSearch, t, dateRange, setDateRange, stats, items = i
                     } else {
                       setPreferences(prev => {
                         const withoutAll = prev.filter(p => p !== 'all');
-                        return withoutAll.includes(item.id) 
-                          ? withoutAll.filter(p => p !== item.id) 
+                        return withoutAll.includes(item.id)
+                          ? withoutAll.filter(p => p !== item.id)
                           : [...withoutAll, item.id];
                       });
                     }
@@ -288,7 +310,7 @@ export const Landing = ({ onSearch, t, dateRange, setDateRange, stats, items = i
                   className={clsx(
                     "flex flex-row items-center justify-center gap-2 px-4 py-3 rounded-xl border transition-all duration-200",
                     preferences.includes(item.id)
-                      ? "bg-purple-50 border-purple-500 text-purple-700 shadow-sm scale-100" 
+                      ? "bg-purple-50 border-purple-500 text-purple-700 shadow-sm scale-100"
                       : "bg-white border-gray-200 text-gray-500 hover:bg-gray-50"
                   )}
                 >
@@ -299,13 +321,13 @@ export const Landing = ({ onSearch, t, dateRange, setDateRange, stats, items = i
           </div>
 
           {/* CTA Button */}
-          <button 
+          <button
             onClick={() => {
               let sortOption: SortOption = 'recommended';
               if (preferences.includes('safety')) sortOption = 'army_density';
               else if (preferences.includes('budget')) sortOption = 'lowest_price';
               else if (preferences.includes('venue')) sortOption = 'distance';
-              
+
               onSearch(sortOption, selectedCity);
             }}
             className="w-full py-[14px] bg-gray-900 text-white rounded-xl font-bold text-lg shadow-lg hover:bg-gray-800 active:scale-95 transition-all flex items-center justify-center gap-2 group px-[0px]"
@@ -317,127 +339,127 @@ export const Landing = ({ onSearch, t, dateRange, setDateRange, stats, items = i
       </div>
 
       {/* Concert Picker Modal */}
-      
-        {isConcertOpen && (
-          <>
-            <div 
-              onClick={() => setIsConcertOpen(false)}
-              className="fixed inset-0 bg-black/60 z-[100]"
-            />
-            <div
-              className="fixed bottom-0 left-0 right-0 md:top-1/2 md:left-1/2 md:bottom-auto md:-translate-x-1/2 md:-translate-y-1/2 md:w-[320px] bg-white rounded-t-3xl md:rounded-3xl z-[101] overflow-hidden shadow-2xl"
-            >
-              <div className="p-5">
-                <div className="flex justify-between items-center mb-4">
-                  <h3 className="text-lg font-bold text-gray-900 flex items-center gap-2">
-                    <Ticket size={20} className="text-purple-600" />
-                    Select Concert
-                  </h3>
-                  <button 
-                    onClick={() => setIsConcertOpen(false)}
-                    className="p-2 bg-gray-100 rounded-full hover:bg-gray-200 transition-colors"
-                  >
-                    <X size={20} />
-                  </button>
-                </div>
 
-                <div className="flex flex-col gap-3 mb-6">
-                  {concerts.map((concert) => (
-                    <button
-                      key={concert.id}
-                      onClick={() => handleConcertSelect(concert)}
-                      className={clsx(
-                        "flex flex-col p-4 rounded-xl border transition-all text-left gap-1",
-                        selectedConcert === concert.title
-                          ? "bg-purple-50 border-purple-500 shadow-md"
-                          : "bg-white border-gray-100 hover:bg-gray-50"
-                      )}
-                    >
-                      <div className="flex justify-between items-start w-full">
-                        <span className={clsx("font-bold text-sm", selectedConcert === concert.title ? "text-purple-700" : "text-gray-900")}>
-                          {concert.title}
-                        </span>
-                        {selectedConcert === concert.title && <CheckCircle size={18} className="text-purple-600" />}
-                      </div>
-                      <div className="flex items-center gap-1.5 text-xs text-gray-500">
-                        <Calendar size={12} />
-                        {concert.date}
-                      </div>
-                      <div className="flex items-center gap-1.5 text-xs text-gray-500">
-                        <MapPin size={12} />
-                        {concert.location}
-                      </div>
-                    </button>
-                  ))}
-                </div>
+      {isConcertOpen && (
+        <>
+          <div
+            onClick={() => setIsConcertOpen(false)}
+            className="fixed inset-0 bg-black/60 z-[100]"
+          />
+          <div
+            className="fixed bottom-0 left-0 right-0 md:top-1/2 md:left-1/2 md:bottom-auto md:-translate-x-1/2 md:-translate-y-1/2 md:w-[320px] bg-white rounded-t-3xl md:rounded-3xl z-[101] overflow-hidden shadow-2xl"
+          >
+            <div className="p-5">
+              <div className="flex justify-between items-center mb-4">
+                <h3 className="text-lg font-bold text-gray-900 flex items-center gap-2">
+                  <Ticket size={20} className="text-purple-600" />
+                  Select Concert
+                </h3>
+                <button
+                  onClick={() => setIsConcertOpen(false)}
+                  className="p-2 bg-gray-100 rounded-full hover:bg-gray-200 transition-colors"
+                >
+                  <X size={20} />
+                </button>
+              </div>
+
+              <div className="flex flex-col gap-3 mb-6">
+                {concerts.map((concert) => (
+                  <button
+                    key={concert.id}
+                    onClick={() => handleConcertSelect(concert)}
+                    className={clsx(
+                      "flex flex-col p-4 rounded-xl border transition-all text-left gap-1",
+                      selectedConcert === concert.title
+                        ? "bg-purple-50 border-purple-500 shadow-md"
+                        : "bg-white border-gray-100 hover:bg-gray-50"
+                    )}
+                  >
+                    <div className="flex justify-between items-start w-full">
+                      <span className={clsx("font-bold text-sm", selectedConcert === concert.title ? "text-purple-700" : "text-gray-900")}>
+                        {concert.title}
+                      </span>
+                      {selectedConcert === concert.title && <CheckCircle size={18} className="text-purple-600" />}
+                    </div>
+                    <div className="flex items-center gap-1.5 text-xs text-gray-500">
+                      <Calendar size={12} />
+                      {concert.date}
+                    </div>
+                    <div className="flex items-center gap-1.5 text-xs text-gray-500">
+                      <MapPin size={12} />
+                      {concert.location}
+                    </div>
+                  </button>
+                ))}
               </div>
             </div>
-          </>
-        )}
-      
+          </div>
+        </>
+      )}
+
 
       {/* Date Picker Modal */}
-      
-        {isCalendarOpen && (
-          <>
-            <div 
-              onClick={() => setIsCalendarOpen(false)}
-              className="fixed inset-0 bg-black/60 z-[100]"
-            />
-            <div
-              className="fixed bottom-0 left-0 right-0 md:top-1/2 md:left-1/2 md:bottom-auto md:-translate-x-1/2 md:-translate-y-1/2 md:w-[360px] bg-white rounded-t-3xl md:rounded-3xl z-[101] overflow-hidden shadow-2xl"
-            >
-              <div className="p-5">
-                <div className="flex justify-between items-center mb-4">
-                  <h3 className="text-lg font-bold text-gray-900 flex items-center gap-2">
-                    <Calendar size={20} className="text-purple-600" />
-                    {t.dateLabel}
-                  </h3>
-                  <button 
-                    onClick={() => setIsCalendarOpen(false)}
-                    className="p-2 bg-gray-100 rounded-full hover:bg-gray-200 transition-colors"
-                  >
-                    <X size={20} />
-                  </button>
-                </div>
 
-                <div className="flex justify-center bg-gray-50 rounded-2xl p-2 mb-4">
-                  <style>{`
+      {isCalendarOpen && (
+        <>
+          <div
+            onClick={() => setIsCalendarOpen(false)}
+            className="fixed inset-0 bg-black/60 z-[100]"
+          />
+          <div
+            className="fixed bottom-0 left-0 right-0 md:top-1/2 md:left-1/2 md:bottom-auto md:-translate-x-1/2 md:-translate-y-1/2 md:w-[360px] bg-white rounded-t-3xl md:rounded-3xl z-[101] overflow-hidden shadow-2xl"
+          >
+            <div className="p-5">
+              <div className="flex justify-between items-center mb-4">
+                <h3 className="text-lg font-bold text-gray-900 flex items-center gap-2">
+                  <Calendar size={20} className="text-purple-600" />
+                  {t.dateLabel}
+                </h3>
+                <button
+                  onClick={() => setIsCalendarOpen(false)}
+                  className="p-2 bg-gray-100 rounded-full hover:bg-gray-200 transition-colors"
+                >
+                  <X size={20} />
+                </button>
+              </div>
+
+              <div className="flex justify-center bg-gray-50 rounded-2xl p-2 mb-4">
+                <style>{`
                     .rdp { --rdp-accent-color: #7e22ce; margin: 0; }
                     .rdp-button:hover:not([disabled]):not(.rdp-day_selected) { background-color: #f3e8ff; }
                     .rdp-day_selected { background-color: rgba(126, 34, 206, 0.1); color: #7e22ce; font-weight: bold; }
                     .rdp-day_concert:not(.rdp-day_selected) { border: 2px solid #7e22ce; color: #7e22ce; font-weight: bold; }
                   `}</style>
-                  <DayPicker
-                    mode="range"
-                    selected={dateRange}
-                    onSelect={handleDateSelect}
-                    defaultMonth={new Date(2026, 5)} // June 2026
-                    modifiers={{
-                      concert: [
-                        new Date(2026, 5, 10),
-                        new Date(2026, 5, 11),
-                        new Date(2026, 5, 12),
-                        new Date(2026, 5, 13),
-                        new Date(2026, 5, 14),
-                        new Date(2026, 5, 15),
-                      ]
-                    }}
-                  />
-                </div>
-
-                <button
-                  onClick={handleConfirmDate}
-                  className="w-full py-3 bg-purple-700 text-white rounded-xl font-bold shadow-lg hover:bg-purple-800 active:scale-95 transition-all"
-                >
-                  {/* @ts-ignore */}
-                  {t.confirmDate || 'Select Date'}
-                </button>
+                <DayPicker
+                  mode="range"
+                  selected={dateRange}
+                  onSelect={handleDateSelect}
+                  defaultMonth={new Date(2026, 5)} // June 2026
+                  modifiers={{
+                    concert: [
+                      new Date(2026, 5, 10),
+                      new Date(2026, 5, 11),
+                      new Date(2026, 5, 12),
+                      new Date(2026, 5, 13),
+                      new Date(2026, 5, 14),
+                      new Date(2026, 5, 15),
+                    ]
+                  }}
+                />
               </div>
+
+              <button
+                onClick={handleConfirmDate}
+                className="w-full py-3 bg-purple-700 text-white rounded-xl font-bold shadow-lg hover:bg-purple-800 active:scale-95 transition-all"
+              >
+                {/* @ts-ignore */}
+                {t.confirmDate || 'Select Date'}
+              </button>
             </div>
-          </>
-        )}
-      
+          </div>
+        </>
+      )}
+
     </div>
   );
 };
