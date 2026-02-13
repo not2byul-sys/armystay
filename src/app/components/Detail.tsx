@@ -318,8 +318,8 @@ export const Detail = ({ onBack, t, hotelId, items, onSelectHotel }: DetailProps
                           <MapPin size={10} className="mr-0.5" />
                           {item.location?.area_en || "Seoul"}
                         </p>
-                        <button className={`w-full py-1.5 rounded-lg text-xs font-bold text-white transition-colors ${isAvailable ? 'bg-blue-600 hover:bg-blue-700' : 'bg-gray-500'}`}>
-                          {isAvailable ? 'Reserve' : 'Sold Out'}
+                        <button className={`w-full py-1.5 rounded-lg text-xs font-bold text-white transition-colors bg-purple-600 hover:bg-purple-700`}>
+                          View
                         </button>
                       </div>
                     </div>
@@ -333,11 +333,11 @@ export const Detail = ({ onBack, t, hotelId, items, onSelectHotel }: DetailProps
 
       {/* Bottom CTA Bar */}
       <div className="fixed bottom-0 left-0 right-0 w-full max-w-md mx-auto bg-white border-t border-gray-100 p-4 pb-8 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] z-50 p-[16px]">
-        <div className="flex items-center justify-between mb-2">
-          <div className="flex flex-col">
-            <span className="text-xs text-gray-500">Total price</span>
-            <span className="text-xl font-bold text-gray-900">
-              {priceUsd ? `$ ${priceUsd}` : `$${hotel.price}`}
+        <div className="flex items-center justify-between gap-4">
+          <div className="flex flex-col flex-1">
+            <span className="text-xs text-gray-500 font-medium">Check real-time rates</span>
+            <span className="text-sm font-bold text-purple-700">
+              Verified by ARMY ✓
             </span>
           </div>
           <button
@@ -346,9 +346,9 @@ export const Detail = ({ onBack, t, hotelId, items, onSelectHotel }: DetailProps
               const targetUrl = hotel.link || booking.booking_url || `https://www.agoda.com/search?text=${encodeURIComponent(hotel.name)}`;
               window.open(targetUrl, '_blank');
             }}
-            className="bg-gray-900 text-white font-bold px-8 py-3 rounded-xl shadow-lg hover:bg-black active:scale-[0.98] transition-all flex items-center justify-center gap-2"
+            className="bg-purple-700 text-white font-bold px-8 py-3 rounded-xl shadow-lg hover:bg-purple-800 active:scale-[0.98] transition-all flex items-center justify-center gap-2"
           >
-            <span>Book on {booking.name || booking.platform || 'Agoda/Booking'}</span>
+            <span>Check Rates on {booking.name || booking.platform || 'Agoda'}</span>
             <ExternalLink size={18} />
           </button>
         </div>

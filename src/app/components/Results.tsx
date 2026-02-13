@@ -265,38 +265,12 @@ export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'r
     let filtered = items.filter(item => {
       const cityMatch = item.city === activeCity;
       const categoryMatch = activeCategory === 'all' || item.type === activeCategory;
-      const availabilityMatch = !showAvailableOnly || (item.rooms_left !== undefined && item.rooms_left > 0);
-      return cityMatch && categoryMatch && availabilityMatch;
+      return cityMatch && categoryMatch;
     });
 
     if (activeCategory === 'stay' || activeCategory === 'all') {
       switch (activeSort) {
-        case 'lowest_price':
-          filtered.sort((a, b) => (a.price || 0) - (b.price || 0));
-          break;
-        case 'distance':
-          filtered.sort((a, b) => {
-            const venueCoords = SPECIAL_LOCATIONS[activeCity]?.venue || JAMSIL_COORDS;
-            const distA = calculateDistance(a.coords.lat, a.coords.lng, venueCoords.lat, venueCoords.lng);
-            const distB = calculateDistance(b.coords.lat, b.coords.lng, venueCoords.lat, venueCoords.lng);
-            return distA - distB;
-          });
-          break;
-        case 'popular':
-          filtered.sort((a, b) => (b.rating || 0) - (a.rating || 0));
-          break;
-        case 'army_density':
-          filtered.sort((a, b) => (b.army_density?.value || 0) - (a.army_density?.value || 0));
-          break;
-        case 'closing_soon':
-          filtered.sort((a, b) => {
-            const aLeft = a.rooms_left === 0 ? 9999 : (a.rooms_left ?? 9999);
-            const bLeft = b.rooms_left === 0 ? 9999 : (b.rooms_left ?? 9999);
-            return aLeft - bLeft;
-          });
-          break;
-        case 'available':
-          break;
+
         case 'recommended':
         default:
           filtered.sort((a, b) => {
@@ -317,9 +291,7 @@ export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'r
   const sortOptions: { id: SortOption; label: string; icon: React.ReactNode }[] = [
     { id: 'recommended', label: 'All', icon: <List size={12} /> },
     { id: 'distance', label: t.sortDistance, icon: <MapPin size={12} /> },
-    { id: 'lowest_price', label: t.sortLowest, icon: <TrendingUp size={12} className="rotate-180" /> },
     { id: 'army_density', label: t.sortArmyDensity, icon: <Users size={12} /> },
-    { id: 'closing_soon', label: t.sortClosingSoon, icon: <Timer size={12} /> },
   ];
 
   return (
@@ -539,8 +511,7 @@ export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'r
                   return (
                     <div
                       key={`${hotel.id}-${activeCity}-${index}`}
-                      className={`bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 group flex flex-col transition-opacity duration-200 ${hotel.rooms_left === 0 ? 'opacity-20 pointer-events-none grayscale' : 'opacity-100'
-                        }`}
+                      className={`bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 group flex flex-col transition-opacity duration-200 opacity-100`}
                     >
                       <div className="relative h-48 w-full shrink-0" data-layername="Hotel_Image">
                         <ImageWithFallback
@@ -557,13 +528,7 @@ export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'r
                           </div>
                         )}
 
-                        {!platform && hotel.rooms_left <= 3 && hotel.rooms_left > 0 && (
-                          <div className="absolute top-3 left-3 z-20">
-                            <span className="text-xs font-bold text-orange-700 bg-white/95 backdrop-blur-md px-2 py-1 rounded-lg flex items-center gap-1 shadow-sm">
-                              Only {hotel.rooms_left} rooms left!
-                            </span>
-                          </div>
-                        )}
+
 
                         <button
                           onClick={(e) => {
@@ -658,16 +623,7 @@ export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'r
                           )}
 
                           <div className="mt-1">
-                            {statusEn ? (
-                              <span className={`text-xs font-bold flex items-center gap-2 ${statusEn.toLowerCase().includes('sold out') ? 'text-red-500' : 'text-blue-600'}`}>
-                                {statusEn.toLowerCase().includes('sold out') ? <X size={12} /> : <CheckCircle size={12} />}
-                                {statusEn}
-                              </span>
-                            ) : hotel.rooms_left === 0 ? (
-                              <span className="text-xs font-bold text-red-500 flex items-center gap-1">
-                                <X size={12} /> Sold Out
-                              </span>
-                            ) : null}
+                            {/* Status badges removed */}
                           </div>
                         </div>
 
@@ -720,35 +676,18 @@ export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'r
 
                         <div className="mt-auto flex items-end justify-between border-t border-gray-50 pt-4">
                           <div data-layername="Price">
-                            {hotel.cancellation?.type === 'free' && (
-                              <span className="text-[10px] font-bold text-green-600 block mb-0">
-                                Free Cancellation
-                              </span>
-                            )}
-                            <span className="text-xs text-gray-400 line-through mr-2 block">
-                              {hotel.originalPrice && formatPrice(hotel.originalPrice)}
-                            </span>
-                            <div className="flex items-baseline gap-1">
-                              <span className="text-[22px] font-extrabold text-gray-900">
-                                {price}
-                              </span>
-                              {!hotel.price_usd && <span className="text-xs text-gray-500 font-medium">{t.night}</span>}
-                            </div>
+                            {/* Price removed */}
+                            <span className="text-xs text-gray-500 font-medium">Check availability for rates</span>
                           </div>
 
                           <button
                             onClick={() => {
-                              if (hotel.rooms_left === 0) return;
                               onSelectHotel(hotel.id);
                             }}
-                            disabled={hotel.rooms_left === 0}
-                            className={`px-5 py-2.5 rounded-xl text-sm font-bold shadow-lg transition-all flex items-center gap-2 shrink-0 ${hotel.rooms_left === 0
-                              ? 'bg-gray-200 text-gray-400 cursor-not-allowed shadow-none'
-                              : 'bg-purple-700 text-white hover:bg-purple-800'
-                              }`}
+                            className={`px-5 py-2.5 rounded-xl text-sm font-bold shadow-lg transition-all flex items-center gap-2 shrink-0 bg-purple-700 text-white hover:bg-purple-800`}
                           >
-                            {hotel.rooms_left === 0 ? 'Sold Out' : t.reserveBtn}
-                            {hotel.rooms_left !== 0 && <ChevronRight size={16} />}
+                            Check Rates
+                            <ChevronRight size={16} />
                           </button>
                         </div>
                       </div>
@@ -816,7 +755,7 @@ export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'r
               let icon;
 
               if (item.type === 'stay') {
-                icon = createPriceIcon(formatPrice(item.price), isSelected);
+                icon = createCategoryIcon('bg-purple-600', '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4v16"/><path d="M2 8h18a2 2 0 0 1 2 2v10"/><path d="M2 17h20"/><path d="M6 8v9"/></svg>', isSelected);
               } else if (item.type === 'food') {
                 icon = createCategoryIcon('bg-orange-500', '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>', isSelected);
               } else if (item.type === 'spot') {
@@ -867,14 +806,13 @@ export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'r
                 </p>
                 <div className="flex items-end justify-between mt-1.5">
                   <div className="flex flex-col leading-none">
-                    <span className="text-[10px] text-gray-400 line-through mb-0.5">
-                      {selectedItem.originalPrice && formatPrice(selectedItem.originalPrice)}
+                    <span className="text-[10px] text-gray-400 mb-0.5">
+                      Check rates
                     </span>
                     <div className="flex items-baseline gap-1">
-                      <span className="font-extrabold text-lg text-gray-900">
-                        {selectedItem.price_usd ? `$ ${selectedItem.price_usd}` : formatPrice(selectedItem.price)}
+                      <span className="font-extrabold text-lg text-purple-700">
+                        View Details
                       </span>
-                      {!selectedItem.price_usd && <span className="text-[10px] text-gray-500 font-medium">/night</span>}
                     </div>
                   </div>
                   <button className="bg-purple-700 text-white w-8 h-8 rounded-full flex items-center justify-center shadow-md">
