@@ -43,12 +43,16 @@ export const hotelImageOverrides: ImageOverride[] = [
     {
         id: 'hotel_19685',
         name: 'Sono Calm Goyang',
-        imageUrl: 'https://pix10.agoda.net/hotelImages/116896/-1/8c3f8b0a8c3f8b0a8c3f8b0a8c3f8b0a.jpg?ca=9&ce=1&s=1024x768'
+        imageUrl: 'https://pix10.agoda.net/hotelImages/443482/0/213b25407f23484753dccda9700952a3.png?ce=3&s=1024x768'
     },
     {
         id: 'hotel_50905',
         name: 'Boutiquehotel K Ilsan',
         imageUrl: 'https://pix10.agoda.net/hotelImages/9073860/-1/c8e0b5c3c3f8b0a8c3f8b0a8c3f8b0a8.jpg?ca=9&ce=1&s=1024x768'
+    },
+    {
+        name: 'Kintex by K-Tree',
+        imageUrl: 'https://pix10.agoda.net/property/24174903/0/ef913e88a02e19a11a0a6960892e6026.jpeg?ce=2&s=1024x768'
     },
     {
         id: 'hotel_gy001',
@@ -64,17 +68,22 @@ export const hotelImageOverrides: ImageOverride[] = [
     {
         id: 'hotel_41184',
         name: 'L7 Hongdae by Lotte',
-        imageUrl: 'https://pix10.agoda.net/hotelImages/116/116896/116896_17022809420051410115.jpg?ca=6&ce=1&s=1024x768'
+        imageUrl: 'https://pix10.agoda.net/hotelImages/25918470/0/4769836ba510e5488a608cd55efc59ee.jpg?ce=0&s=1024x768'
     },
     {
         id: 'hotel_20887',
         name: 'RYSE Autograph Collection',
-        imageUrl: 'https://pix10.agoda.net/hotelImages/5502321/-1/8b8c3f8b0a8c3f8b0a8c3f8b0a8c3f8.jpg?ca=9&ce=1&s=1024x768'
+        imageUrl: 'https://pix10.agoda.net/hotelImages/4120283/-1/180765cbf9d48fcec47d8e8b73def346.jpg?ca=9&ce=1&s=1024x768'
     },
     {
         id: 'hotel_99279',
         name: 'Mercure Ambassador Seoul Hongdae',
-        imageUrl: 'https://pix10.agoda.net/hotelImages/116896/0/8c3f8b0a8c3f8b0a8c3f8b0a8c3f8b0.jpg?ca=6&ce=1&s=1024x768'
+        imageUrl: 'https://pix10.agoda.net/hotelImages/21984560/0/be62a321f6b02d31ac70bc0a39f79988.jpeg?ce=3&s=1024x768'
+    },
+    {
+        id: 'hotel_62824',
+        name: 'Nine Tree Premier Hotel',
+        imageUrl: 'https://pix10.agoda.net/hotelImages/9119187/0/23045d41906b491cbe43b687c23f2931.jpg?ce=3&s=1024x768'
     },
     {
         id: 'hotel_47087',
@@ -101,22 +110,22 @@ export const hotelImageOverrides: ImageOverride[] = [
     {
         id: 'hotel_gw_10001',
         name: 'Four Seasons Hotel Seoul',
-        imageUrl: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&q=80&w=1080' // Luxury
+        imageUrl: 'https://pix10.agoda.net/hotelImages/115/1158309/1158309_16061014380043391802.jpg?ca=6&ce=1&s=1024x768' // Luxury
     },
     {
         id: 'hotel_gw_10002',
         name: 'Somerset Palace Seoul',
-        imageUrl: 'https://images.unsplash.com/photo-1506059612708-99d6c258160e?auto=format&fit=crop&q=80&w=1080' // Apartment style
+        imageUrl: 'https://pix10.agoda.net/hotelImages/566/56673/56673_15062510520029783060.jpg?ca=4&ce=1&s=1024x768' // Apartment style
     },
     {
         id: 'hotel_gw_10003',
         name: 'Nine Tree by Parnas Seoul Insadong',
-        imageUrl: 'https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&q=80&w=1080' // Modern room
+        imageUrl: 'https://pix10.agoda.net/hotelImages/9119187/0/23045d41906b491cbe43b687c23f2931.jpg?ce=3&s=1024x768' // Modern room
     },
     {
         id: 'hotel_gw_10006',
         name: 'AMID Hotel Seoul',
-        imageUrl: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&q=80&w=1080' // Boutique
+        imageUrl: 'https://pix10.agoda.net/hotelImages/268/2686121/2686121_17090715110056086774.jpg?ca=6&ce=1&s=1024x768' // Boutique
     },
     {
         id: 'hotel_gw_10007',
@@ -131,7 +140,7 @@ export const hotelImageOverrides: ImageOverride[] = [
     {
         id: 'hotel_gw_10014',
         name: 'Orakai Insadong Suites',
-        imageUrl: 'https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=1080' // Suites
+        imageUrl: 'https://pix10.agoda.net/hotelImages/161/161864/161864_16030914000040685608.jpg?ca=6&ce=1&s=1024x768' // Suites
     },
     {
         id: 'hotel_gw_10015',
