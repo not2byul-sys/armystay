@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Calendar, Search, Shield, Wallet, Coffee, ChevronRight, X, Sparkles, TrendingDown, Home, Users, MapPin, CheckCircle, Ticket } from 'lucide-react';
+import { Calendar, Search, Shield, Coffee, ChevronRight, X, Sparkles, TrendingDown, Home, Users, MapPin, CheckCircle, Ticket } from 'lucide-react';
 import { clsx } from 'clsx';
 import { translations } from '@/translations';
 import { initialItems } from '@/app/data';
@@ -28,21 +28,6 @@ export const Landing = ({ onSearch, t, dateRange, setDateRange, stats, items = i
   const [isConcertOpen, setIsConcertOpen] = useState(false);
   const [selectedCity, setSelectedCity] = useState<City>('goyang');
   const [selectedConcert, setSelectedConcert] = useState<string>('Goyang');
-
-  // Statistics Calculation - use props if available, otherwise calculate fallback
-  const stayItems = items.filter(item => item.type === 'stay');
-  const totalStays = stats?.availableCount ?? stayItems.length;
-  const minPrice = stats?.lowestPrice ?? Math.min(...stayItems.map(item => item.price));
-
-  // Currency Conversion
-  // @ts-ignore
-  const rate = t.currencyRate || 1;
-  // @ts-ignore
-  const symbol = t.currencySymbol || '$';
-
-  const minPriceConverted = Math.round(minPrice * rate);
-  const minPriceFormatted = minPriceConverted.toLocaleString();
-
 
   // Toggle preference logic
   const togglePreference = (id: string) => {
@@ -277,7 +262,6 @@ export const Landing = ({ onSearch, t, dateRange, setDateRange, stats, items = i
             <div className="grid grid-cols-3 gap-2">
               {[
                 { id: 'venue', icon: Sparkles, label: t.sortDistance },
-                { id: 'budget', icon: Wallet, label: t.prefBudget },
                 { id: 'safety', icon: Users, label: t.prefSafety },
               ].map((item) => (
                 <button
@@ -305,7 +289,6 @@ export const Landing = ({ onSearch, t, dateRange, setDateRange, stats, items = i
             onClick={() => {
               let sortOption: SortOption = 'recommended';
               if (preferences.includes('safety')) sortOption = 'army_density';
-              else if (preferences.includes('budget')) sortOption = 'lowest_price';
               else if (preferences.includes('venue')) sortOption = 'distance';
 
               onSearch(sortOption, selectedCity);

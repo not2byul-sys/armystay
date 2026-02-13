@@ -290,7 +290,19 @@ export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'r
     let filtered = items.filter(item => {
       const cityMatch = item.city === activeCity;
       const categoryMatch = activeCategory === 'all' || item.type === activeCategory;
-      const searchMatch = item.name.toLowerCase().includes(searchQuery.toLowerCase());
+      const searchMatch = (() => {
+        if (!searchQuery.trim()) return true;
+        const query = searchQuery.toLowerCase().trim();
+        return (
+          (item.name && item.name.toLowerCase().includes(query)) ||
+          (item.name_kr && item.name_kr.includes(query)) ||
+          (item.name_en && item.name_en.toLowerCase().includes(query)) ||
+          (item.location && item.location.toLowerCase().includes(query)) ||
+          (item.address && item.address.toLowerCase().includes(query)) ||
+          (item.address_kr && item.address_kr.includes(query)) ||
+          (item.tags && item.tags.some((tag: any) => typeof tag === 'string' && tag.toLowerCase().includes(query)))
+        );
+      })();
       return cityMatch && categoryMatch && searchMatch;
     });
 
@@ -402,120 +414,8 @@ export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'r
 
       {viewMode === 'list' && (
         <>
-          <div className="w-full bg-gray-20 pt-[20px] pb-[2px]">
-            <div className="px-5 mb-0 flex gap-2">
-              <Popover.Root
-                open={isDateOpen}
-                onOpenChange={(open) => {
-                  setIsDateOpen(open);
-                  if (open) setTempDateRange(dateRange);
-                }}
-              >
-                <Popover.Trigger asChild>
-                  <button className="bg-[#fff] px-4 py-2.5 rounded-xl flex items-center justify-center border border-gray-200 shadow-xs gap-2.5 flex-1 active:scale-[0.98] transition-all group hover:bg-gray-100">
-                    <Calendar size={18} className="text-gray-400 group-hover:text-purple-600 transition-colors" />
-                    <span className="text-sm font-bold text-gray-800 truncate">{displayDate}</span>
-                  </button>
-                </Popover.Trigger>
-                <Popover.Portal>
-                  <Popover.Content className="z-[70] bg-white p-3 rounded-xl shadow-xl border border-gray-100 animate-in fade-in zoom-in-95" sideOffset={8}>
-                    <style>{`
-                        .rdp { --rdp-accent-color: #7e22ce; margin: 0; }
-                        .rdp-button:hover:not([disabled]):not(.rdp-day_selected) { background-color: #f3e8ff; }
-                        .rdp-day_selected { background-color: rgba(126, 34, 206, 0.1); color: #7e22ce; font-weight: bold; }
-                        .rdp-day_concert:not(.rdp-day_selected) { border: 2px solid #7e22ce; color: #7e22ce; font-weight: bold; }
-                      `}</style>
-                    <DayPicker
-                      mode="range"
-                      selected={tempDateRange}
-                      onSelect={(range, selectedDay) => {
-                        if (tempDateRange?.from && tempDateRange?.to && selectedDay) {
-                          setTempDateRange({ from: selectedDay, to: undefined });
-                        } else {
-                          setTempDateRange(range);
-                        }
-                      }}
-                      defaultMonth={new Date(2026, 5)}
-                      numberOfMonths={1}
-                      modifiers={{
-                        concert: [
-                          new Date(2026, 5, 10),
-                          new Date(2026, 5, 11),
-                          new Date(2026, 5, 12),
-                          new Date(2026, 5, 13),
-                          new Date(2026, 5, 14),
-                          new Date(2026, 5, 15),
-                        ]
-                      }}
-                    />
-                    <div className="flex items-center justify-end gap-2 mt-2 pt-3 border-t border-gray-50">
-                      <button
-                        onClick={() => setIsDateOpen(false)}
-                        className="px-3 py-1.5 text-xs font-medium text-gray-500 hover:bg-gray-100 rounded-lg transition-colors"
-                      >
-                        Cancel
-                      </button>
-                      <button
-                        onClick={() => {
-                          setDateRange?.(tempDateRange);
-                          setIsDateOpen(false);
-                        }}
-                        className="px-4 py-1.5 text-xs font-bold text-white bg-purple-700 hover:bg-purple-800 rounded-lg transition-colors shadow-sm"
-                      >
-                        Confirm
-                      </button>
-                    </div>
-                  </Popover.Content>
-                </Popover.Portal>
-              </Popover.Root>
-
-              <Popover.Root open={isCityOpen} onOpenChange={setIsCityOpen}>
-                <Popover.Trigger asChild>
-                  <button className="bg-[#fff] px-4 py-3 rounded-xl flex items-center justify-center border border-gray-200 shadow-xs gap-2.5 flex-1 active:scale-[1] transition-all group hover:bg-gray-100">
-                    <MapPin size={18} className="text-gray-400 group-hover:text-purple-600 transition-colors" />
-                    <span className="text-sm font-bold text-gray-800 truncate">{getCityLabel(activeCity)}</span>
-                  </button>
-                </Popover.Trigger>
-                <Popover.Portal>
-                  <Popover.Content className="z-[70] bg-white p-3 rounded-xl shadow-xl border border-gray-100 animate-in fade-in zoom-in-95 w-[200px]" sideOffset={8}>
-                    <div className="flex flex-col gap-2">
-                      <div className="flex justify-between items-center mb-1 px-1">
-                        <h3 className="text-sm font-bold text-gray-900 flex items-center gap-2">
-                          <MapPin size={16} className="text-purple-600" />
-                          Select City
-                        </h3>
-                        <button onClick={() => setIsCityOpen(false)} className="p-1 hover:bg-gray-100 rounded-full">
-                          <X size={16} className="text-gray-400" />
-                        </button>
-                      </div>
-                      <div className="flex flex-col gap-0">
-                        <div className="flex flex-col gap-0">
-                          {cities.map((city) => (
-                            <button
-                              key={city.id}
-                              onClick={() => {
-                                setActiveCity(city.id);
-                                setDateRange?.(CONCERT_DATES[city.id]);
-                                setIsCityOpen(false);
-                                window.scrollTo({ top: 0, behavior: 'smooth' });
-                              }}
-                              className={`flex items-center gap-1 p-2 rounded-lg text-xs font-bold transition-all text-left ${activeCity === city.id
-                                ? 'bg-purple-50 text-purple-700'
-                                : 'text-gray-700 hover:bg-gray-50'
-                                }`}
-                            >
-                              {activeCity === city.id && <CheckCircle size={14} className="text-purple-600" />}
-                              <span className={activeCity === city.id ? "font-bold" : "font-medium"}>{city.label}</span>
-                            </button>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </Popover.Content>
-                </Popover.Portal>
-              </Popover.Root>
-            </div>
-            {/* Removed the old city chips row */}
+          <div className="w-full bg-gray-20 pt-[5px] pb-[2px]">
+            {/* Date/City filters removed */}
           </div>
 
           <div className="pr-[0px] pl-[20px] pt-[16px] pb-[10px] mb-6 flex items-center justify-between">
@@ -758,7 +658,6 @@ export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'r
                         <div className="mt-auto flex items-end justify-between border-t border-gray-50 pt-4">
                           <div data-layername="Price">
                             {/* Price removed */}
-                            <span className="text-xs text-gray-500 font-medium">Check availability for rates</span>
                           </div>
 
                           <button

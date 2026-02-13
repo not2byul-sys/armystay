@@ -493,7 +493,6 @@ function ArmyStayContent() {
             isAuthenticated={isAuthenticated}
             user={user}
             onLoginClick={() => {
-              console.log('Header onLoginClick triggered'); // Debug log
               setPendingRedirect(true);
               setShowLoginModal(true);
             }}
