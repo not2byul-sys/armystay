@@ -175,74 +175,72 @@ export const Landing = ({ onSearch, t, dateRange, setDateRange, stats, items = i
                 return `D+${Math.abs(diff)}`;
               };
 
-              const seoulDDay = getDDay(new Date(2026, 2, 21));
-              const goyangDDay = getDDay(new Date(2026, 3, 9));
-              const busanDDay = getDDay(new Date(2026, 5, 12));
+              const concertCards = [
+                {
+                  id: 'seoul',
+                  city: 'seoul' as City,
+                  month: 'Mar',
+                  day: '21',
+                  targetDate: new Date(2026, 2, 21),
+                  eventName: 'Seoul',
+                  eventType: 'Comeback Show',
+                  venue: 'Gwanghwamun Square',
+                  dateRange: { from: new Date(2026, 2, 21), to: new Date(2026, 2, 22) },
+                },
+                {
+                  id: 'goyang',
+                  city: 'goyang' as City,
+                  month: 'Apr',
+                  day: '09',
+                  targetDate: new Date(2026, 3, 9),
+                  eventName: 'Goyang',
+                  eventType: 'Concert',
+                  venue: 'Goyang Stadium · Apr 9, 11, 12',
+                  dateRange: { from: new Date(2026, 3, 9), to: new Date(2026, 3, 12) },
+                },
+                {
+                  id: 'busan',
+                  city: 'busan' as City,
+                  month: 'Jun',
+                  day: '12',
+                  targetDate: new Date(2026, 5, 12),
+                  eventName: 'Busan',
+                  eventType: 'Concert',
+                  venue: 'TBD · Jun 12, 13',
+                  dateRange: { from: new Date(2026, 5, 12), to: new Date(2026, 5, 13) },
+                },
+              ];
+
+              // Filter out past concerts
+              const upcomingConcerts = concertCards.filter(c => !getDDay(c.targetDate).startsWith('D+'));
 
               return (
                 <div className="space-y-2">
-                  <div className="bg-black/20 rounded-lg p-2.5 flex items-center gap-3 p-[12px]">
-                    <div className="bg-purple-500/20 rounded min-w-[50px] text-center py-1 relative">
-                      <span className="block text-[10px] text-purple-200 font-bold uppercase">Mar</span>
-                      <span className="block text-sm font-bold text-white leading-none">21</span>
-                      <span className={`absolute -top-2 -right-2 text-[9px] font-extrabold px-1.5 py-0.5 rounded-full shadow-md ${seoulDDay === 'D-DAY' ? 'bg-red-500 text-white animate-pulse' : seoulDDay.startsWith('D+') ? 'bg-gray-500 text-white' : 'bg-yellow-400 text-gray-900'}`}>{seoulDDay}</span>
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <h3 className="text-sm font-bold text-white leading-tight mb-0.5 truncate">Seoul <span className="text-[10px] font-normal text-purple-200 ml-1">Comeback Show</span></h3>
-                      <p className="text-[11px] text-gray-300 truncate">Gwanghwamun Square</p>
-                    </div>
-                    <button
-                      onClick={() => {
-                        setDateRange({ from: new Date(2026, 2, 21), to: new Date(2026, 2, 22) });
-                        onSearch('recommended', 'seoul');
-                      }}
-                      className="bg-white text-purple-900 text-[12px] font-bold px-[12px] py-[6px] rounded-full hover:bg-purple-50 transition-colors whitespace-nowrap shadow-sm"
-                    >
-                      Find Stays {items.filter(item => item.city === 'seoul' && item.status !== 'Sold Out').length}
-                    </button>
-                  </div>
-
-                  <div className="bg-black/20 rounded-lg p-2.5 flex items-center gap-3 p-[12px]">
-                    <div className="bg-purple-500/20 rounded min-w-[50px] text-center py-1 relative">
-                      <span className="block text-[10px] text-purple-200 font-bold uppercase">Apr</span>
-                      <span className="block text-sm font-bold text-white leading-none">09</span>
-                      <span className={`absolute -top-2 -right-2 text-[9px] font-extrabold px-1.5 py-0.5 rounded-full shadow-md ${goyangDDay === 'D-DAY' ? 'bg-red-500 text-white animate-pulse' : goyangDDay.startsWith('D+') ? 'bg-gray-500 text-white' : 'bg-yellow-400 text-gray-900'}`}>{goyangDDay}</span>
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <h3 className="text-sm font-bold text-white leading-tight mb-0.5 truncate">Goyang <span className="text-[10px] font-normal text-purple-200 ml-1">Stadium</span></h3>
-                      <p className="text-[11px] text-gray-300 truncate">Apr 9, 11, 12</p>
-                    </div>
-                    <button
-                      onClick={() => {
-                        setDateRange({ from: new Date(2026, 3, 9), to: new Date(2026, 3, 12) });
-                        onSearch('recommended', 'goyang');
-                      }}
-                      className="bg-white text-purple-900 text-[12px] font-bold px-[12px] py-[6px] rounded-full hover:bg-purple-50 transition-colors whitespace-nowrap shadow-sm"
-                    >
-                      Find Stays {items.filter(item => item.city === 'goyang' && item.status !== 'Sold Out').length}
-                    </button>
-                  </div>
-
-                  <div className="bg-black/20 rounded-lg p-2.5 flex items-center gap-3 p-[12px]">
-                    <div className="bg-purple-500/20 rounded min-w-[50px] text-center py-1 relative">
-                      <span className="block text-[10px] text-purple-200 font-bold uppercase">Jun</span>
-                      <span className="block text-sm font-bold text-white leading-none">12</span>
-                      <span className={`absolute -top-2 -right-2 text-[9px] font-extrabold px-1.5 py-0.5 rounded-full shadow-md ${busanDDay === 'D-DAY' ? 'bg-red-500 text-white animate-pulse' : busanDDay.startsWith('D+') ? 'bg-gray-500 text-white' : 'bg-yellow-400 text-gray-900'}`}>{busanDDay}</span>
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <h3 className="text-sm font-bold text-white leading-tight mb-0.5 truncate">Busan <span className="text-[10px] font-normal text-purple-200 ml-1">Expected</span></h3>
-                      <p className="text-[11px] text-gray-300 truncate">Jun 12, 13</p>
-                    </div>
-                    <button
-                      onClick={() => {
-                        setDateRange({ from: new Date(2026, 5, 12), to: new Date(2026, 5, 13) });
-                        onSearch('recommended', 'busan');
-                      }}
-                      className="bg-white text-purple-900 text-[12px] font-bold px-[12px] py-[6px] rounded-full hover:bg-purple-50 transition-colors whitespace-nowrap shadow-sm"
-                    >
-                      Find Stays {items.filter(item => item.city === 'busan' && item.status !== 'Sold Out').length}
-                    </button>
-                  </div>
+                  {upcomingConcerts.map((concert) => {
+                    const dDay = getDDay(concert.targetDate);
+                    return (
+                      <div key={concert.id} className="bg-black/20 rounded-lg p-2.5 flex items-center gap-3 p-[12px]">
+                        <div className="bg-purple-500/20 rounded min-w-[50px] text-center py-1 relative">
+                          <span className="block text-[10px] text-purple-200 font-bold uppercase">{concert.month}</span>
+                          <span className="block text-sm font-bold text-white leading-none">{concert.day}</span>
+                          <span className={`absolute -top-2 -right-2 text-[9px] font-extrabold px-1.5 py-0.5 rounded-full shadow-md ${dDay === 'D-DAY' ? 'bg-red-500 text-white animate-pulse' : 'bg-yellow-400 text-gray-900'}`}>{dDay}</span>
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <h3 className="text-sm font-bold text-white leading-tight mb-0.5 truncate">{concert.eventName} <span className="text-[10px] font-normal text-purple-200 ml-1">{concert.eventType}</span></h3>
+                          <p className="text-[11px] text-gray-300 truncate">{concert.venue}</p>
+                        </div>
+                        <button
+                          onClick={() => {
+                            setDateRange(concert.dateRange);
+                            onSearch('recommended', concert.city);
+                          }}
+                          className="bg-white text-purple-900 text-[12px] font-bold px-[12px] py-[6px] rounded-full hover:bg-purple-50 transition-colors whitespace-nowrap shadow-sm"
+                        >
+                          Find Stays {items.filter(item => item.city === concert.city && item.status !== 'Sold Out').length}
+                        </button>
+                      </div>
+                    );
+                  })}
                 </div>
               ); /* end getDDay IIFE */
             })()}
