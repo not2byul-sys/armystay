@@ -216,8 +216,8 @@ export const Landing = ({ onSearch, t, dateRange, setDateRange, stats, items = i
                       <div key={concert.id} className="bg-black/20 rounded-lg flex items-center gap-3 p-[12px]">
                         <div className="flex-1 min-w-0">
                           <h3 className="text-sm font-bold text-white leading-tight mb-0.5 truncate flex items-center gap-1.5">
+                            <span className={`text-[9px] font-extrabold px-1.5 py-0.5 rounded-full shrink-0 ${dDay === 'D-DAY' ? 'bg-red-500 text-white animate-pulse' : 'bg-yellow-400 text-gray-900'}`}>{dDay}</span>
                             {concert.eventName} <span className="text-[10px] font-normal text-purple-200">{concert.eventType}</span>
-                            <span className={`text-[9px] font-extrabold px-1.5 py-0.5 rounded-full ${dDay === 'D-DAY' ? 'bg-red-500 text-white animate-pulse' : 'bg-yellow-400 text-gray-900'}`}>{dDay}</span>
                           </h3>
                           <p className="text-[11px] text-gray-300 truncate">{concert.venue}</p>
                         </div>
