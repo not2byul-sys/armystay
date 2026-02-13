@@ -10,13 +10,13 @@ export const translations = {
     legendTicket: "Ticket Open",
     legendConcert: "Concert",
     confirmDate: "Select This Date",
-    preferLabel: "I prefer:",
+    preferLabel: "What matters most?",
     prefBudget: "Budget",
     prefSafety: "Army Density",
     prefVibe: "Hipster",
     ctaFind: "Find My Perfect Stay",
     trustedBy: "Trusted by 50,000+ ARMY",
-    
+
     savingsBanner: "Smart Choice! Save average $150/night here",
     recAreas: "Recommended Areas",
     areaSeongsuTag: "The Trendy",
@@ -26,7 +26,7 @@ export const translations = {
     bestMatches: "Best Matches for You",
     night: "/ night",
     viewDetails: "View Details",
-    
+
     stayDetails: "Stay Details",
     safeReturn: "Safe Return Route",
     mapRoute: "Jamsil → Line 2 → Stay",
@@ -83,13 +83,13 @@ export const translations = {
     legendTicket: "티켓 오픈",
     legendConcert: "공연일",
     confirmDate: "날짜 선택 완료",
-    preferLabel: "선호하는 스타일:",
+    preferLabel: "가장 중요한 건?",
     prefBudget: "가성비",
     prefSafety: "아미 밀집도",
     prefVibe: "감성",
     ctaFind: "맞춤 숙소 찾기",
     trustedBy: "5만 명의 아미가 선택했습니다",
-    
+
     savingsBanner: "현명한 선택! 평균 1박 $150를 절약할 수 있어요.",
     recAreas: "추천 지역",
     areaSeongsuTag: "요즘 힙한 곳",
@@ -99,7 +99,7 @@ export const translations = {
     bestMatches: "나를 위한 최고의 매칭",
     night: "/ 1박",
     viewDetails: "보러가기",
-    
+
     stayDetails: "숙소 상세",
     safeReturn: "안심 귀가 루트",
     mapRoute: "잠실 → 2호선 → 숙소",
@@ -156,13 +156,13 @@ export const translations = {
     legendTicket: "チケットオープン",
     legendConcert: "公演日",
     confirmDate: "日付を選択",
-    preferLabel: "好み:",
+    preferLabel: "何が大事?",
     prefBudget: "コスパ",
     prefSafety: "ARMY密集度",
     prefVibe: "おしゃれ",
     ctaFind: "おすすめの宿を探す",
     trustedBy: "5万人のARMYが利用",
-    
+
     savingsBanner: "賢い選択！平均で1泊$150節約できます。",
     recAreas: "おすすめエリア",
     areaSeongsuTag: "トレンド",
@@ -172,7 +172,7 @@ export const translations = {
     bestMatches: "あなたにぴったりの宿",
     night: "/ 泊",
     viewDetails: "詳細を見る",
-    
+
     stayDetails: "宿泊詳細",
     safeReturn: "安心の帰宅ルート",
     mapRoute: "蚕室 → 2号線 → 宿",
@@ -229,13 +229,13 @@ export const translations = {
     legendTicket: "开票日期",
     legendConcert: "演唱会",
     confirmDate: "确认日期",
-    preferLabel: "偏好:",
+    preferLabel: "最重要的是?",
     prefBudget: "性价比",
     prefSafety: "ARMY密度",
     prefVibe: "氛围感",
     ctaFind: "查找完美住宿",
     trustedBy: "超过5万名ARMY的选择",
-    
+
     savingsBanner: "明智之选！每晚平均可节省$150。",
     recAreas: "推荐区域",
     areaSeongsuTag: "潮流圣地",
@@ -245,7 +245,7 @@ export const translations = {
     bestMatches: "为您匹配的最佳结果",
     night: "/ 晚",
     viewDetails: "查看详情",
-    
+
     stayDetails: "住宿详情",
     safeReturn: "安全归家路线",
     mapRoute: "蚕室 → 2号线 → 住宿",

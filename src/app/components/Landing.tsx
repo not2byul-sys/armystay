@@ -158,10 +158,7 @@ export const Landing = ({ onSearch, t, dateRange, setDateRange, stats, items = i
 
           {/* Concert Schedule */}
           <div className="bg-white/10 backdrop-blur-md rounded-xl p-3 border border-white/10 shadow-lg relative z-20">
-            <div className="flex items-center gap-2 mb-3 px-1">
-              <Ticket className="w-4 h-4 text-purple-300" />
-              <span className="text-xs font-bold tracking-widest text-purple-100 uppercase">2026 Tour Schedule</span>
-            </div>
+
 
             {/* D-Day calculation helper */}
             {(() => {
@@ -247,7 +244,7 @@ export const Landing = ({ onSearch, t, dateRange, setDateRange, stats, items = i
         >
           {/* Date and Concert Selection */}
           <div className="mb-6">
-            <label className="block text-sm font-semibold text-gray-700 mb-3">{t.dateLabel} & Concert</label>
+            <label className="block text-sm font-semibold text-gray-700 mb-3">Choose Your Schedule</label>
             <div className="flex flex-col md:flex-row gap-2">
               <button
                 onClick={() => setIsConcertOpen(true)}
