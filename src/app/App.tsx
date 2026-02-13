@@ -379,31 +379,31 @@ function ArmyStayContent() {
         ].filter((tag): tag is string => typeof tag === 'string' && tag.length > 0),
         image: image,
         link: (() => {
+          // Collect all possible URLs
+          const rootBookingUrl = item.booking_url || '';
           const platformUrl = item.platform?.booking_url || '';
           const backendLink = item.link || '';
           const searchName = name;
 
-          // Priority 1: Direct platform URL (e.g. booking.com/hotel/kr/xxx.html)
-          // These go straight to the hotel page, not a search results page
+          // Priority 1: Root-level booking_url (direct hotel page for ALL 180 hotels)
+          if (rootBookingUrl && rootBookingUrl.length > 20 && rootBookingUrl.includes('/hotel/')) {
+            return sanitizeUrl(rootBookingUrl);
+          }
+
+          // Priority 2: Platform booking_url (direct hotel page)
           if (platformUrl && platformUrl.length > 30 && !platformUrl.includes('/search')) {
             return sanitizeUrl(platformUrl);
           }
 
-          // Priority 2: Backend link, but only if it's a direct URL (not a generic search)
-          if (backendLink && !backendLink.includes('/search?text=') && !backendLink.includes('/searchresults')) {
-            return sanitizeUrl(backendLink);
+          // Priority 3: Root booking_url even if not /hotel/ pattern
+          if (rootBookingUrl && rootBookingUrl.length > 20 && !rootBookingUrl.includes('/search')) {
+            return sanitizeUrl(rootBookingUrl);
           }
 
-          // Priority 3: Backend search link (still useful as it has the hotel name)
+          // Priority 4: Backend search link (has hotel name in query)
           if (backendLink) return sanitizeUrl(backendLink);
 
-          // Priority 4: Generate search link based on platform
-          const platformName = item.platform?.name || '';
-          if (platformName === 'Booking.com') {
-            return `https://www.booking.com/searchresults.html?ss=${encodeURIComponent(searchName)}`;
-          }
-
-          // Priority 5: Default to Agoda Search
+          // Priority 5: Generate search link
           return `https://www.agoda.com/search?text=${encodeURIComponent(searchName)}`;
         })(),
 
