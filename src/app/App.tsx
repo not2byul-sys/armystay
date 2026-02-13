@@ -379,23 +379,31 @@ function ArmyStayContent() {
         ].filter((tag): tag is string => typeof tag === 'string' && tag.length > 0),
         image: image,
         link: (() => {
-          // Priority 1: Backend provided link
-          if (item.link) return sanitizeUrl(item.link);
-
-          // Priority 2: Platform specific deep link generation
-          const platformName = item.platform?.name || '';
+          const platformUrl = item.platform?.booking_url || '';
+          const backendLink = item.link || '';
           const searchName = name;
 
+          // Priority 1: Direct platform URL (e.g. booking.com/hotel/kr/xxx.html)
+          // These go straight to the hotel page, not a search results page
+          if (platformUrl && platformUrl.length > 30 && !platformUrl.includes('/search')) {
+            return sanitizeUrl(platformUrl);
+          }
+
+          // Priority 2: Backend link, but only if it's a direct URL (not a generic search)
+          if (backendLink && !backendLink.includes('/search?text=') && !backendLink.includes('/searchresults')) {
+            return sanitizeUrl(backendLink);
+          }
+
+          // Priority 3: Backend search link (still useful as it has the hotel name)
+          if (backendLink) return sanitizeUrl(backendLink);
+
+          // Priority 4: Generate search link based on platform
+          const platformName = item.platform?.name || '';
           if (platformName === 'Booking.com') {
             return `https://www.booking.com/searchresults.html?ss=${encodeURIComponent(searchName)}`;
           }
 
-          // Priority 3: Existing booking URL if valid
-          if (item.platform?.booking_url && item.platform.booking_url.length > 30) {
-            return sanitizeUrl(item.platform.booking_url);
-          }
-
-          // Priority 4: Default to Agoda Search
+          // Priority 5: Default to Agoda Search
           return `https://www.agoda.com/search?text=${encodeURIComponent(searchName)}`;
         })(),
 
