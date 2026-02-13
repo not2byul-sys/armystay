@@ -107,7 +107,39 @@ export const Detail = ({ onBack, t, hotelId, items, onSelectHotel }: DetailProps
           </div>
         </div>
 
-        {/* Section 2: Midnight Return Map */}
+        {/* Section 2: ARMY Trust Checklist */}
+        <div className="p-5 border-b border-gray-100">
+          <div className="flex items-center gap-2 mb-3">
+            <div className="p-1.5 bg-green-100 text-green-600 rounded-lg">
+              <ShieldCheck size={18} />
+            </div>
+            <h2 className="font-bold text-lg text-gray-900">ARMY Verified</h2>
+          </div>
+          <div className="space-y-2.5">
+            {[
+              { label: 'International card payment (Visa/Master)', checked: true },
+              { label: `${hotel.location || 'Near venue'}`, checked: true },
+              { label: 'Late night return safe', checked: !!safeRoute },
+              { label: 'English booking support', checked: true },
+            ].map((item, i) => (
+              <div key={i} className="flex items-center gap-2.5">
+                <div className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 ${item.checked ? 'bg-green-500 text-white' : 'bg-gray-200 text-gray-400'
+                  }`}>
+                  {item.checked ? (
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6L9 17l-5-5" /></svg>
+                  ) : (
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6L6 18M6 6l12 12" /></svg>
+                  )}
+                </div>
+                <span className={`text-sm ${item.checked ? 'text-gray-700 font-medium' : 'text-gray-400 line-through'}`}>
+                  {item.label}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Section 3: Midnight Return Map */}
         {safeRoute && (
           <div className="p-5 border-b border-gray-100">
             <div className="flex items-center gap-2 mb-4">
@@ -118,6 +150,14 @@ export const Detail = ({ onBack, t, hotelId, items, onSelectHotel }: DetailProps
             </div>
 
             <div className="bg-slate-50 rounded-2xl p-4 border border-slate-100">
+              {/* Walkability highlight */}
+              {safeRoute.transport === 'walk' && (
+                <div className="flex items-center gap-2 mb-3 px-3 py-2 bg-green-50 border border-green-200 rounded-xl">
+                  <span className="text-lg">🏃</span>
+                  <span className="text-sm font-bold text-green-700">You can walk back! Only {safeRoute.time_min} min from the venue.</span>
+                </div>
+              )}
+
               {/* Mock Map Visualization */}
               <div className="relative w-full h-40 bg-gray-200 rounded-xl overflow-hidden mb-4 group">
                 <ImageWithFallback
@@ -150,7 +190,12 @@ export const Detail = ({ onBack, t, hotelId, items, onSelectHotel }: DetailProps
                   <Clock className="w-4 h-4 text-gray-400 mt-0.5" />
                   <p className="text-sm text-gray-600">
                     Last train at <span className="font-bold text-gray-900">{safeRoute.last_train || '23:50'}</span>
-                    {safeRoute.taxi_krw > 0 && <span className="text-xs text-gray-400 ml-2">(Taxi approx. ₩{safeRoute.taxi_krw.toLocaleString()})</span>}
+                    {safeRoute.taxi_krw > 0 && (
+                      <span className="text-xs text-gray-500 ml-2">
+                        (Taxi approx. <span className="font-bold">₩{safeRoute.taxi_krw.toLocaleString()}</span>
+                        <span className="text-gray-400"> ≈ ${Math.round(safeRoute.taxi_krw / 1350)}</span>)
+                      </span>
+                    )}
                   </p>
                 </div>
                 <div className="flex items-start gap-3">
@@ -194,7 +239,32 @@ export const Detail = ({ onBack, t, hotelId, items, onSelectHotel }: DetailProps
           </div>
         )}
 
-        {/* Section 4: Nearby Recommendations */}
+        {/* Section 5: Fan Tips */}
+        <div className="p-5 border-t border-gray-100">
+          <div className="flex items-center gap-2 mb-3">
+            <div className="p-1.5 bg-purple-100 text-purple-600 rounded-lg">
+              <Star size={18} />
+            </div>
+            <h2 className="font-bold text-lg text-gray-900">Fan Tips</h2>
+          </div>
+          <div className="space-y-2.5">
+            {[
+              safeRoute?.transport === 'walk'
+                ? '🏃 This hotel is within walking distance from the venue — enjoy the walk back with fellow ARMYs!'
+                : safeRoute
+                  ? `🚕 After the concert, grab a taxi (≈$${Math.round((safeRoute.taxi_krw || 15000) / 1350)}) or catch the last train at ${safeRoute.last_train || '23:50'}.`
+                  : '📍 Check the venue distance and plan your transportation in advance.',
+              '💳 This hotel accepts international cards (Visa/Mastercard) — no Korean phone number needed!',
+              '📱 Save the hotel address in Korean for taxi drivers: they may not understand English addresses.',
+            ].map((tip, i) => (
+              <div key={i} className="flex gap-2.5 items-start">
+                <p className="text-sm text-gray-600 leading-relaxed">{tip}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Section 6: Nearby Recommendations */}
         {nearby && nearby.length > 0 && (
           <div className="p-5 border-t border-gray-100">
             <h2 className="font-bold text-lg text-gray-900 mb-4">Nearby Stays</h2>

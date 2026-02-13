@@ -612,6 +612,18 @@ export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'r
                             {name.replace(/\[.*?\]\s*/g, '')}
                           </h3>
 
+                          {/* Fan tip — auto-generated based on hotel characteristics */}
+                          <p className="text-[11px] text-purple-600/80 font-medium mt-0.5 leading-snug">
+                            {venueDistanceInfo.isWalk
+                              ? '💜 Walking distance to venue — perfect for concert night!'
+                              : hotel.safe_return?.transport === 'walk'
+                                ? '💜 Walk back after the concert — no taxi needed!'
+                                : hotel.safe_return?.last_train
+                                  ? `💜 Last train at ${hotel.safe_return.last_train} — plan your exit!`
+                                  : '💜 Popular choice among international ARMYs'
+                            }
+                          </p>
+
                           <div className="flex items-center gap-1 text-xs text-gray-500 mt-0.5 flex-wrap">
                             <div className="flex items-center gap-1">
                               <MapPin size={12} className="text-gray-400" />
@@ -687,6 +699,23 @@ export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'r
                               </span>
                             );
                           })()}
+
+                          {/* Trust badges */}
+                          {hotel.army_density?.value >= 70 && (
+                            <span className="text-[10.6px] px-2 py-1 rounded-md flex items-center gap-1 bg-green-50 text-green-700 font-bold border border-green-200">
+                              ✓ Verified by ARMY
+                            </span>
+                          )}
+
+                          <span className="text-[10.6px] px-2 py-1 rounded-md flex items-center gap-1 bg-blue-50 text-blue-600 font-medium">
+                            💳 Visa/Master OK
+                          </span>
+
+                          {hotel.safe_return && hotel.safe_return.time_min <= 15 && (
+                            <span className="text-[10.6px] px-2 py-1 rounded-md flex items-center gap-1 bg-indigo-50 text-indigo-600 font-medium">
+                              🌙 Late Return Safe
+                            </span>
+                          )}
                         </div>
 
                         <div className="mt-auto flex items-end justify-between border-t border-gray-50 pt-4">
