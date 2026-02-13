@@ -490,7 +490,7 @@ export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'r
                 <span className="text-xs font-medium text-gray-500">{filteredItems.length} results in {activeCity}</span>
               </div>
 
-              <div className="flex flex-col gap-5">
+              <div className="flex flex-col gap-5" key={`list-${activeCity}-${activeSort}`}>
                 {filteredItems.filter(i => i.type === 'stay').map((hotel, index) => {
                   const imageUrl = hotel.image_url || hotel.image || '';
                   const name = hotel.name_en || hotel.name;
@@ -538,7 +538,7 @@ export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'r
 
                   return (
                     <div
-                      key={hotel.id}
+                      key={`${hotel.id}-${activeCity}-${index}`}
                       className={`bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 group flex flex-col transition-opacity duration-200 ${hotel.rooms_left === 0 ? 'opacity-20 pointer-events-none grayscale' : 'opacity-100'
                         }`}
                     >
