@@ -98,8 +98,30 @@ const SPECIAL_LOCATIONS: Record<string, { venue: any, stations: any[] }> = {
   busan: {
     venue: { lat: 35.1900, lng: 129.0700, name: 'Busan Concert' },
     stations: []
+  },
+  paju: {
+    venue: { lat: 37.6695, lng: 126.7490, name: 'BTS Venue' },
+    stations: []
+  },
+  other: {
+    venue: { lat: 37.5, lng: 127.0, name: 'Default' },
+    stations: []
   }
 };
+
+const CONCERT_DATES: Record<City, DateRange> = {
+  seoul: { from: new Date(2026, 5, 13), to: new Date(2026, 5, 14) },
+  goyang: { from: new Date(2026, 5, 14), to: new Date(2026, 5, 15) },
+  busan: { from: new Date(2026, 5, 15), to: new Date(2026, 5, 16) },
+  paju: { from: new Date(2026, 5, 14), to: new Date(2026, 5, 15) },
+  other: { from: new Date(2026, 5, 13), to: new Date(2026, 5, 15) },
+};
+
+const cities: { id: City; label: string; dates: string }[] = [
+  { id: 'seoul', label: 'Seoul', dates: 'Jun 13-14' },
+  { id: 'goyang', label: 'Goyang', dates: 'Jun 14-15' },
+  { id: 'busan', label: 'Busan', dates: 'Jun 15-16' },
+];
 
 const createVenueIcon = () => L.divIcon({
   className: '',
@@ -220,7 +242,8 @@ export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'r
   const [tempDateRange, setTempDateRange] = useState<DateRange | undefined>(dateRange);
 
   const [isCityOpen, setIsCityOpen] = useState(false);
-  const cities: City[] = ['goyang', 'seoul', 'busan', 'paju', 'other'];
+
+
 
   const getCityLabel = (city: City) => {
     // @ts-ignore
@@ -260,30 +283,28 @@ export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'r
     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
     return R * c;
   };
+  const [searchQuery, setSearchQuery] = useState<string>('');
 
+  // Filter items based on city, category, and search query
   const filteredItems = useMemo(() => {
     let filtered = items.filter(item => {
       const cityMatch = item.city === activeCity;
       const categoryMatch = activeCategory === 'all' || item.type === activeCategory;
-      return cityMatch && categoryMatch;
+      const searchMatch = item.name.toLowerCase().includes(searchQuery.toLowerCase());
+      return cityMatch && categoryMatch && searchMatch;
     });
 
     if (activeCategory === 'stay' || activeCategory === 'all') {
-      switch (activeSort) {
-
-        case 'recommended':
-        default:
-          filtered.sort((a, b) => {
-            const scoreA = (a.rating || 0) * 0.5 + (a.army_density?.value || 0) * 0.5;
-            const scoreB = (b.rating || 0) * 0.5 + (b.army_density?.value || 0) * 0.5;
-            return scoreB - scoreA;
-          });
-          break;
-      }
+      // Default sort (Recommended)
+      filtered.sort((a, b) => {
+        const scoreA = (a.rating || 0) * 20 + (100 - (a.distance?.minutes || 100));
+        const scoreB = (b.rating || 0) * 20 + (100 - (b.distance?.minutes || 100));
+        return scoreB - scoreA;
+      });
     }
 
     return filtered;
-  }, [activeCity, activeCategory, items, activeSort, showAvailableOnly]);
+  }, [items, activeCity, activeCategory, searchQuery]);
 
   const hotels = useMemo(() => filteredItems.filter(i => i.type === 'stay'), [filteredItems]);
   const selectedItem = useMemo(() => items.find(i => i.id === selectedMarkerId), [selectedMarkerId, items]);
@@ -302,18 +323,18 @@ export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'r
             <div className="flex gap-1.5 bg-white/90 backdrop-blur-md p-1.5 rounded-full shadow-lg border border-purple-100 overflow-x-auto hide-scrollbar max-w-[calc(100vw-80px)]">
               {cities.map((city) => (
                 <button
-                  key={city}
+                  key={city.id}
                   onClick={() => {
-                    setActiveCity(city);
+                    setActiveCity(city.id);
                     setSelectedMarkerId(null);
                   }}
-                  className={`px-3 py-1.5 rounded-full text-xs font-bold transition-all whitespace-nowrap flex items-center gap-1.5 ${activeCity === city
+                  className={`px-3 py-1.5 rounded-full text-xs font-bold transition-all whitespace-nowrap flex items-center gap-1.5 ${activeCity === city.id
                     ? 'bg-purple-700 text-white shadow-md'
                     : 'bg-transparent text-gray-600 hover:bg-gray-100'
                     }`}
                 >
-                  {activeCity === city && <MapPin size={12} className="text-white" />}
-                  {getCityLabel(city)}
+                  {activeCity === city.id && <MapPin size={12} className="text-white" />}
+                  {city.label}
                 </button>
               ))}
             </div>
@@ -322,6 +343,62 @@ export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'r
           </div>
         </div>
       )}
+
+      {/* City Tabs */}
+      <div className="sticky top-14 z-40 bg-white border-b border-gray-100 shadow-sm">
+        <div className="flex overflow-x-auto no-scrollbar scroll-smooth">
+          {cities.map((city) => (
+            <button
+              key={city.id}
+              onClick={() => {
+                setActiveCity(city.id);
+                setDateRange?.(CONCERT_DATES[city.id]);
+                // Scroll to top when changing city
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              className={`flex-none px-6 py-3 text-sm font-medium border-b-2 transition-colors whitespace-nowrap ${activeCity === city.id
+                ? 'border-purple-600 text-purple-600'
+                : 'border-transparent text-gray-500 hover:text-gray-700'
+                }`}
+            >
+              <div className="flex flex-col items-center">
+                <span>{city.label}</span>
+                <span className="text-[10px] font-normal mt-0.5 opacity-70">
+                  {city.dates}
+                </span>
+              </div>
+            </button>
+          ))}
+        </div>
+
+        {/* Search Bar - ADDED */}
+        <div className="px-4 py-3 bg-white border-b border-gray-100/50">
+          <div className="relative">
+            <input
+              type="text"
+              placeholder="Search hotel name..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full pl-10 pr-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-[15px] focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all placeholder-gray-400"
+            />
+            <div className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </div>
+            {searchQuery && (
+              <button
+                onClick={() => setSearchQuery('')}
+                className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-gray-400 hover:text-gray-600 bg-gray-100 rounded-full"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            )}
+          </div>
+        </div>
+      </div>
 
       {viewMode === 'list' && (
         <>
@@ -412,22 +489,26 @@ export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'r
                         </button>
                       </div>
                       <div className="flex flex-col gap-0">
-                        {cities.map((city) => (
-                          <button
-                            key={city}
-                            onClick={() => {
-                              setActiveCity(city);
-                              setIsCityOpen(false);
-                            }}
-                            className={`flex items-center gap-1 p-2 rounded-lg text-xs font-bold transition-all text-left ${activeCity === city
-                              ? 'bg-purple-50 text-purple-700'
-                              : 'text-gray-700 hover:bg-gray-50'
-                              }`}
-                          >
-                            {activeCity === city && <CheckCircle size={14} className="text-purple-600" />}
-                            <span className={activeCity === city ? "font-bold" : "font-medium"}>{getCityLabel(city)}</span>
-                          </button>
-                        ))}
+                        <div className="flex flex-col gap-0">
+                          {cities.map((city) => (
+                            <button
+                              key={city.id}
+                              onClick={() => {
+                                setActiveCity(city.id);
+                                setDateRange?.(CONCERT_DATES[city.id]);
+                                setIsCityOpen(false);
+                                window.scrollTo({ top: 0, behavior: 'smooth' });
+                              }}
+                              className={`flex items-center gap-1 p-2 rounded-lg text-xs font-bold transition-all text-left ${activeCity === city.id
+                                ? 'bg-purple-50 text-purple-700'
+                                : 'text-gray-700 hover:bg-gray-50'
+                                }`}
+                            >
+                              {activeCity === city.id && <CheckCircle size={14} className="text-purple-600" />}
+                              <span className={activeCity === city.id ? "font-bold" : "font-medium"}>{city.label}</span>
+                            </button>
+                          ))}
+                        </div>
                       </div>
                     </div>
                   </Popover.Content>
