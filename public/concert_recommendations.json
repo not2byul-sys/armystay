@@ -11,6 +11,197 @@
   },
   "top_recommendations": [
     {
+      "id": "hotel_38784_gw",
+      "name_en": "Gwanghwamun Guesthouse",
+      "price_krw": 55000,
+      "rating": 4.5,
+      "image_url": "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&q=80&w=1080",
+      "rooms_left": 3,
+      "is_available": true,
+      "hotel_type": {
+        "label_en": "Guesthouse",
+        "label_kr": "게스트하우스",
+        "color": "#FF8C00"
+      },
+      "cancellation": {
+        "type": "free",
+        "label_en": "Free Cancellation",
+        "label_kr": "무료 취소",
+        "is_refundable": true
+      },
+      "tags": {
+        "list_en": [
+          "#NearVenue",
+          "#Budget"
+        ],
+        "list_kr": [
+          "#공연장근처",
+          "#가성비"
+        ],
+        "display_en": "#NearVenue #Budget",
+        "display_kr": "#공연장근처 #가성비"
+      },
+      "lat": 37.575,
+      "lng": 126.9775,
+      "location": {
+        "area_en": "Gwanghwamun",
+        "area_kr": "광화문",
+        "address_en": "Gwanghwamun-ro, Jongno-gu, Seoul",
+        "address_kr": "서울 종로구 광화문로"
+      },
+      "city_key": "gwanghwamun",
+      "army_density": {
+        "value": 95,
+        "level_en": "High",
+        "level_kr": "높음",
+        "label_en": "ARMY 95%",
+        "label_kr": "아미 95%"
+      },
+      "distance": {
+        "type": "walk",
+        "display_en": "Walk 5min",
+        "minutes": 5,
+        "distance_km": 0.3
+      },
+      "transport": {
+        "station_en": "Gwanghwamun",
+        "line_en": "Line 5",
+        "line_color": "#8B00FF",
+        "display_en": "Gwanghwamun (Line 5)"
+      },
+      "safe_return": {
+        "venue_en": "Gwanghwamun Square",
+        "route_en": "Walk 5min",
+        "transport": "walk",
+        "time_min": 5,
+        "last_train": "23:50",
+        "taxi_krw": 0
+      },
+      "army_local_guide": {
+        "bts": [],
+        "restaurant": [],
+        "cafe": [],
+        "hotspot": []
+      },
+      "map_detail": {},
+      "platform": {
+        "name": "Agoda",
+        "booking_url": ""
+      },
+      "booking_guide": {
+        "steps_en": [],
+        "tips_en": [],
+        "payment_methods": [],
+        "foreigner_friendly": true
+      },
+      "last_update": "2026-02-15",
+      "nearby": [],
+      "booking_url": "",
+      "star_rating": 3,
+      "review_count": 120,
+      "amenities": [
+        "Free WiFi"
+      ],
+      "distance_km": 0.3,
+      "fan_match_score": 190.0
+    },
+    {
+      "id": "hotel_82231_fs",
+      "name_en": "Four Seasons Hotel Seoul",
+      "price_krw": 450000,
+      "rating": 4.9,
+      "image_url": "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800",
+      "rooms_left": 5,
+      "is_available": true,
+      "hotel_type": {
+        "label_en": "Luxury Hotel",
+        "label_kr": "럭셔리 호텔",
+        "color": "#FFD700"
+      },
+      "cancellation": {
+        "type": "free",
+        "label_en": "Free Cancellation",
+        "label_kr": "무료 취소",
+        "is_refundable": true
+      },
+      "tags": {
+        "list_en": [
+          "#Luxury",
+          "#NearVenue"
+        ],
+        "list_kr": [
+          "#럭셔리",
+          "#공연장근처"
+        ],
+        "display_en": "#Luxury #NearVenue",
+        "display_kr": "#럭셔리 #공연장근처"
+      },
+      "lat": 37.570,
+      "lng": 126.975,
+      "location": {
+        "area_en": "Gwanghwamun",
+        "area_kr": "광화문",
+        "address_en": "97 Saemunan-ro, Jongno-gu, Seoul",
+        "address_kr": "서울 종로구 새문안로 97"
+      },
+      "city_key": "gwanghwamun",
+      "army_density": {
+        "value": 80,
+        "level_en": "High",
+        "level_kr": "높음",
+        "label_en": "ARMY 80%",
+        "label_kr": "아미 80%"
+      },
+      "distance": {
+        "type": "walk",
+        "display_en": "Walk 3min",
+        "minutes": 3,
+        "distance_km": 0.2
+      },
+      "transport": {
+        "station_en": "Gwanghwamun",
+        "line_en": "Line 5",
+        "line_color": "#8B00FF",
+        "display_en": "Gwanghwamun (Line 5)"
+      },
+      "safe_return": {
+        "venue_en": "Gwanghwamun Square",
+        "route_en": "Walk 3min",
+        "transport": "walk",
+        "time_min": 3,
+        "last_train": "23:50",
+        "taxi_krw": 0
+      },
+      "army_local_guide": {
+        "bts": [],
+        "restaurant": [],
+        "cafe": [],
+        "hotspot": []
+      },
+      "map_detail": {},
+      "platform": {
+        "name": "Agoda",
+        "booking_url": ""
+      },
+      "booking_guide": {
+        "steps_en": [],
+        "tips_en": [],
+        "payment_methods": [],
+        "foreigner_friendly": true
+      },
+      "last_update": "2026-02-15",
+      "nearby": [],
+      "booking_url": "",
+      "star_rating": 5,
+      "review_count": 2000,
+      "amenities": [
+        "Pool",
+        "Spa"
+      ],
+      "distance_km": 0.2,
+      "fan_match_score": 180.0
+    },
+    {
       "id": "hotel_62824",
       "name_en": "Nine Tree Premier Hotel",
       "price_krw": 145000,
