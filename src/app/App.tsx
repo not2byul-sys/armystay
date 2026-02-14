@@ -638,18 +638,19 @@ function ArmyStayContent() {
       <div className="max-w-md mx-auto bg-white min-h-screen shadow-2xl overflow-hidden relative border-x border-gray-100">
 
         {currentScreen !== 'detail' && (
-        <Header
-          onHome={() => navigateTo('landing')}
-          onSearchClick={() => setIsSearchOpen(true)}
-          onBookmarks={() => setShowBookmarksModal(true)}
-          viewMode={viewMode}
-          setViewMode={setViewMode}
-          isAuthenticated={isAuthenticated}
-          user={user}
-          onLoginClick={() => setShowLoginModal(true)}
-          onProfileClick={() => setShowMyPageModal(true)}
-          onLogoutClick={logout}
-        />
+          <Header
+            onHome={() => navigateTo('landing')}
+            onSearchClick={() => setIsSearchOpen(true)}
+            onBookmarks={() => setShowBookmarksModal(true)}
+            viewMode={viewMode}
+            setViewMode={setViewMode}
+            isAuthenticated={isAuthenticated}
+            user={user}
+            onLoginClick={() => setShowLoginModal(true)}
+            onProfileClick={() => setShowMyPageModal(true)}
+            onLogoutClick={logout}
+          />
+        )}
 
         <main className="pt-14">
           {currentScreen === 'landing' && (
@@ -667,7 +668,7 @@ function ArmyStayContent() {
             <Results
               onSelectHotel={handleSelectHotel}
               t={t}
-              currentLang={currentLang}
+              currentLang="en"
               initialSort={initialSort}
               initialCity={initialCity}
               viewMode={viewMode}
