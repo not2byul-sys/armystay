@@ -438,6 +438,27 @@ function ArmyStayContent() {
         })(),
 
         safe_return: item.safe_return,
+        distance: (() => {
+          let distText = item.distance?.display_en || '';
+          if (!distText && item.distance?.text) distText = item.distance.text;
+
+          if (distText) {
+            let prefix = '';
+            if (detectedCity === 'seoul') prefix = 'Gwanghwamun Square ';
+            else if (detectedCity === 'goyang') prefix = 'Goyang Stadium ';
+            else if (detectedCity === 'busan') prefix = 'Busan Asiad Main Stadium ';
+
+            // Clean up if the text already contains "From " or similar, but user request format is:
+            // "Venue Name Drive 34min"
+            // The existing text is likely "Drive 34min" or "Walk 10min".
+            // So we just prepend the prefix.
+            return {
+              ...item.distance,
+              display_en: `${prefix}${distText}`
+            };
+          }
+          return item.distance;
+        })(),
         nearest_bts_spot: (() => {
           // Prefer per-hotel BTS spot from JSON data (army_local_guide.bts)
           const hotelBtsSpots = item.army_local_guide?.bts;
