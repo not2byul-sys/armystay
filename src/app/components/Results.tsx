@@ -45,7 +45,7 @@ const createCategoryIcon = (color: string, iconHtml: string, isSelected: boolean
   iconAnchor: [18, 18]
 });
 
-type SortOption = 'recommended' | 'lowest_price' | 'distance' | 'available' | 'popular' | 'army_density' | 'closing_soon';
+type SortOption = 'recommended' | 'lowest_price' | 'distance' | 'available' | 'popular' | 'army_density' | 'closing_soon' | 'safe_return' | 'bts_spot' | 'after_party';
 
 interface ResultsProps {
   onSelectHotel: (hotelId: string) => void;
@@ -303,8 +303,27 @@ export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'r
           (item.tags && item.tags.some((tag: any) => typeof tag === 'string' && tag.toLowerCase().includes(query)))
         );
       })();
-      return cityMatch && categoryMatch && searchMatch;
+
+      // Sub-filter Logic
+      let subFilterMatch = true;
+      if (activeSort === 'safe_return') {
+        // Check multiple possible locations for safe return info
+        subFilterMatch = !!(item.safe_return || item.safe_route || (item.tags && item.tags.some((t: string) => t.toLowerCase().includes('safe') || t.toLowerCase().includes('return'))));
+      } else if (activeSort === 'bts_spot') {
+        subFilterMatch = item.type === 'spot' || item.type === 'food' || (item.tags && item.tags.some((t: string) => t.toLowerCase().includes('bts')));
+      } else if (activeSort === 'after_party') {
+        subFilterMatch = item.type === 'bar' || item.type === 'pub' || (item.tags && item.tags.some((t: string) => t.toLowerCase().includes('party') || t.toLowerCase().includes('after')));
+      }
+
+      return cityMatch && categoryMatch && searchMatch && subFilterMatch;
     });
+
+    // Sort Logic based on activeSort
+    if (activeSort === 'distance') {
+      filtered.sort((a, b) => (a.distance?.minutes || 999) - (b.distance?.minutes || 999));
+    } else if (activeSort === 'army_density') {
+      filtered.sort((a, b) => (b.army_density?.value || 0) - (a.army_density?.value || 0));
+    }
 
     if (activeCategory === 'stay' || activeCategory === 'all') {
       // Default sort (Recommended)
@@ -325,39 +344,45 @@ export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'r
     { id: 'recommended', label: 'All', icon: <List size={12} /> },
     { id: 'distance', label: t.sortDistance, icon: <MapPin size={12} /> },
     { id: 'army_density', label: t.sortArmyDensity, icon: <Users size={12} /> },
+    { id: 'safe_return', label: 'Safe Return', icon: <TrendingUp size={12} /> },
+    { id: 'bts_spot', label: 'BTS Spots', icon: <Star size={12} /> },
+    { id: 'after_party', label: 'After Party', icon: <Utensils size={12} /> },
   ];
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-50 pb-[80px] relative pt-[0px] pr-[0px] pl-[0px]">
-      {viewMode === 'map' && (
-        <div className="absolute top-0 left-0 right-0 z-[500] p-4 flex flex-col gap-3.5 pointer-events-none">
-          <div className="flex justify-between items-center pointer-events-auto">
-            <div className="flex gap-1.5 bg-white/90 backdrop-blur-md p-1.5 rounded-full shadow-lg border border-purple-100 overflow-x-auto hide-scrollbar max-w-[calc(100vw-80px)]">
-              {cities.map((city) => (
-                <button
-                  key={city.id}
-                  onClick={() => {
-                    setActiveCity(city.id);
-                    setSelectedMarkerId(null);
-                  }}
-                  className={`px-3 py-1.5 rounded-full text-xs font-bold transition-all whitespace-nowrap flex items-center gap-1.5 ${activeCity === city.id
-                    ? 'bg-purple-700 text-white shadow-md'
-                    : 'bg-transparent text-gray-600 hover:bg-gray-100'
-                    }`}
-                >
-                  {activeCity === city.id && <MapPin size={12} className="text-white" />}
-                  {city.label}
-                </button>
-              ))}
-            </div>
+      {/* Floating map controls removed in favor of unified sticky header */}
 
-
+      {/* Search Bar - Moved to Top */}
+      <div className="sticky top-14 z-50 px-4 py-3 bg-white border-b border-gray-100/50">
+        <div className="relative">
+          <input
+            type="text"
+            placeholder="Search hotel name..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="w-full pl-10 pr-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-[15px] focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all placeholder-gray-400"
+          />
+          <div className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
           </div>
+          {searchQuery && (
+            <button
+              onClick={() => setSearchQuery('')}
+              className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-gray-400 hover:text-gray-600 bg-gray-100 rounded-full"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          )}
         </div>
-      )}
+      </div>
 
       {/* City Tabs */}
-      <div className="sticky top-14 z-40 bg-white border-b border-gray-100 shadow-sm">
+      <div className="sticky top-[120px] z-40 bg-white border-b border-gray-100 shadow-sm">
         <div className="flex overflow-x-auto no-scrollbar scroll-smooth">
           {cities.map((city) => (
             <button
@@ -381,34 +406,6 @@ export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'r
               </div>
             </button>
           ))}
-        </div>
-
-        {/* Search Bar - ADDED */}
-        <div className="px-4 py-3 bg-white border-b border-gray-100/50">
-          <div className="relative">
-            <input
-              type="text"
-              placeholder="Search hotel name..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-[15px] focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all placeholder-gray-400"
-            />
-            <div className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400">
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-              </svg>
-            </div>
-            {searchQuery && (
-              <button
-                onClick={() => setSearchQuery('')}
-                className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-gray-400 hover:text-gray-600 bg-gray-100 rounded-full"
-              >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-            )}
-          </div>
         </div>
       </div>
 
