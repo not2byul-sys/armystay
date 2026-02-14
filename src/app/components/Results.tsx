@@ -468,11 +468,12 @@ export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'r
                     }`}
                 >
                   <span className="flex items-center gap-1.5">
-                    {option.icon}
+                    {/* Icon removed as requested */}
                     {option.label}
                   </span>
                 </button>
               ))}
+              <div className="w-[40px] flex-shrink-0"></div> {/* 40px padding at the end */}
             </div>
           </div>
 
