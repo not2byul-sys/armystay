@@ -564,10 +564,6 @@ export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'r
           <div className="p-5 space-y-4 flex-1 pt-0">
 
             <section>
-              <div className="flex items-center justify-between mb-3 px-1">
-                <h2 className="text-lg font-bold text-gray-900">{t.bestMatches}</h2>
-                <span className="text-xs font-medium text-gray-500">{filteredItems.length} results in {activeCity}</span>
-              </div>
 
               <div className="flex flex-col gap-5" key={`list-${activeCity}-${activeSort}`}>
                 {filteredItems.filter(i => i.type === 'stay').map((hotel: any, index: number) => {
@@ -735,7 +731,7 @@ export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'r
 
                         <div className="mt-auto flex items-end justify-between border-t border-gray-50 pt-3">
                           <div data-layername="Price" className="flex items-center">
-                            <span className="text-[14px] font-bold text-green-600 flex items-center gap-1">
+                            <span className="text-[12px] font-bold text-green-600 flex items-center gap-1">
                               Visa/Master OK
                             </span>
                           </div>
