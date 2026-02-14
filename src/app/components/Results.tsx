@@ -417,13 +417,24 @@ export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'r
               {sortOptions.map((option) => (
                 <button
                   key={option.id}
-                  onClick={() => setActiveSort(option.id)}
-                  className={`px-[13px] py-[7px] rounded-lg text-[13px] font-medium transition-all whitespace-nowrap border ${activeSort === option.id
+                  id={`filter-${option.id}`}
+                  onClick={() => {
+                    setActiveSort(option.id);
+                    document.getElementById(`filter-${option.id}`)?.scrollIntoView({
+                      behavior: 'smooth',
+                      block: 'nearest',
+                      inline: 'center'
+                    });
+                  }}
+                  className={`px-[13px] py-[7px] rounded-lg text-[13px] font-medium transition-all whitespace-nowrap border flex-shrink-0 ${activeSort === option.id
                     ? 'bg-[#333] text-[#FFF] border-0'
-                    : 'bg-gray-100 text-[#333] border-0 hover:bg-gray-200'
+                    : 'bg-white text-gray-500 border-gray-200 hover:bg-gray-50'
                     }`}
                 >
-                  {option.label}
+                  <span className="flex items-center gap-1.5">
+                    {option.icon}
+                    {option.label}
+                  </span>
                 </button>
               ))}
             </div>
