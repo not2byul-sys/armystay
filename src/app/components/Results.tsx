@@ -243,6 +243,35 @@ export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'r
 
   const [isCityOpen, setIsCityOpen] = useState(false);
 
+  // Drag to scroll logic
+  const scrollRef = React.useRef<HTMLDivElement>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (!scrollRef.current) return;
+    setIsDragging(true);
+    setStartX(e.pageX - scrollRef.current.offsetLeft);
+    setScrollLeft(scrollRef.current.scrollLeft);
+  };
+
+  const handleMouseLeave = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging || !scrollRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - scrollRef.current.offsetLeft;
+    const walk = (x - startX) * 2; // Scroll-fast
+    scrollRef.current.scrollLeft = scrollLeft - walk;
+  };
+
 
 
   const getCityLabel = (city: City) => {
@@ -413,7 +442,14 @@ export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'r
           </div>
 
           <div className="pr-[0px] pl-[20px] pt-[16px] pb-[10px] mb-6 flex items-center justify-between">
-            <div className="flex items-center gap-2 overflow-x-auto hide-scrollbar">
+            <div
+              ref={scrollRef}
+              onMouseDown={handleMouseDown}
+              onMouseLeave={handleMouseLeave}
+              onMouseUp={handleMouseUp}
+              onMouseMove={handleMouseMove}
+              className={`flex items-center gap-2 overflow-x-auto hide-scrollbar ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
+            >
               {sortOptions.map((option) => (
                 <button
                   key={option.id}
