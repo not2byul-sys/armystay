@@ -63,10 +63,11 @@ interface ResultsProps {
 }
 
 type Category = 'all' | 'stay' | 'food' | 'spot';
-export type City = 'seoul' | 'goyang' | 'busan' | 'paju' | 'other';
+export type City = 'seoul' | 'goyang' | 'busan' | 'paju' | 'other' | 'near_gwanghwamun';
 
 const CITY_COORDS: Record<City, { lat: number; lng: number }> = {
   seoul: { lat: 37.5300, lng: 127.0500 },
+  near_gwanghwamun: { lat: 37.5759, lng: 126.9768 },
   goyang: { lat: 37.6584, lng: 126.7640 },
   paju: { lat: 37.7590, lng: 126.7750 },
   busan: { lat: 35.1900, lng: 129.0700 },
@@ -112,6 +113,7 @@ const SPECIAL_LOCATIONS: Record<string, { venue: any, stations: any[] }> = {
 
 const CONCERT_DATES: Record<City, DateRange> = {
   seoul: { from: new Date(2026, 5, 13), to: new Date(2026, 5, 14) },
+  near_gwanghwamun: { from: new Date(2026, 5, 13), to: new Date(2026, 5, 14) },
   goyang: { from: new Date(2026, 5, 14), to: new Date(2026, 5, 15) },
   busan: { from: new Date(2026, 5, 15), to: new Date(2026, 5, 16) },
   paju: { from: new Date(2026, 5, 14), to: new Date(2026, 5, 15) },
@@ -119,9 +121,10 @@ const CONCERT_DATES: Record<City, DateRange> = {
 };
 
 const cities: { id: City; label: string; dates: string }[] = [
-  { id: 'seoul', label: 'Seoul', dates: 'Jun 13-14' },
+  { id: 'near_gwanghwamun', label: 'Near Gwanghwamun', dates: 'Jun 13-14' },
   { id: 'goyang', label: 'Goyang', dates: 'Jun 14-15' },
   { id: 'busan', label: 'Busan', dates: 'Jun 15-16' },
+  { id: 'seoul', label: 'Seoul', dates: 'Jun 13-14' },
 ];
 
 const createVenueIcon = () => L.divIcon({
@@ -378,7 +381,41 @@ export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'r
   // Filter items based on city, category, and search query
   const filteredItems = useMemo(() => {
     let filtered = items.filter(item => {
-      const cityMatch = searchQuery.trim() ? true : item.city === activeCity;
+      let cityMatch = false;
+
+      if (searchQuery.trim()) {
+        cityMatch = true;
+      } else {
+        if (activeCity === 'near_gwanghwamun') {
+          // Special filter for Gwanghwamun: Hotel MUST be in Gwanghwamun area OR very close (< 2km from Gwanghwamun Square)
+          // We check 'city_key' which we manually set to 'gwanghwamun' in JSON for the top recommendations
+          // Or strictly check area name.
+          cityMatch = item.city_key === 'gwanghwamun' || (item.city === 'seoul' && item.location?.area_en?.toLowerCase() === 'gwanghwamun');
+
+          // Fallback: If distance to Gwanghwamun is calculated and small
+          if (!cityMatch && item.city === 'seoul' && item.distance?.minutes && item.distance.minutes < 15 && item.distance.display_en?.includes('Gwanghwamun')) {
+            cityMatch = true;
+          }
+        } else if (activeCity === 'seoul') {
+          // Seoul tab shows Seoul hotels, excluding those explicitly in 'Near Gwanghwamun' tab to avoid dups?
+          // Or user meant "Seoul" contains everything else.
+          // Let's exclude Gwanghwamun-specific ones to make it a distinct "Other Seoul" list if implied,
+          // OR include everything.
+          // User said "Seoul hotels after Busan". Likely means "Rest of Seoul" or "Seoul General".
+          // If I just show ALL Seoul, then Gwanghwamun hotels appear twice.
+          // Let's TRY to exclude the ones that appear in "Near Gwanghwamun" to make it clean,
+          // UNLESS user wants to find them in Seoul too. 
+          // Re-reading: "Seoul hotels... separate into Seoul".
+          // I'll default to ALL Seoul hotels in 'seoul' tab for safety, or exclude if it feels redundant.
+          // Getting feedback: "Near Gwanghwamun ONLY Gwanghwamun". 
+          // So 'Seoul' probably acts as "Seoul (All)" or "Seoul (Other)".
+          // Let's show ALL Seoul hotels in 'Seoul' tab for catch-all, but sort differently?
+          // Actually, if I strictly split, 'Seoul' should exclude 'gwanghwamun' keyed items.
+          cityMatch = item.city === 'seoul' && item.city_key !== 'gwanghwamun';
+        } else {
+          cityMatch = item.city === activeCity;
+        }
+      }
       const categoryMatch = activeCategory === 'all' || item.type === activeCategory;
       const searchMatch = (() => {
         if (!searchQuery.trim()) return true;
