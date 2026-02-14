@@ -165,7 +165,18 @@ function ArmyStayContent() {
     const sourceData = (rawHotels && rawHotels.length > 0) ? rawHotels : initialItems;
     const lang = 'en';
 
-    const btsSpots = fetchedData?.map?.local_spots?.filter((s: any) => s.category === 'bts') || [];
+    // Permanent BTS Spots Data
+    const PERMANENT_BTS_SPOTS = [
+      { name: 'HYBE Insight', name_kr: '하이브 인사이트', lat: 37.5240, lng: 126.9646, category: 'bts', desc: 'HYBE HQ' },
+      { name: 'Old Big Hit (Hakdong)', name_kr: '구 빅히트 사옥 (학동)', lat: 37.5103, lng: 127.0221, category: 'bts', desc: 'Early days location' },
+      { name: 'Yoojung Sikdang', name_kr: '유정식당', lat: 37.5105, lng: 127.0223, category: 'bts', desc: 'Rookie King filming spot' },
+      { name: 'Seoul Forest (Suga Bench)', name_kr: '서울숲 BTS 벤치', lat: 37.5444, lng: 127.0374, category: 'bts', desc: 'Suga recommended spot' },
+      { name: 'Namsan Tower', name_kr: '남산타워', lat: 37.5512, lng: 126.9882, category: 'bts', desc: 'Run BTS filming spot' },
+      { name: 'Gyeongbokgung Palace', name_kr: '경복궁', lat: 37.5796, lng: 126.9770, category: 'bts', desc: 'Performance location' }
+    ];
+
+    const fetchedSpots = fetchedData?.map?.local_spots?.filter((s: any) => s.category === 'bts') || [];
+    const btsSpots = [...PERMANENT_BTS_SPOTS, ...fetchedSpots];
 
     return sourceData.map((item: any, index: number) => {
       const name = item.hotel_name || item.name_en || item.name;

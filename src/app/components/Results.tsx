@@ -310,7 +310,10 @@ export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'r
         // Check multiple possible locations for safe return info
         subFilterMatch = !!(item.safe_return || item.safe_route || (item.tags && item.tags.some((t: string) => t.toLowerCase().includes('safe') || t.toLowerCase().includes('return'))));
       } else if (activeSort === 'bts_spot') {
-        subFilterMatch = item.type === 'spot' || item.type === 'food' || (item.tags && item.tags.some((t: string) => t.toLowerCase().includes('bts')));
+        // Show if explicitly a spot/food OR if it has a calculated nearest BTS spot
+        subFilterMatch = item.type === 'spot' || item.type === 'food' ||
+          (item.tags && item.tags.some((t: string) => t.toLowerCase().includes('bts'))) ||
+          !!item.nearest_bts_spot;
       }
 
       return cityMatch && categoryMatch && searchMatch && subFilterMatch;
