@@ -11,17 +11,17 @@
   },
   "top_recommendations": [
     {
-      "id": "hotel_38784_gw",
-      "name_en": "Gwanghwamun Guesthouse",
-      "price_krw": 55000,
-      "rating": 4.5,
-      "image_url": "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&q=80&w=1080",
-      "rooms_left": 3,
+      "id": "hotel_55912_sp",
+      "name_en": "Somerset Palace Seoul",
+      "price_krw": 220000,
+      "rating": 4.7,
+      "image_url": "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&q=80&w=1080",
+      "rooms_left": 8,
       "is_available": true,
       "hotel_type": {
-        "label_en": "Guesthouse",
-        "label_kr": "게스트하우스",
-        "color": "#FF8C00"
+        "label_en": "Serviced Residence",
+        "label_kr": "레지던스",
+        "color": "#4169E1"
       },
       "cancellation": {
         "type": "free",
@@ -31,49 +31,51 @@
       },
       "tags": {
         "list_en": [
-          "#NearVenue",
-          "#Budget"
+          "#Kitchen",
+          "#Family",
+          "#NearVenue"
         ],
         "list_kr": [
-          "#공연장근처",
-          "#가성비"
+          "#주방",
+          "#가족여행",
+          "#공연장근처"
         ],
-        "display_en": "#NearVenue #Budget",
-        "display_kr": "#공연장근처 #가성비"
+        "display_en": "#Kitchen #Family",
+        "display_kr": "#주방 #가족여행"
       },
       "lat": 37.575,
-      "lng": 126.9775,
+      "lng": 126.981,
       "location": {
         "area_en": "Gwanghwamun",
         "area_kr": "광화문",
-        "address_en": "Gwanghwamun-ro, Jongno-gu, Seoul",
-        "address_kr": "서울 종로구 광화문로"
+        "address_en": "7 Yulgok-ro 2-gil, Jongno-gu, Seoul",
+        "address_kr": "서울 종로구 율곡로2길 7"
       },
       "city_key": "gwanghwamun",
       "army_density": {
-        "value": 95,
+        "value": 88,
         "level_en": "High",
         "level_kr": "높음",
-        "label_en": "ARMY 95%",
-        "label_kr": "아미 95%"
+        "label_en": "ARMY 88%",
+        "label_kr": "아미 88%"
       },
       "distance": {
         "type": "walk",
-        "display_en": "Walk 5min",
-        "minutes": 5,
-        "distance_km": 0.3
+        "display_en": "Walk 7min",
+        "minutes": 7,
+        "distance_km": 0.5
       },
       "transport": {
-        "station_en": "Gwanghwamun",
-        "line_en": "Line 5",
-        "line_color": "#8B00FF",
-        "display_en": "Gwanghwamun (Line 5)"
+        "station_en": "Anguk",
+        "line_en": "Line 3",
+        "line_color": "#EF7C1C",
+        "display_en": "Anguk (Line 3)"
       },
       "safe_return": {
         "venue_en": "Gwanghwamun Square",
-        "route_en": "Walk 5min",
+        "route_en": "Walk 7min",
         "transport": "walk",
-        "time_min": 5,
+        "time_min": 7,
         "last_train": "23:50",
         "taxi_krw": 0
       },
@@ -97,13 +99,15 @@
       "last_update": "2026-02-15",
       "nearby": [],
       "booking_url": "",
-      "star_rating": 3,
-      "review_count": 120,
+      "star_rating": 4,
+      "review_count": 1500,
       "amenities": [
-        "Free WiFi"
+        "Kitchen",
+        "Pool",
+        "Gym"
       ],
-      "distance_km": 0.3,
-      "fan_match_score": 190.0
+      "distance_km": 0.5,
+      "fan_match_score": 185.0
     },
     {
       "id": "hotel_82231_fs",

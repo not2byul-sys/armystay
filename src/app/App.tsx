@@ -365,6 +365,8 @@ function ArmyStayContent() {
           item.area?.area_kr
         ].filter(s => typeof s === 'string').join(' ').toLowerCase();
 
+        if (searchStr.includes('gwanghwamun') || searchStr.includes('광화문') || (item.city_key && item.city_key === 'gwanghwamun')) return 'near_gwanghwamun';
+
         if (searchStr.includes('seoul') || searchStr.includes('gangnam') || searchStr.includes('hongdae') || searchStr.includes('mapo') || searchStr.includes('yongsan') ||
           searchStr.includes('서울') || searchStr.includes('강남') || searchStr.includes('홍대') || searchStr.includes('마포') || searchStr.includes('용산')) return 'seoul';
 
@@ -441,6 +443,7 @@ function ArmyStayContent() {
         distance: (() => {
           // Define venue coordinates
           const venues = {
+            near_gwanghwamun: { lat: 37.5759, lng: 126.9768, name: 'Gwanghwamun Square' },
             seoul: { lat: 37.5759, lng: 126.9768, name: 'Gwanghwamun Square' },
             goyang: { lat: 37.6556, lng: 126.7714, name: 'Goyang Stadium' },
             busan: { lat: 35.1901, lng: 129.0560, name: 'Busan Asiad Asiad' } // User label preference "Busan Asiad Main Stadium"
@@ -482,7 +485,8 @@ function ArmyStayContent() {
           if (distText) {
             // ... existing fallback ...
             let prefix = '';
-            if (detectedCity === 'seoul') prefix = 'Gwanghwamun Square ';
+            if (detectedCity === 'near_gwanghwamun') prefix = 'Gwanghwamun Square ';
+            else if (detectedCity === 'seoul') prefix = 'Gwanghwamun Square ';
             else if (detectedCity === 'goyang') prefix = 'Goyang Stadium ';
             else if (detectedCity === 'busan') prefix = 'Busan Asiad Main Stadium ';
 
