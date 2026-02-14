@@ -311,8 +311,6 @@ export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'r
         subFilterMatch = !!(item.safe_return || item.safe_route || (item.tags && item.tags.some((t: string) => t.toLowerCase().includes('safe') || t.toLowerCase().includes('return'))));
       } else if (activeSort === 'bts_spot') {
         subFilterMatch = item.type === 'spot' || item.type === 'food' || (item.tags && item.tags.some((t: string) => t.toLowerCase().includes('bts')));
-      } else if (activeSort === 'after_party') {
-        subFilterMatch = item.type === 'bar' || item.type === 'pub' || (item.tags && item.tags.some((t: string) => t.toLowerCase().includes('party') || t.toLowerCase().includes('after')));
       }
 
       return cityMatch && categoryMatch && searchMatch && subFilterMatch;
@@ -346,7 +344,6 @@ export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'r
     { id: 'army_density', label: t.sortArmyDensity, icon: <Users size={12} /> },
     { id: 'safe_return', label: 'Safe Return', icon: <TrendingUp size={12} /> },
     { id: 'bts_spot', label: 'BTS Spots', icon: <Star size={12} /> },
-    { id: 'after_party', label: 'After Party', icon: <Utensils size={12} /> },
   ];
 
   return (
@@ -555,6 +552,23 @@ export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'r
                       </div>
 
                       <div className="p-4 flex flex-col gap-2 h-full">
+                        <div className="mt-3 flex flex-wrap gap-2">
+                          {/* Nearest BTS Spot Badge */}
+                          {hotel.nearest_bts_spot && (
+                            <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-purple-50 text-purple-700 border border-purple-100">
+                              <Star size={12} className="fill-purple-700" />
+                              <span className="text-xs font-medium">
+                                Near {hotel.nearest_bts_spot.name}
+                                <span className="opacity-70 ml-1">({hotel.nearest_bts_spot.dist <= 1 ? 'Within 1km' : `${Math.round(hotel.nearest_bts_spot.dist)}km`})</span>
+                              </span>
+                            </div>
+                          )}
+
+                          <div className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md ${hotel.army_density?.value >= 80 ? 'bg-purple-100 text-purple-700' : 'bg-gray-100 text-gray-600'
+                            }`}>
+                            <span className="text-xs font-bold">ARMY {hotel.army_density?.value}%</span>
+                          </div>
+                        </div>
                         <div className="flex flex-col gap-1">
                           <h3
                             className="font-bold text-lg text-gray-900 leading-tight break-words"

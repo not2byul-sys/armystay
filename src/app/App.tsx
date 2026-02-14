@@ -246,8 +246,19 @@ function ArmyStayContent() {
       else if (typeStr.includes('airbnb') || typeStr.includes('bnb')) armyScore += 10;
       else if (typeStr.includes('residence')) armyScore += 8;
 
+      let nearestSpot = null;
       if (btsSpots.length > 0) {
-        const minDist = Math.min(...btsSpots.map((s: any) => calculateDistance(coords.lat, coords.lng, s.lat, s.lng)));
+        // Calculate distances to all spots
+        const spotDistances = btsSpots.map((s: any) => ({
+          ...s,
+          dist: calculateDistance(coords.lat, coords.lng, s.lat, s.lng)
+        }));
+
+        // Find the absolute nearest spot
+        spotDistances.sort((a: any, b: any) => a.dist - b.dist);
+        nearestSpot = spotDistances[0];
+
+        const minDist = nearestSpot.dist;
         if (minDist <= 2) armyScore += 15;
         else if (minDist <= 5) armyScore += 10;
         else if (minDist <= 10) armyScore += 5;
@@ -408,6 +419,12 @@ function ArmyStayContent() {
         })(),
 
         safe_return: item.safe_return,
+        nearest_bts_spot: nearestSpot ? {
+          name: nearestSpot.name,
+          name_kr: nearestSpot.name_kr,
+          desc: nearestSpot.desc,
+          dist: nearestSpot.dist
+        } : null,
 
         army_local_guide: item.army_local_guide,
         booking: item.platform,
