@@ -11,6 +11,7 @@ import { AboutUs } from '@/app/components/AboutUs';
 import { PrivacyPolicy } from '@/app/components/PrivacyPolicy';
 import { LoginModal } from '@/app/components/auth/LoginModal';
 import { MyPageModal } from '@/app/components/auth/MyPageModal';
+import { SearchModal } from '@/app/components/SearchModal';
 import { translations } from '@/translations';
 
 import { initialItems } from '@/app/data';
@@ -81,6 +82,8 @@ function ArmyStayContent() {
   const [initialCity, setInitialCity] = useState<City>('seoul');
   const [fetchedData, setFetchedData] = useState<any>(null);
   const [showTopBtn, setShowTopBtn] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
 
   const { isAuthenticated, user, logout, setShowLoginModal, setShowMyPageModal, setShowBookmarksModal } = useAuth();
 
@@ -596,6 +599,12 @@ function ArmyStayContent() {
     navigateTo('results');
   };
 
+  const handleSearchSubmit = (query: string) => {
+    setSearchQuery(query);
+    setViewMode('list');
+    navigateTo('results');
+  };
+
   const handleSelectHotel = (hotelId: string) => {
     setSelectedHotelId(hotelId);
     navigateTo('detail');
@@ -617,28 +626,30 @@ function ArmyStayContent() {
     <div className="min-h-screen bg-gray-50 font-sans text-gray-900 selection:bg-purple-100 relative">
       <LoginModal />
       <MyPageModal />
+      <SearchModal
+        isOpen={isSearchOpen}
+        onClose={() => setIsSearchOpen(false)}
+        onSearch={handleSearchSubmit}
+        initialQuery={searchQuery}
+      />
+
       <BookmarksModal items={items} onSelectHotel={handleSelectHotel} t={t} />
 
       <div className="max-w-md mx-auto bg-white min-h-screen shadow-2xl overflow-hidden relative border-x border-gray-100">
 
         {currentScreen !== 'detail' && (
-          <Header
-            onHome={() => navigateTo('landing')}
-            onSearch={currentScreen === 'results' || currentScreen === 'hotel-list' ? () => navigateTo('landing') : undefined}
-            onBookmarks={handleBookmarksClick}
-            viewMode={currentScreen === 'results' || currentScreen === 'hotel-list' ? viewMode : undefined}
-            setViewMode={currentScreen === 'results' || currentScreen === 'hotel-list' ? setViewMode : undefined}
-            isAuthenticated={isAuthenticated}
-            user={user}
-            onLoginClick={() => {
-              setPendingRedirect(true);
-              setShowLoginModal(true);
-            }}
-            onProfileClick={() => setShowMyPageModal(true)}
-            onLogoutClick={logout}
-          />
-
-        )}
+        <Header
+          onHome={() => navigateTo('landing')}
+          onSearchClick={() => setIsSearchOpen(true)}
+          onBookmarks={() => setShowBookmarksModal(true)}
+          viewMode={viewMode}
+          setViewMode={setViewMode}
+          isAuthenticated={isAuthenticated}
+          user={user}
+          onLoginClick={() => setShowLoginModal(true)}
+          onProfileClick={() => setShowMyPageModal(true)}
+          onLogoutClick={logout}
+        />
 
         <main className="pt-14">
           {currentScreen === 'landing' && (
@@ -656,9 +667,8 @@ function ArmyStayContent() {
             <Results
               onSelectHotel={handleSelectHotel}
               t={t}
-              currentLang="en"
+              currentLang={currentLang}
               initialSort={initialSort}
-
               initialCity={initialCity}
               viewMode={viewMode}
               setViewMode={setViewMode}
@@ -667,6 +677,7 @@ function ArmyStayContent() {
               dateRange={dateRange}
               setDateRange={setDateRange}
               cityCounts={processedDataStats.cityCounts}
+              searchQuery={searchQuery}
             />
           )}
 

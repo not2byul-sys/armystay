@@ -8,6 +8,7 @@ import { User as SupabaseUser } from '@supabase/supabase-js';
 interface HeaderProps {
   onHome?: () => void;
   onSearch?: () => void;
+  onSearchClick?: () => void;
   onBookmarks?: () => void;
   viewMode?: 'list' | 'map';
   setViewMode?: (mode: 'list' | 'map') => void;
@@ -22,6 +23,7 @@ interface HeaderProps {
 export const Header = ({
   onHome,
   onSearch,
+  onSearchClick,
   onBookmarks,
   viewMode,
   setViewMode,
@@ -60,6 +62,12 @@ export const Header = ({
           </svg>
         </button>
 
+        {/* Center: List/Map Toggle or Logo? User requested Home on left. 
+            Actually, the design has toggles in the center. 
+            User wants "Search icon next to My Page".
+            Let's keep the center toggles if they are there.
+        */}
+
         {viewMode && setViewMode && (
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-gray-100 p-1 rounded-full flex items-center px-[4px] py-[3.6px]">
             <button
@@ -84,6 +92,18 @@ export const Header = ({
         )}
 
         <div className="flex items-center gap-1">
+          {onSearchClick && (
+            <button
+              onClick={onSearchClick}
+              className="p-2 text-[#333] hover:bg-gray-100 rounded-full transition-colors mr-1"
+              aria-label="Search"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </button>
+          )}
           <button
             onClick={handleUserClick}
             className="p-2 text-[#333] hover:bg-gray-100 rounded-full transition-colors"

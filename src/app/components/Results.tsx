@@ -60,6 +60,7 @@ interface ResultsProps {
   dateRange?: DateRange;
   setDateRange?: (range: DateRange | undefined) => void;
   cityCounts?: Record<string, number>;
+  searchQuery?: string;
 }
 
 type Category = 'all' | 'stay' | 'food' | 'spot';
@@ -380,10 +381,13 @@ export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'r
 
   // Filter items based on city, category, and search query
   const filteredItems = useMemo(() => {
+    // Ensure we have a valid string for search query
+    const query = (searchQuery || '').toLowerCase().trim();
+
     let filtered = items.filter(item => {
       let cityMatch = false;
 
-      if (searchQuery.trim()) {
+      if (query) {
         cityMatch = true;
       } else {
         if (activeCity === 'near_gwanghwamun') {
@@ -401,7 +405,7 @@ export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'r
           // Or user meant "Seoul" contains everything else.
           // Let's exclude Gwanghwamun-specific ones to make it a distinct "Other Seoul" list if implied,
           // OR include everything.
-          // User said "Seoul hotels after Busan". Likely means "Rest of Seoul" or "Seoul General".
+          // Re-reading: "Seoul hotels after Busan". Likely means "Rest of Seoul" or "Seoul General".
           // If I just show ALL Seoul, then Gwanghwamun hotels appear twice.
           // Let's TRY to exclude the ones that appear in "Near Gwanghwamun" to make it clean,
           // UNLESS user wants to find them in Seoul too. 
@@ -418,8 +422,7 @@ export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'r
       }
       const categoryMatch = activeCategory === 'all' || item.type === activeCategory;
       const searchMatch = (() => {
-        if (!searchQuery.trim()) return true;
-        const query = searchQuery.toLowerCase().trim();
+        if (!query) return true;
         return (
           (item.name && item.name.toLowerCase().includes(query)) ||
           (item.name_kr && item.name_kr.includes(query)) ||
@@ -475,60 +478,14 @@ export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'r
     <div className="flex flex-col min-h-screen bg-gray-50 pb-[80px] relative pt-[0px] pr-[0px] pl-[0px]">
       {/* Floating map controls removed in favor of unified sticky header */}
 
-      {/* Search Bar - Moved to Top */}
-      <div className="sticky top-14 z-50 px-4 py-3 bg-white">
-        <div className="relative">
-          <input
-            type="text"
-            placeholder="Search hotel name..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            onFocus={() => setShowSuggestions(true)}
-            onBlur={() => setTimeout(() => setShowSuggestions(false), 200)} // Delay to allow click
-            className="w-full pl-10 pr-4 py-2 bg-gray-100 border-0 rounded-xl text-[15px] focus:outline-none focus:ring-1 focus:ring-purple-500 transition-all placeholder-gray-400"
-          />
-          <div className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400">
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-            </svg>
-          </div>
-          {searchQuery && (
-            <button
-              onClick={() => setSearchQuery('')}
-              className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-gray-400 hover:text-gray-600 bg-gray-100 rounded-full"
-            >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-          )}
-        </div>
-
-        {/* Search Suggestions Dropdown */}
-        {showSuggestions && suggestions.length > 0 && (
-          <div className="absolute top-full left-0 right-0 mt-1 bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden z-[60]">
-            {suggestions.map((suggestion: string, index: number) => (
-              <button
-                key={index}
-                onClick={() => {
-                  setSearchQuery(suggestion);
-                  setShowSuggestions(false);
-                }}
-                className="w-full text-left px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 border-b border-gray-50 last:border-none flex items-center gap-2"
-              >
-                <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
-                {suggestion}
-              </button>
-            ))}
-          </div>
-        )}
-      </div>
+      {/* Sticky Header: Search Bar Removed, only City Tabs now? 
+          Actually, we need to remove the search bar container entirely. 
+          But wait, the City Tabs were sticky top-[120px]. Now that search is gone, they should be top-[56px] (header height).
+      */}
 
       {/* City Tabs */}
-      <div className="sticky top-[120px] z-40 bg-white border-b border-gray-100 shadow-sm">
-        <div className="flex overflow-x-auto no-scrollbar scroll-smooth">
+      <div className="sticky top-14 z-40 bg-white border-b border-gray-100 shadow-sm">
+        <div className="flex overflow-x-auto no-scrollbar scroll-smooth px-4 gap-4">
           {cities.map((city) => (
             <button
               key={city.id}
@@ -538,17 +495,25 @@ export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'r
                 // Scroll to top when changing city
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
-              className={`flex-none px-6 py-3 text-sm transition-colors border-b-2 ${activeCity === city.id
-                ? 'border-purple-600 text-purple-700'
-                : 'border-transparent text-gray-500 hover:text-gray-700'
+              className={`flex-none py-3 text-sm transition-colors relative ${activeCity === city.id
+                ? 'text-purple-700'
+                : 'text-gray-500 hover:text-gray-700'
                 }`}
             >
               <div className="flex flex-col items-center">
-                <span className="font-bold text-[15px]">
+                <span className="font-bold text-[15px] relative">
                   {city.label}
                   <span className="ml-1 text-xs font-normal text-gray-400">
                     ({cityCounts?.[city.id] || 0})
                   </span>
+                  {activeCity === city.id && (
+                    <motion.div
+                      layoutId="tab-underline"
+                      className="absolute -bottom-[13px] left-0 right-0 h-[2px] bg-purple-600"
+                      initial={false}
+                      transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                    />
+                  )}
                 </span>
               </div>
             </button>
