@@ -400,9 +400,6 @@ export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'r
             >
               <div className="flex flex-col items-center">
                 <span>{city.label}</span>
-                <span className="text-[10px] font-normal mt-0.5 opacity-70">
-                  {city.dates}
-                </span>
               </div>
             </button>
           ))}
