@@ -711,11 +711,12 @@ export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'r
                             </span>
 
                             {/* Near Spot - Grey Rounded (was Purple) */}
-                            {hotel.nearest_bts_spot && (
+                            {/* Near Spot - Grey Rounded (was Purple) - REMOVED per user feedback that it's confusing with venue distance */}
+                            {/* {hotel.nearest_bts_spot && (
                               <span className="text-[10px] px-2 py-0.5 rounded-full flex items-center bg-gray-100 text-gray-600 font-medium">
                                 Near {hotel.nearest_bts_spot.name}
                               </span>
-                            )}
+                            )} */}
 
                             {/* Drive Time / Distance - Grey Rounded — prefer per-hotel data */}
                             <span className="text-[10px] px-2 py-0.5 rounded-full flex items-center bg-gray-100 text-gray-600 font-medium">

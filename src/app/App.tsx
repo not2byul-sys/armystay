@@ -439,19 +439,53 @@ function ArmyStayContent() {
 
         safe_return: item.safe_return,
         distance: (() => {
+          // Define venue coordinates
+          const venues = {
+            seoul: { lat: 37.5759, lng: 126.9768, name: 'Gwanghwamun Square' },
+            goyang: { lat: 37.6556, lng: 126.7714, name: 'Goyang Stadium' },
+            busan: { lat: 35.1901, lng: 129.0560, name: 'Busan Asiad Asiad' } // User label preference "Busan Asiad Main Stadium"
+          };
+
+          const venue = venues[detectedCity as keyof typeof venues];
+
+          if (venue && coords2.lat && coords2.lng) {
+            // Haversine distance calculation
+            const R = 6371; // Radius of the earth in km
+            const dLat = (venue.lat - coords2.lat) * (Math.PI / 180);
+            const dLon = (venue.lng - coords2.lng) * (Math.PI / 180);
+            const a =
+              Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+              Math.cos(coords2.lat * (Math.PI / 180)) * Math.cos(venue.lat * (Math.PI / 180)) *
+              Math.sin(dLon / 2) * Math.sin(dLon / 2);
+            const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+            const d = R * c; // Distance in km
+
+            // Estimate drive time: ~30km/h in city -> 2 min per km
+            // Adding base time of 5 min for parking/walking
+            const estimatedMin = Math.round(d * 2.5 + 5);
+
+            let labelName = venue.name;
+            if (detectedCity === 'busan') labelName = 'Busan Asiad Main Stadium'; // Specific override
+
+            return {
+              ...item.distance,
+              minutes: estimatedMin,
+              distance_km: parseFloat(d.toFixed(1)),
+              display_en: `${labelName} Drive ${estimatedMin}min`
+            };
+          }
+
+          // Fallback to existing logic if coords missing
           let distText = item.distance?.display_en || '';
           if (!distText && item.distance?.text) distText = item.distance.text;
 
           if (distText) {
+            // ... existing fallback ...
             let prefix = '';
             if (detectedCity === 'seoul') prefix = 'Gwanghwamun Square ';
             else if (detectedCity === 'goyang') prefix = 'Goyang Stadium ';
             else if (detectedCity === 'busan') prefix = 'Busan Asiad Main Stadium ';
 
-            // Clean up if the text already contains "From " or similar, but user request format is:
-            // "Venue Name Drive 34min"
-            // The existing text is likely "Drive 34min" or "Walk 10min".
-            // So we just prepend the prefix.
             return {
               ...item.distance,
               display_en: `${prefix}${distText}`
