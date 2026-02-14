@@ -47,8 +47,8 @@ export const Header = ({
   };
 
   return (
-    <header className="fixed top-0 z-50 w-full max-w-md left-1/2 -translate-x-1/2 bg-white/80 backdrop-blur-md border-b border-gray-100">
-      <div className={`${viewMode === 'map' ? 'fixed top-0 left-0 right-0 w-full' : 'fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-md'} z-[60] px-5 bg-white border-b border-gray-100 h-14 flex items-center justify-between transition-all duration-300`}>
+    <header className="fixed top-0 z-[100] w-full max-w-md left-1/2 -translate-x-1/2 bg-white/80 backdrop-blur-md border-b border-gray-100">
+      <div className={`${viewMode === 'map' ? 'fixed top-0 left-0 right-0 w-full' : 'fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-md'} z-[100] px-5 bg-white border-b border-gray-100 h-14 flex items-center justify-between transition-all duration-300`}>
         <button
           onClick={onHome}
           className="p-2 -ml-2 text-[#333] hover:bg-gray-100 rounded-full transition-colors"

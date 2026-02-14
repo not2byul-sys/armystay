@@ -439,7 +439,7 @@ export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'r
       {/* Floating map controls removed in favor of unified sticky header */}
 
       {/* Search Bar - Moved to Top */}
-      <div className="sticky top-14 z-50 px-4 py-3 bg-white border-b border-gray-100/50">
+      <div className="sticky top-14 z-50 px-4 py-3 bg-white">
         <div className="relative">
           <input
             type="text"
@@ -448,7 +448,7 @@ export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'r
             onChange={(e) => setSearchQuery(e.target.value)}
             onFocus={() => setShowSuggestions(true)}
             onBlur={() => setTimeout(() => setShowSuggestions(false), 200)} // Delay to allow click
-            className="w-full pl-10 pr-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-[15px] focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all placeholder-gray-400"
+            className="w-full pl-10 pr-4 py-2 bg-gray-100 border-0 rounded-xl text-[15px] focus:outline-none focus:ring-1 focus:ring-purple-500 transition-all placeholder-gray-400"
           />
           <div className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400">
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -525,7 +525,7 @@ export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'r
             {/* Date/City filters removed */}
           </div>
 
-          <div className="pr-[0px] pl-[20px] pt-[16px] pb-[10px] mb-6 flex items-center justify-between">
+          <div className="pr-[0px] pl-[20px] pt-[16px] pb-[10px] mb-3 flex items-center justify-between">
             <div
               ref={scrollRef}
               onMouseDown={handleMouseDown}
@@ -673,7 +673,7 @@ export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'r
                         {/* Heart shifted to top-right is already handled by absolute positioning in parent */}
                       </div>
 
-                      <div className="p-4 flex flex-col gap-2 h-full">
+                      <div className="px-4 py-5 flex flex-col gap-2 h-full">
                         {/* Gap removed */}
                         <div className="flex flex-col gap-1">
                           <h3

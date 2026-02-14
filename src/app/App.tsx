@@ -581,7 +581,7 @@ function ArmyStayContent() {
 
         )}
 
-        <main className={currentScreen !== 'detail' ? 'pt-14' : ''}>
+        <main className="pt-14">
           {currentScreen === 'landing' && (
             <Landing
               onSearch={handleSearch}
