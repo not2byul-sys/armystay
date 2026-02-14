@@ -314,11 +314,71 @@ export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'r
     return R * c;
   };
   const [searchQuery, setSearchQuery] = useState<string>('');
+  const [suggestions, setSuggestions] = useState<string[]>([]);
+  const [showSuggestions, setShowSuggestions] = useState(false);
+
+  // Generate suggestions based on search query
+  useEffect(() => {
+    if (!searchQuery.trim()) {
+      setSuggestions([]);
+      return;
+    }
+
+    const query = searchQuery.toLowerCase().trim();
+    const scoredSuggestions = new Map<string, number>();
+
+    const addSuggestion = (text: string, score: number) => {
+      const lowerText = text.toLowerCase();
+      // Strict prefix matching for short queries (1 char) to reduce noise
+      if (query.length === 1 && !lowerText.startsWith(query)) return;
+
+      // General matching for longer queries
+      if (query.length > 1 && !lowerText.includes(query)) return;
+
+      // Bonus for starting with the query
+      if (lowerText.startsWith(query)) score += 50;
+
+      const currentScore = scoredSuggestions.get(text) || 0;
+      if (score > currentScore) {
+        scoredSuggestions.set(text, score);
+      }
+    };
+
+    items.forEach(item => {
+      // Hotel Names (Highest Priority)
+      if (item.name) addSuggestion(item.name, 100);
+      if (item.name_kr) addSuggestion(item.name_kr, 100);
+
+      // Locations (Medium Priority)
+      if (item.location) addSuggestion(item.location, 50);
+      if (item.address) addSuggestion(item.address, 40);
+
+      // Tags (Lower Priority)
+      if (item.tags) {
+        item.tags.forEach((tag: any) => {
+          if (typeof tag === 'string') {
+            addSuggestion(tag, 30);
+          }
+        });
+      }
+    });
+
+    // Convert Map to Array, sort by Score (desc), then Length (asc), and take top 5
+    const sortedSuggestions = Array.from(scoredSuggestions.entries())
+      .sort((a, b) => {
+        if (b[1] !== a[1]) return b[1] - a[1]; // Score desc
+        return a[0].length - b[0].length;      // Length asc (shorter match preferred)
+      })
+      .slice(0, 5)
+      .map(entry => entry[0]);
+
+    setSuggestions(sortedSuggestions);
+  }, [searchQuery, items]);
 
   // Filter items based on city, category, and search query
   const filteredItems = useMemo(() => {
     let filtered = items.filter(item => {
-      const cityMatch = item.city === activeCity;
+      const cityMatch = searchQuery.trim() ? true : item.city === activeCity;
       const categoryMatch = activeCategory === 'all' || item.type === activeCategory;
       const searchMatch = (() => {
         if (!searchQuery.trim()) return true;
@@ -339,11 +399,6 @@ export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'r
       if (activeSort === 'safe_return') {
         // Check multiple possible locations for safe return info
         subFilterMatch = !!(item.safe_return || item.safe_route || (item.tags && item.tags.some((t: string) => t.toLowerCase().includes('safe') || t.toLowerCase().includes('return'))));
-      } else if (activeSort === 'bts_spot') {
-        // Show if explicitly a spot/food OR if it has a calculated nearest BTS spot
-        subFilterMatch = item.type === 'spot' || item.type === 'food' ||
-          (item.tags && item.tags.some((t: string) => t.toLowerCase().includes('bts'))) ||
-          !!item.nearest_bts_spot;
       }
 
       return cityMatch && categoryMatch && searchMatch && subFilterMatch;
@@ -356,7 +411,8 @@ export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'r
       filtered.sort((a, b) => (b.army_density?.value || 0) - (a.army_density?.value || 0));
     }
 
-    if (activeCategory === 'stay' || activeCategory === 'all') {
+
+    else {
       // Default sort (Recommended)
       filtered.sort((a, b) => {
         const scoreA = (a.rating || 0) * 20 + (100 - (a.distance?.minutes || 100));
@@ -376,7 +432,6 @@ export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'r
     { id: 'distance', label: t.sortDistance, icon: <MapPin size={12} /> },
     { id: 'army_density', label: t.sortArmyDensity, icon: <Users size={12} /> },
     { id: 'safe_return', label: 'Safe Return', icon: <TrendingUp size={12} /> },
-    { id: 'bts_spot', label: 'BTS Spots', icon: <Star size={12} /> },
   ];
 
   return (
@@ -391,6 +446,8 @@ export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'r
             placeholder="Search hotel name..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
+            onFocus={() => setShowSuggestions(true)}
+            onBlur={() => setTimeout(() => setShowSuggestions(false), 200)} // Delay to allow click
             className="w-full pl-10 pr-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-[15px] focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all placeholder-gray-400"
           />
           <div className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400">
@@ -409,6 +466,27 @@ export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'r
             </button>
           )}
         </div>
+
+        {/* Search Suggestions Dropdown */}
+        {showSuggestions && suggestions.length > 0 && (
+          <div className="absolute top-full left-0 right-0 mt-1 bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden z-[60]">
+            {suggestions.map((suggestion: string, index: number) => (
+              <button
+                key={index}
+                onClick={() => {
+                  setSearchQuery(suggestion);
+                  setShowSuggestions(false);
+                }}
+                className="w-full text-left px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 border-b border-gray-50 last:border-none flex items-center gap-2"
+              >
+                <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+                {suggestion}
+              </button>
+            ))}
+          </div>
+        )}
       </div>
 
       {/* City Tabs */}
@@ -492,7 +570,7 @@ export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'r
               </div>
 
               <div className="flex flex-col gap-5" key={`list-${activeCity}-${activeSort}`}>
-                {filteredItems.filter(i => i.type === 'stay').map((hotel, index) => {
+                {filteredItems.filter(i => i.type === 'stay').map((hotel: any, index: number) => {
                   const imageUrl = hotel.image_url || hotel.image || '';
                   const name = hotel.name_en || hotel.name;
                   const price = hotel.price_usd ? `$ ${hotel.price_usd}` : formatPrice(hotel.price);
@@ -588,6 +666,7 @@ export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'r
                           </div>
                         </button>
 
+                        {/* Bottom tags container removed to close gap */}
                         <div
                           className="absolute bottom-3 left-3 bg-gray-900 text-white px-2.5 py-1 rounded-lg text-xs font-bold flex items-center gap-1 shadow-sm z-10"
                           data-layername="Rating"
@@ -595,143 +674,82 @@ export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'r
                           <Star size={12} fill="currentColor" className="text-yellow-400" />
                           {hotel.rating}
                         </div>
+                        {/* Heart shifted to top-right is already handled by absolute positioning in parent */}
                       </div>
 
                       <div className="p-4 flex flex-col gap-2 h-full">
-                        <div className="mt-3 flex flex-wrap gap-2">
-                          {/* Nearest BTS Spot Badge */}
-                          {hotel.nearest_bts_spot && (
-                            <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-purple-50 text-purple-700 border border-purple-100">
-                              <Star size={12} className="fill-purple-700" />
-                              <span className="text-xs font-medium">
-                                Near {hotel.nearest_bts_spot.name}
-                                <span className="opacity-70 ml-1">({hotel.nearest_bts_spot.dist <= 1 ? 'Within 1km' : `${Math.round(hotel.nearest_bts_spot.dist)}km`})</span>
-                              </span>
-                            </div>
-                          )}
-
-                          <div className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md ${hotel.army_density?.value >= 80 ? 'bg-purple-100 text-purple-700' : 'bg-gray-100 text-gray-600'
-                            }`}>
-                            <span className="text-xs font-bold">ARMY {hotel.army_density?.value}%</span>
-                          </div>
-                        </div>
+                        {/* Gap removed */}
                         <div className="flex flex-col gap-1">
                           <h3
-                            className="font-bold text-lg text-gray-900 leading-tight break-words"
+                            className="font-bold text-lg text-gray-900 leading-tight"
                             data-layername="Hotel_Name"
                           >
                             {name.replace(/\[.*?\]\s*/g, '')}
                           </h3>
 
-                          {/* Fan tip — auto-generated based on hotel characteristics */}
-                          <p className="text-[11px] text-purple-600/80 font-medium mt-0.5 leading-snug">
-                            {venueDistanceInfo.isWalk
-                              ? '💜 Walking distance to venue — perfect for concert night!'
-                              : hotel.safe_return?.transport === 'walk'
-                                ? '💜 Walk back after the concert — no taxi needed!'
-                                : hotel.safe_return?.last_train
-                                  ? `💜 Last train at ${hotel.safe_return.last_train} — plan your exit!`
-                                  : '💜 Popular choice among international ARMYs'
-                            }
-                          </p>
-
-                          <div className="flex items-center gap-1 text-xs text-gray-500 mt-0.5 flex-wrap">
+                          {/* Consolidated Info Row: Location • Hotel • Transport (Grey text) */}
+                          <div className="flex items-center gap-1.5 text-xs text-gray-500 flex-wrap leading-relaxed">
                             <div className="flex items-center gap-1">
-                              <MapPin size={12} className="text-gray-400" />
+                              <MapPin size={12} className="shrink-0" />
                               {hotel.area || hotel.location || activeCity.charAt(0).toUpperCase() + activeCity.slice(1)}
                             </div>
 
-                            {accommodationType && (
-                              <>
-                                <span className="text-gray-300">•</span>
-                                <div className="">
-                                  {accommodationType}
-                                </div>
-                              </>
-                            )}
+                            <span className="text-gray-300">•</span>
+                            <span>{hotel.type === 'stay' ? 'Hotel' : (hotel.type === 'food' ? 'Restaurant' : 'Spot')}</span>
 
                             {hotel.transport_desc && (
                               <>
                                 <span className="text-gray-300">•</span>
                                 <div className="flex items-center gap-1">
-                                  <Train size={12} className="text-gray-400" />
                                   {hotel.transport_desc}
                                 </div>
                               </>
                             )}
                           </div>
 
-                          {nearestStation && (
-                            <div className="hidden">
-                              <Train size={12} className="text-gray-400" />
-                              {nearestStation.name} <span className="text-gray-400">({Math.ceil(nearestStation.dist * 15)} min walk)</span>
-                            </div>
-                          )}
+                          {/* Badges Row: ARMY (Purple) + Others (Grey Rounded) */}
+                          <div className="flex flex-wrap items-center gap-1.5 mt-1">
+                            {/* ARMY Density - Purple */}
+                            <span className="text-[10px] px-2 py-0.5 rounded-full flex items-center font-bold bg-purple-100 text-purple-700">
+                              ARMY {hotel.army_density?.value}%
+                            </span>
 
-                          <div className="mt-1">
-                            {/* Status badges removed */}
+                            {/* Near Spot - Grey Rounded (was Purple) */}
+                            {hotel.nearest_bts_spot && (
+                              <span className="text-[10px] px-2 py-0.5 rounded-full flex items-center bg-gray-100 text-gray-600 font-medium">
+                                Near {hotel.nearest_bts_spot.name}
+                              </span>
+                            )}
+
+                            {/* Drive Time / Distance - Grey Rounded — prefer per-hotel data */}
+                            <span className="text-[10px] px-2 py-0.5 rounded-full flex items-center bg-gray-100 text-gray-600 font-medium">
+                              {hotel.distance?.display_en || venueDistanceInfo.text}
+                            </span>
+
+                            {/* Safety - Grey Rounded (if space permits) - REMOVED per user feedback that it's confusing */}
                           </div>
                         </div>
 
-                        <div className="flex flex-wrap gap-1">
-                          {tags?.map((tag: string, i: number) => {
-                            const isArmyTag = tag.startsWith('ARMY');
-                            return (
-                              <span
-                                key={i}
-                                className={`text-[10.6px] px-2 py-1 rounded-md flex items-center gap-1 ${isArmyTag
-                                  ? 'bg-purple-100/80 text-purple-700 font-bold'
-                                  : (hotel.display_tags?.trans?.en === tag)
-                                    ? 'bg-blue-50 text-blue-700 font-medium'
-                                    : 'bg-gray-100 text-gray-600 font-medium'
-                                  }`}
-                              >
-                                {(hotel.display_tags?.trans?.en === tag) && <MapPin size={10} className="shrink-0" />}
-                                {tag}
-                              </span>
-                            );
-                          })}
+                        {/* Hidden extra tags container to maintain structure if needed, or just remove */}
+                        <div className="hidden"></div>
 
-                          {(() => {
-                            const VenueIcon = venueDistanceInfo.icon;
-                            return (
-                              <span className="text-[10.6px] px-2 py-1 rounded-md flex items-center gap-1 bg-gray-100 text-gray-600 font-medium">
-                                <VenueIcon size={10} className="shrink-0" />
-                                {venueDistanceInfo.text}
-                              </span>
-                            );
-                          })()}
-
-                          {/* Trust badges */}
-                          {hotel.army_density?.value >= 70 && (
-                            <span className="text-[10.6px] px-2 py-1 rounded-md flex items-center gap-1 bg-green-50 text-green-700 font-bold border border-green-200">
-                              ✓ Verified by ARMY
+                        <div className="mt-auto flex items-end justify-between border-t border-gray-50 pt-3">
+                          <div data-layername="Price" className="flex items-center">
+                            <span className="text-[14px] font-bold text-green-600 flex items-center gap-1">
+                              Visa/Master OK
                             </span>
-                          )}
-
-                          <span className="text-[10.6px] px-2 py-1 rounded-md flex items-center gap-1 bg-blue-50 text-blue-600 font-medium">
-                            💳 Visa/Master OK
-                          </span>
-
-                          {hotel.safe_return && hotel.safe_return.time_min <= 15 && (
-                            <span className="text-[10.6px] px-2 py-1 rounded-md flex items-center gap-1 bg-indigo-50 text-indigo-600 font-medium">
-                              🌙 Late Return Safe
-                            </span>
-                          )}
-                        </div>
-
-                        <div className="mt-auto flex items-end justify-between border-t border-gray-50 pt-4">
-                          <div data-layername="Price">
-                            {/* Price removed */}
                           </div>
 
                           <button
                             onClick={() => {
                               onSelectHotel(hotel.id);
                             }}
-                            className={`px-5 py-2.5 rounded-xl text-sm font-bold shadow-lg transition-all flex items-center gap-2 shrink-0 bg-purple-700 text-white hover:bg-purple-800`}
+                            className={`px-5 py-2.5 rounded-xl text-sm font-bold shadow-lg transition-all flex items-center gap-2 shrink-0 ${(hotel.type === 'spot' || hotel.type === 'food')
+                              ? 'bg-purple-100 text-purple-700 hover:bg-purple-200'
+                              : 'bg-purple-700 text-white hover:bg-purple-800'
+                              }`}
                           >
-                            Check Rates
+                            {(hotel.type === 'spot' || hotel.type === 'food') ? 'View Info' : 'Check Rates'}
                             <ChevronRight size={16} />
                           </button>
                         </div>

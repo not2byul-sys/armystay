@@ -30,7 +30,7 @@ type Screen = 'landing' | 'results' | 'detail' | 'concerts' | 'about' | 'privacy
 const DATA_URL = "/concert_recommendations.json";
 
 const cities: { id: City; label: string }[] = [
-  { id: 'seoul', label: 'Seoul' },
+  { id: 'seoul', label: 'Gwanghwamun' },
   { id: 'goyang', label: 'Goyang' },
   { id: 'busan', label: 'Busan' },
   { id: 'paju', label: 'Paju' },
@@ -438,16 +438,32 @@ function ArmyStayContent() {
         })(),
 
         safe_return: item.safe_return,
-        nearest_bts_spot: nearestSpot ? {
-          name: nearestSpot.name,
-          name_kr: nearestSpot.name_kr,
-          desc: nearestSpot.desc,
-          dist: nearestSpot.dist
-        } : null,
+        nearest_bts_spot: (() => {
+          // Prefer per-hotel BTS spot from JSON data (army_local_guide.bts)
+          const hotelBtsSpots = item.army_local_guide?.bts;
+          if (hotelBtsSpots && hotelBtsSpots.length > 0) {
+            const spot = hotelBtsSpots[0];
+            return {
+              name: spot.name_en || spot.name,
+              name_kr: spot.name_kr,
+              desc: spot.description_en || spot.spot_tag,
+              dist: spot.distance_km
+            };
+          }
+          // Fallback to globally computed nearest spot
+          if (nearestSpot) {
+            return {
+              name: nearestSpot.name,
+              name_kr: nearestSpot.name_kr,
+              desc: nearestSpot.desc,
+              dist: nearestSpot.dist
+            };
+          }
+          return null;
+        })(),
 
         army_local_guide: item.army_local_guide,
         booking: item.platform,
-        rooms_left: item.rooms_left ?? 99
       };
     });
   }, [fetchedData, t]);
