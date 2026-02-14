@@ -8,7 +8,7 @@ type AuthMode = 'login' | 'signup' | 'forgot';
 export const LoginModal = () => {
   const { showLoginModal, setShowLoginModal, login, signup, loginWithGoogle, resetPassword, isLoading: authLoading } = useAuth();
   const [mode, setMode] = useState<AuthMode>('login');
-  
+
   console.log('LoginModal render:', { showLoginModal }); // Debug log
 
   const [email, setEmail] = useState('');
@@ -23,7 +23,7 @@ export const LoginModal = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
-    
+
     // Normalize email/ID - append @armystay.com if no domain provided
     let submitEmail = email;
     if (submitEmail && !submitEmail.includes('@')) {
@@ -58,7 +58,7 @@ export const LoginModal = () => {
     }
 
     setIsLoading(true);
-    
+
     try {
       if (mode === 'login') {
         await login(submitEmail, password);
@@ -111,14 +111,14 @@ export const LoginModal = () => {
   };
 
   return (
-    <div className="fixed inset-0 z-[9999] flex items-center justify-center px-4">
-      <div 
+    <div className="fixed inset-0 z-[9999] flex items-end sm:items-center justify-center px-0 sm:px-4 pb-0 sm:pb-0">
+      <div
         onClick={() => setShowLoginModal(false)}
         className="absolute inset-0 bg-black/60 backdrop-blur-sm"
       />
-      
-      <div 
-        className="bg-white w-full max-w-sm rounded-3xl overflow-hidden shadow-2xl relative z-10 animate-in fade-in zoom-in-95 duration-200"
+
+      <div
+        className="bg-white w-full max-w-md sm:rounded-[32px] rounded-t-[32px] overflow-hidden shadow-2xl relative z-10 animate-in fade-in zoom-in-95 duration-200"
       >
         <div className="p-6 pt-8 text-center">
           <div className="w-16 h-16 bg-purple-100 text-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
@@ -167,8 +167,8 @@ export const LoginModal = () => {
                 <label className="text-xs font-bold text-gray-700 ml-1">Name</label>
                 <div className="relative">
                   <User className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
-                  <input 
-                    type="text" 
+                  <input
+                    type="text"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     className="w-full bg-gray-50 border border-gray-200 rounded-xl py-3 pl-10 pr-4 text-sm focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all"
@@ -182,8 +182,8 @@ export const LoginModal = () => {
               <label className="text-xs font-bold text-gray-700 ml-1">ID</label>
               <div className="relative">
                 <Mail className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
-                <input 
-                  type="text" 
+                <input
+                  type="text"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="w-full bg-gray-50 border border-gray-200 rounded-xl py-3 pl-10 pr-4 text-sm focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all"
@@ -197,7 +197,7 @@ export const LoginModal = () => {
                 <label className="text-xs font-bold text-gray-700 ml-1">Password</label>
                 <div className="relative">
                   <Lock className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
-                  <input 
+                  <input
                     type={showPassword ? "text" : "password"}
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
@@ -234,12 +234,12 @@ export const LoginModal = () => {
               <p className="text-red-500 text-xs font-medium text-center break-words px-2">{error}</p>
             )}
 
-            <button 
-              type="submit" 
+            <button
+              type="submit"
               disabled={isLoading || authLoading}
               className="w-full bg-purple-700 text-white font-bold py-3.5 rounded-xl shadow-lg shadow-purple-200 hover:bg-purple-800 active:scale-[0.98] transition-all flex items-center justify-center gap-2 mt-2"
             >
-              {isLoading ? <Loader2 size={20} className="animate-spin" /> : 
+              {isLoading ? <Loader2 size={20} className="animate-spin" /> :
                 (mode === 'login' ? 'Sign In' : mode === 'signup' ? 'Create Account' : 'Send Reset Link')}
             </button>
 
@@ -254,15 +254,15 @@ export const LoginModal = () => {
                 }}
                 className="text-sm text-gray-500 hover:text-purple-700 font-medium"
               >
-                {mode === 'login' ? "Don't have an account? Sign up" : 
-                 mode === 'signup' ? "Already have an account? Sign in" :
-                 "Back to Sign in"}
+                {mode === 'login' ? "Don't have an account? Sign up" :
+                  mode === 'signup' ? "Already have an account? Sign in" :
+                    "Back to Sign in"}
               </button>
             </div>
           </form>
         </div>
 
-        <button 
+        <button
           onClick={() => setShowLoginModal(false)}
           className="absolute top-4 right-4 p-2 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-full transition-colors"
         >

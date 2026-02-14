@@ -35,7 +35,7 @@ export const BookmarksModal = ({ items, onSelectHotel, t }: BookmarksModalProps)
     };
 
     return (
-        <div className="fixed inset-0 z-[9999] flex items-end sm:items-center justify-center">
+        <div className="fixed inset-0 z-[9999] flex items-end sm:items-center justify-center px-0 sm:px-4 pb-0 sm:pb-0">
             <div
                 onClick={handleClose}
                 className="absolute inset-0 bg-black/60 backdrop-blur-sm"
@@ -45,7 +45,7 @@ export const BookmarksModal = ({ items, onSelectHotel, t }: BookmarksModalProps)
                 initial={{ opacity: 0, y: 100 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 100 }}
-                className="bg-white w-full sm:max-w-2xl sm:rounded-[32px] rounded-t-[32px] overflow-hidden shadow-2xl relative z-10 max-h-[85vh] flex flex-col"
+                className="bg-white w-full max-w-md sm:rounded-[32px] rounded-t-[32px] overflow-hidden shadow-2xl relative z-10 max-h-[85vh] flex flex-col"
             >
                 {/* Header */}
                 <div className="bg-purple-700 p-6 text-white relative shrink-0">
