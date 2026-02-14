@@ -29,6 +29,14 @@ type Screen = 'landing' | 'results' | 'detail' | 'concerts' | 'about' | 'privacy
 
 const DATA_URL = "/concert_recommendations.json";
 
+const cities: { id: City; label: string }[] = [
+  { id: 'seoul', label: 'Seoul' },
+  { id: 'goyang', label: 'Goyang' },
+  { id: 'busan', label: 'Busan' },
+  { id: 'paju', label: 'Paju' },
+  { id: 'other', label: 'Other Cities' }
+];
+
 
 // Helper to calculate distance in km (Haversine formula approximation)
 const calculateDistance = (lat1: number, lng1: number, lat2: number, lng2: number) => {
@@ -444,6 +452,33 @@ function ArmyStayContent() {
     });
   }, [fetchedData, t]);
 
+  const processedDataStats = useMemo(() => {
+    if (fetchedData?.home) {
+      // If home stats are available from API, use them
+      return {
+        total: fetchedData.home.available_count,
+        cityCounts: fetchedData.home.city_counts
+      };
+    }
+
+    // Fallback calculation from items
+    const cityCounts = (items || []).reduce((acc: Record<string, number>, item: any) => {
+      const city = item.city;
+      acc[city] = (acc[city] || 0) + 1;
+      return acc;
+    }, {} as Record<string, number>);
+
+    // Ensure 0 for missing cities
+    cities.forEach(c => {
+      if (!cityCounts[c.id]) cityCounts[c.id] = 0;
+    });
+
+    return {
+      total: (items || []).length,
+      cityCounts
+    };
+  }, [fetchedData, items]);
+
 
   const homeStats = useMemo(() => {
     if (fetchedData?.home) {
@@ -556,6 +591,7 @@ function ArmyStayContent() {
               mapData={mapData}
               dateRange={dateRange}
               setDateRange={setDateRange}
+              cityCounts={processedDataStats.cityCounts}
             />
           )}
 

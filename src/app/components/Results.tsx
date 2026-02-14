@@ -59,6 +59,7 @@ interface ResultsProps {
   mapData?: any;
   dateRange?: DateRange;
   setDateRange?: (range: DateRange | undefined) => void;
+  cityCounts?: Record<string, number>;
 }
 
 type Category = 'all' | 'stay' | 'food' | 'spot';
@@ -224,7 +225,7 @@ const MapUpdater = ({ center }: { center: { lat: number; lng: number } }) => {
   return null;
 };
 
-export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'recommended', initialCity = 'goyang', viewMode, setViewMode, items, mapData, dateRange, setDateRange }: ResultsProps) => {
+export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'recommended', initialCity = 'goyang', viewMode, setViewMode, items, mapData, dateRange, setDateRange, cityCounts }: ResultsProps) => {
   const [activeCategory, setActiveCategory] = useState<Category>('all');
   const [activeCity, setActiveCity] = useState<City>(initialCity || 'goyang');
   const [selectedMarkerId, setSelectedMarkerId] = useState<string | null>(null);
@@ -422,13 +423,18 @@ export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'r
                 // Scroll to top when changing city
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
-              className={`flex-none px-6 py-3 text-sm font-medium border-b-2 transition-colors whitespace-nowrap ${activeCity === city.id
-                ? 'border-purple-600 text-purple-600'
+              className={`flex-none px-6 py-3 text-sm transition-colors border-b-2 ${activeCity === city.id
+                ? 'border-purple-600 text-purple-700'
                 : 'border-transparent text-gray-500 hover:text-gray-700'
                 }`}
             >
               <div className="flex flex-col items-center">
-                <span>{city.label}</span>
+                <span className="font-bold text-[15px]">
+                  {city.label}
+                  <span className="ml-1 text-xs font-normal text-gray-400">
+                    ({cityCounts?.[city.id] || 0})
+                  </span>
+                </span>
               </div>
             </button>
           ))}
