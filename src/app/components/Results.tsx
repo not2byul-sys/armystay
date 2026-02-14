@@ -335,7 +335,7 @@ export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'r
     }
 
     return filtered;
-  }, [items, activeCity, activeCategory, searchQuery]);
+  }, [items, activeCity, activeCategory, searchQuery, activeSort]);
 
   const hotels = useMemo(() => filteredItems.filter(i => i.type === 'stay'), [filteredItems]);
   const selectedItem = useMemo(() => items.find(i => i.id === selectedMarkerId), [selectedMarkerId, items]);
