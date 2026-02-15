@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { ArrowLeft, Star, MapPin, Clock, ShieldCheck, Moon, Navigation, ExternalLink, X, Globe } from 'lucide-react';
+import { ArrowLeft, Star, MapPin, Clock, ShieldCheck, Moon, Navigation, ExternalLink, X, Globe, CreditCard, MessageCircle } from 'lucide-react';
 import { ImageWithFallback } from '@/app/components/figma/ImageWithFallback';
 import { translations } from '@/translations';
 
@@ -10,9 +10,11 @@ interface DetailProps {
   hotelId: string | null;
   items: any[];
   onSelectHotel: (id: string) => void;
+  isBookmarked: boolean;
+  onToggleBookmark: () => void;
 }
 
-export const Detail = ({ onBack, t, hotelId, items, onSelectHotel }: DetailProps) => {
+export const Detail = ({ onBack, t, hotelId, items, onSelectHotel, isBookmarked, onToggleBookmark }: DetailProps) => {
   const [browserUrl, setBrowserUrl] = React.useState<string | null>(null);
   const hotel = items.find(h => h.id === hotelId);
 
@@ -62,19 +64,32 @@ export const Detail = ({ onBack, t, hotelId, items, onSelectHotel }: DetailProps
 
   return (
     <div className="flex flex-col min-h-screen bg-white pb-24">
-      {/* Sticky Header */}
-      <div className="sticky top-0 z-50 flex items-center justify-between px-4 h-14 bg-white/80 backdrop-blur-md border-b border-gray-100">
+      {/* Fixed Header */}
+      <div className="fixed top-0 left-1/2 -translate-x-1/2 z-50 w-full max-w-md flex items-center justify-between px-4 h-14 bg-white/80 backdrop-blur-md border-b border-gray-100">
         <button onClick={onBack} className="p-2 -ml-2 text-[#333] hover:bg-gray-100 rounded-full transition-colors">
           <ArrowLeft size={20} strokeWidth={1.8} />
         </button>
         <span className="font-bold text-[15px] text-gray-900 truncate max-w-[200px]">{t.stayDetails}</span>
-        <button className="p-2 -mr-2 text-gray-400 hover:text-purple-500 hover:bg-purple-50 rounded-full transition-colors">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <button
+          onClick={onToggleBookmark}
+          className="p-2 -mr-2 text-gray-400 hover:text-purple-600 hover:bg-purple-50 rounded-full transition-colors"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill={isBookmarked ? "currentColor" : "none"}
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className={isBookmarked ? "text-purple-600 fill-purple-600" : ""}
+          >
             <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
           </svg>
         </button>
       </div>
-
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
         {/* Section 1: The Stay */}
         <div className="relative h-64">
@@ -107,37 +122,33 @@ export const Detail = ({ onBack, t, hotelId, items, onSelectHotel }: DetailProps
           </div>
         </div>
 
-        {/* Section 2: ARMY Trust Checklist */}
+        {/* Section 2: ARMY Tips */}
         <div className="p-5 border-b border-gray-100">
           <div className="flex items-center gap-2 mb-3">
-            <div className="p-1.5 bg-green-100 text-green-600 rounded-lg">
-              <ShieldCheck size={18} />
+            <div className="p-1.5 bg-purple-100 text-purple-600 rounded-lg">
+              <Star size={18} />
             </div>
-            <h2 className="font-bold text-lg text-gray-900">ARMY Verified</h2>
+            <h2 className="font-bold text-lg text-gray-900">ARMY Tips</h2>
           </div>
           <div className="space-y-2.5">
             {[
-              { label: 'International card payment (Visa/Master)', checked: true },
-              { label: `${hotel.location || 'Near venue'}`, checked: true },
-              { label: 'Late night return safe', checked: !!safeRoute },
-              { label: 'English booking support', checked: true },
-            ].map((item, i) => (
-              <div key={i} className="flex items-center gap-2.5">
-                <div className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 ${item.checked ? 'bg-green-500 text-white' : 'bg-gray-200 text-gray-400'
-                  }`}>
-                  {item.checked ? (
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6L9 17l-5-5" /></svg>
-                  ) : (
-                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6L6 18M6 6l12 12" /></svg>
-                  )}
-                </div>
-                <span className={`text-sm ${item.checked ? 'text-gray-700 font-medium' : 'text-gray-400 line-through'}`}>
-                  {item.label}
-                </span>
+              safeRoute?.transport === 'walk'
+                ? 'This hotel is within walking distance from the venue — enjoy the walk back with fellow ARMYs!'
+                : safeRoute
+                  ? `After the concert, grab a taxi (≈$${Math.round((safeRoute.taxi_krw || 15000) / 1350)}) or catch the last train at ${safeRoute.last_train || '23:50'}.`
+                  : 'Check the venue distance and plan your transportation in advance.',
+              'This hotel accepts international cards (Visa/Mastercard) — no Korean phone number needed!',
+              'Save the hotel address in Korean for taxi drivers: they may not understand English addresses.',
+            ].map((tip, i) => (
+              <div key={i} className="flex gap-2.5 items-start">
+                <div className="w-1.5 h-1.5 rounded-full bg-purple-400 mt-2 shrink-0" />
+                <p className="text-sm text-gray-600 leading-relaxed">{tip}</p>
               </div>
             ))}
           </div>
         </div>
+
+
 
         {/* Section 3: Midnight Return Map */}
         {safeRoute && (
@@ -209,7 +220,9 @@ export const Detail = ({ onBack, t, hotelId, items, onSelectHotel }: DetailProps
           </div>
         )}
 
-        {/* Section 3: Army's Local Guide */}
+
+
+        {/* Section 5: Army's Local Guide */}
         {guideItems && guideItems.length > 0 && (
           <div className="p-5">
             <div className="flex items-center gap-2 mb-4">
@@ -238,31 +251,6 @@ export const Detail = ({ onBack, t, hotelId, items, onSelectHotel }: DetailProps
             </div>
           </div>
         )}
-
-        {/* Section 5: Fan Tips */}
-        <div className="p-5 border-t border-gray-100">
-          <div className="flex items-center gap-2 mb-3">
-            <div className="p-1.5 bg-purple-100 text-purple-600 rounded-lg">
-              <Star size={18} />
-            </div>
-            <h2 className="font-bold text-lg text-gray-900">Fan Tips</h2>
-          </div>
-          <div className="space-y-2.5">
-            {[
-              safeRoute?.transport === 'walk'
-                ? '🏃 This hotel is within walking distance from the venue — enjoy the walk back with fellow ARMYs!'
-                : safeRoute
-                  ? `🚕 After the concert, grab a taxi (≈$${Math.round((safeRoute.taxi_krw || 15000) / 1350)}) or catch the last train at ${safeRoute.last_train || '23:50'}.`
-                  : '📍 Check the venue distance and plan your transportation in advance.',
-              '💳 This hotel accepts international cards (Visa/Mastercard) — no Korean phone number needed!',
-              '📱 Save the hotel address in Korean for taxi drivers: they may not understand English addresses.',
-            ].map((tip, i) => (
-              <div key={i} className="flex gap-2.5 items-start">
-                <p className="text-sm text-gray-600 leading-relaxed">{tip}</p>
-              </div>
-            ))}
-          </div>
-        </div>
 
         {/* Section 6: Nearby Recommendations */}
         {nearby && nearby.length > 0 && (
@@ -332,13 +320,10 @@ export const Detail = ({ onBack, t, hotelId, items, onSelectHotel }: DetailProps
       </motion.div>
 
       {/* Bottom CTA Bar */}
-      <div className="fixed bottom-0 left-0 right-0 w-full max-w-md mx-auto bg-white border-t border-gray-100 p-4 pb-8 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] z-50 p-[16px]">
+      <div className="fixed bottom-0 left-0 right-0 w-full max-w-md mx-auto bg-white border-t border-gray-100 p-4 pb-8 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] z-50">
         <div className="flex items-center justify-between gap-4">
           <div className="flex flex-col flex-1">
             <span className="text-xs text-gray-500 font-medium">Check real-time rates</span>
-            <span className="text-sm font-bold text-purple-700">
-              Verified by ARMY ✓
-            </span>
           </div>
           <button
             onClick={() => {

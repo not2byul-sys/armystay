@@ -31,7 +31,7 @@ type Screen = 'landing' | 'results' | 'detail' | 'concerts' | 'about' | 'privacy
 const DATA_URL = "/concert_recommendations.json";
 
 const cities: { id: City; label: string }[] = [
-  { id: 'seoul', label: 'Gwanghwamun' },
+  { id: 'near_gwanghwamun', label: 'Gwanghwamun' },
   { id: 'goyang', label: 'Goyang' },
   { id: 'busan', label: 'Busan' },
   { id: 'paju', label: 'Paju' },
@@ -79,13 +79,13 @@ function ArmyStayContent() {
   const [selectedHotelId, setSelectedHotelId] = useState<string | null>(null);
   const [initialSort, setInitialSort] = useState<SortOption>('recommended');
 
-  const [initialCity, setInitialCity] = useState<City>('seoul');
+  const [initialCity, setInitialCity] = useState<City>('near_gwanghwamun');
   const [fetchedData, setFetchedData] = useState<any>(null);
   const [showTopBtn, setShowTopBtn] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
 
-  const { isAuthenticated, user, logout, setShowLoginModal, setShowMyPageModal, setShowBookmarksModal } = useAuth();
+  const { isAuthenticated, user, logout, setShowLoginModal, setShowMyPageModal, setShowBookmarksModal, bookmarks, toggleBookmark } = useAuth();
 
 
   // Login Redirect Logic
@@ -398,7 +398,12 @@ function ArmyStayContent() {
         location: safeLocation,
         price: priceKrw ? Math.round(priceKrw / 1350) : (typeof priceVal === 'number' ? priceVal : 0),
 
-        type: item.type || 'stay',
+        type: (() => {
+          const raw = (item.type || item.hotel_type?.label_en || 'stay').toLowerCase();
+          if (raw.includes('food') || raw.includes('restaurant') || raw.includes('cafe')) return 'food';
+          if (raw.includes('spot') || raw.includes('attraction') || raw.includes('bts')) return 'spot';
+          return 'stay'; // Default to stay for "Hotel", "Guesthouse", "Residence", etc.
+        })(),
         city: detectedCity,
         coords: coords2,
         rating: ratingVal,
@@ -683,7 +688,15 @@ function ArmyStayContent() {
           )}
 
           {currentScreen === 'detail' && (
-            <Detail onBack={handleBack} t={t} hotelId={selectedHotelId} items={items} onSelectHotel={handleSelectHotel} />
+            <Detail
+              onBack={handleBack}
+              t={t}
+              hotelId={selectedHotelId}
+              items={items}
+              onSelectHotel={handleSelectHotel}
+              isBookmarked={selectedHotelId ? bookmarks.has(selectedHotelId) : false}
+              onToggleBookmark={() => selectedHotelId && toggleBookmark(selectedHotelId)}
+            />
           )}
 
 

@@ -143,11 +143,8 @@ export const SearchModal = ({ isOpen, onClose, onSearch, initialQuery = '' }: Se
                                 )}
                             </div>
                         </div>
-
-                        {/* Helper text - Removed as it overlaps with results */}
-                </div>
                     </motion.div>
-                </div >
+                </div>
             )}
         </AnimatePresence >
     );
