@@ -14,10 +14,10 @@ export const Landing = ({ onSearch, t, items = initialItems }: LandingProps) => 
 
   const concerts = [
     {
-      id: 'seoul',
+      id: 'near_gwanghwamun',
       title: 'Seoul',
       date: 'Mar 21, 2026',
-      city: 'seoul' as City,
+      city: 'near_gwanghwamun' as City,
     },
     {
       id: 'goyang',
@@ -59,19 +59,19 @@ export const Landing = ({ onSearch, t, items = initialItems }: LandingProps) => 
               const targetDate = new Date(concert.date.split(',')[0] + ', 2026'); // Simple parse for now or usage derived
               // Better to use specific dates:
               const dDates: Record<string, Date> = {
-                'seoul': new Date('2026-03-21'),
+                'near_gwanghwamun': new Date('2026-03-21'),
                 'goyang': new Date('2026-04-09'),
                 'busan': new Date('2026-06-12')
               };
               const venues: Record<string, string> = {
-                'seoul': 'Gwanghwamun Square',
+                'near_gwanghwamun': 'Gwanghwamun Square',
                 'goyang': 'Goyang Stadium',
                 'busan': 'Busan Asiad Main Stadium' // Placeholder or specific if known, user said "TBD" earlier but "Gwanghwamun" for Seoul. 
               };
 
               // Title mapping to match App.tsx change
               const displayTitles: Record<string, string> = {
-                'seoul': 'Gwanghwamun',
+                'near_gwanghwamun': 'Gwanghwamun',
                 'goyang': 'Goyang',
                 'busan': 'Busan'
               };

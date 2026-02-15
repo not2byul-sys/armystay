@@ -503,8 +503,8 @@ export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'r
               <div className="flex flex-col items-center">
                 <span className="font-bold text-[15px] relative">
                   {city.label}
-                  <span className="ml-1 text-xs font-normal text-gray-400">
-                    ({cityCounts?.[city.id] || 0})
+                  <span className="ml-1 text-[11px] font-semibold text-gray-400">
+                    {cityCounts?.[city.id] || 0}
                   </span>
                   {activeCity === city.id && (
                     <motion.div
@@ -655,11 +655,7 @@ export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'r
                               />
                             </div>
 
-                            {isLiked && (
-                              <div
-                                className="absolute inset-0 rounded-full border-2 border-purple-500 pointer-events-none"
-                              />
-                            )}
+
 
                           </div>
                         </button>
