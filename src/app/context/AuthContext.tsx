@@ -150,12 +150,21 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const logout = async () => {
-    await supabase.auth.signOut();
-    setUser(null);
-    setMockUser(null);
-    setBookmarks(new Set());
-    setShowMyPageModal(false);
-    toast.success("Logged out");
+    try {
+      await supabase.auth.signOut();
+    } catch (error) {
+      console.error("Logout error:", error);
+    } finally {
+      setUser(null);
+      setMockUser(null);
+      setBookmarks(new Set());
+      setShowMyPageModal(false);
+
+      // Optional: Clear any local storage if used
+      // localStorage.removeItem('supabase.auth.token'); // if using implicit storage
+
+      toast.success("Logged out");
+    }
   };
 
   const loginWithGoogle = async () => {

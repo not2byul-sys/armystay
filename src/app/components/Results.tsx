@@ -485,7 +485,7 @@ export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'r
 
       {/* City Tabs */}
       <div className="sticky top-14 z-40 bg-white border-b border-gray-100 shadow-sm">
-        <div className="flex overflow-x-auto no-scrollbar scroll-smooth px-4 gap-4">
+        <div className="flex overflow-x-auto no-scrollbar scroll-smooth px-4 gap-6">
           {cities.map((city) => (
             <button
               key={city.id}

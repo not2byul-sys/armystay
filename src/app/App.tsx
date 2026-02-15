@@ -88,15 +88,7 @@ function ArmyStayContent() {
   const { isAuthenticated, user, logout, setShowLoginModal, setShowMyPageModal, setShowBookmarksModal, bookmarks, toggleBookmark } = useAuth();
 
 
-  // Login Redirect Logic
-  const [pendingRedirect, setPendingRedirect] = useState(false);
 
-  useEffect(() => {
-    if (isAuthenticated && pendingRedirect) {
-      navigateTo('hotel-list');
-      setPendingRedirect(false);
-    }
-  }, [isAuthenticated, pendingRedirect]);
 
   // Date Range State (Default to Concert Period: June 13-15, 2026)
   const [dateRange, setDateRange] = useState<DateRange | undefined>({
