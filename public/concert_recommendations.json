@@ -15,7 +15,7 @@
       "name_en": "Nine Tree Premier Hotel",
       "price_krw": 145000,
       "rating": 4.2,
-      "image_url": "https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&q=80&w=1080",
+      "image_url": "https://pix10.agoda.net/hotelImages/953/9536098/9536098_19092415510081467439.jpg?ca=9&ce=1&s=1024x768",
       "rooms_left": 0,
       "is_available": false,
       "hotel_type": {
@@ -200,8 +200,8 @@
         ]
       },
       "platform": {
-        "name": "Trip.com",
-        "booking_url": "https://www.trip.com/hotels/seoul-hotel-detail-nine-tree/"
+        "name": "Direct/Official",
+        "booking_url": "https://www.ninetreehotels.com/nthINS/index.do"
       },
       "booking_guide": {
         "steps_en": [
@@ -246,7 +246,7 @@
           "image_url": "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800"
         }
       ],
-      "booking_url": "https://www.agoda.com/ko-kr/nine-tree-premier-hotel-insadong/hotel/seoul-kr.html",
+      "booking_url": "https://www.ninetreehotels.com/nthINS/index.do",
       "star_rating": 4,
       "review_count": 500,
       "amenities": [
@@ -264,7 +264,7 @@
       "name_en": "Mercure Ambassador Seoul Hongdae",
       "price_krw": 155000,
       "rating": 4.4,
-      "image_url": "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800",
+      "image_url": "https://pix10.agoda.net/hotelImages/161/16189283/16189283_20080614480099896350.jpg?ca=9&ce=1&s=1024x768",
       "rooms_left": 5,
       "is_available": true,
       "hotel_type": {
@@ -453,8 +453,8 @@
         ]
       },
       "platform": {
-        "name": "Hotels.com",
-        "booking_url": "https://www.hotels.com/ho-mercure-hongdae/"
+        "name": "Direct/Official",
+        "booking_url": "https://all.accor.com/hotel/B6A7/index.en.shtml"
       },
       "booking_guide": {
         "steps_en": [
@@ -498,7 +498,7 @@
           "image_url": "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800"
         }
       ],
-      "booking_url": "https://www.agoda.com/ko-kr/mercure-ambassador-seoul-hongdae/hotel/seoul-kr.html",
+      "booking_url": "https://all.accor.com/hotel/B6A7/index.en.shtml",
       "star_rating": 4,
       "review_count": 630,
       "amenities": [
@@ -517,7 +517,7 @@
       "name_en": "RYSE Autograph Collection",
       "price_krw": 250000,
       "rating": 4.4,
-      "image_url": "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=800",
+      "image_url": "https://cache.marriott.com/content/dam/marriott-renditions/SELRA/selra-exterior-0077-hor-wide.jpg?output-quality=70&interpolation=progressive-bilinear&downsize=1336px:*",
       "rooms_left": 4,
       "is_available": true,
       "hotel_type": {
@@ -708,8 +708,8 @@
         ]
       },
       "platform": {
-        "name": "Booking.com",
-        "booking_url": "https://www.booking.com/hotel/kr/ryse-autograph-collection.html"
+        "name": "Direct/Official",
+        "booking_url": "https://www.marriott.com/en-us/hotels/selra-ryse-autograph-collection-seoul/overview/"
       },
       "booking_guide": {
         "steps_en": [
@@ -753,7 +753,7 @@
           "image_url": "https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=800"
         }
       ],
-      "booking_url": "https://www.agoda.com/ko-kr/ryse-autograph-collection_2/hotel/seoul-kr.html",
+      "booking_url": "https://www.marriott.com/en-us/hotels/selra-ryse-autograph-collection-seoul/overview/",
       "star_rating": 4,
       "review_count": 259,
       "amenities": [
@@ -773,7 +773,7 @@
       "name_en": "L7 Hongdae by Lotte",
       "price_krw": 175000,
       "rating": 4.3,
-      "image_url": "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800",
+      "image_url": "https://www.lottehotel.com/content/dam/lotte-hotel/l7/hongdae/main/180126-1-2000-main-hongdae-l7.jpg.thumb.1920.1920.jpg",
       "rooms_left": 7,
       "is_available": true,
       "hotel_type": {
@@ -962,8 +962,8 @@
         ]
       },
       "platform": {
-        "name": "Agoda",
-        "booking_url": "https://www.agoda.com/l7-hongdae-by-lotte/hotel/seoul-kr.html"
+        "name": "Direct/Official",
+        "booking_url": "https://www.lottehotel.com/hongdae-l7/en.html"
       },
       "booking_guide": {
         "steps_en": [
@@ -1008,7 +1008,7 @@
           "image_url": "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800"
         }
       ],
-      "booking_url": "https://www.agoda.com/ko-kr/l7-hongdae-by-lotte/hotel/seoul-kr.html",
+      "booking_url": "https://www.lottehotel.com/hongdae-l7/en.html",
       "star_rating": 4,
       "review_count": 381,
       "amenities": [
@@ -4405,7 +4405,7 @@
       "name_en": "Sono Calm Goyang",
       "price_krw": 165000,
       "rating": 4.3,
-      "image_url": "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800",
+      "image_url": "https://assets.sonohotelsresorts.com/daemyung.onycom.cms.component.hotel.file.FileComponent/download?fileId=10000062477",
       "rooms_left": 3,
       "is_available": true,
       "hotel_type": {
@@ -4620,8 +4620,8 @@
         ]
       },
       "platform": {
-        "name": "Booking.com",
-        "booking_url": "https://www.booking.com/hotel/kr/sono-calm-goyang.html"
+        "name": "Direct/Official",
+        "booking_url": "https://www.sonohotelsresorts.com/goyang"
       },
       "booking_guide": {
         "steps_en": [
@@ -4665,7 +4665,7 @@
           "image_url": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800"
         }
       ],
-      "booking_url": "https://www.agoda.com/ko-kr/the-mvl-hotel-goyang/hotel/goyang-si-kr.html",
+      "booking_url": "https://www.sonohotelsresorts.com/goyang",
       "star_rating": 4,
       "review_count": 450,
       "amenities": [
@@ -7886,7 +7886,7 @@
       "name_en": "Kintex by K-Tree",
       "price_krw": 89000,
       "rating": 4.0,
-      "image_url": "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800",
+      "image_url": "https://pix10.agoda.net/hotelImages/253/25367123/25367123_210817154500104675713.jpg?ca=13&ce=1&s=1024x768",
       "rooms_left": 5,
       "is_available": true,
       "hotel_type": {
@@ -8101,8 +8101,8 @@
         ]
       },
       "platform": {
-        "name": "Agoda",
-        "booking_url": "https://www.agoda.com/kintex-by-k-tree/hotel/goyang-si-kr.html"
+        "name": "Direct/Official",
+        "booking_url": "https://www.ktreehotel.com/"
       },
       "booking_guide": {
         "steps_en": [
@@ -8147,7 +8147,7 @@
           "image_url": "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800"
         }
       ],
-      "booking_url": "https://www.agoda.com/ko-kr/kintex-by-k-tree/hotel/goyang-si-kr.html",
+      "booking_url": "https://www.ktreehotel.com/",
       "star_rating": 3,
       "review_count": 200,
       "amenities": [
@@ -11426,7 +11426,7 @@
       "name_en": "Park Hyatt Busan",
       "price_krw": 380000,
       "rating": 4.6,
-      "image_url": "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=800",
+      "image_url": "https://assets.hyatt.com/content/dam/hyatt/hyattdam/images/2016/10/24/1041/Park-Hyatt-Busan-P194-Exterior-Night.jpg/Park-Hyatt-Busan-P194-Exterior-Night.16x9.jpg",
       "rooms_left": 2,
       "is_available": true,
       "hotel_type": {
@@ -11600,8 +11600,8 @@
         "nearby_spots": []
       },
       "platform": {
-        "name": "Agoda",
-        "booking_url": "https://www.agoda.com/park-hyatt-busan/hotel/busan-kr.html"
+        "name": "Direct/Official",
+        "booking_url": "https://www.hyatt.com/en-US/hotel/south-korea/park-hyatt-busan/busph"
       },
       "booking_guide": {
         "steps_en": [
@@ -11646,7 +11646,7 @@
           "image_url": "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800"
         }
       ],
-      "booking_url": "https://www.agoda.com/ko-kr/park-hyatt-busan/hotel/busan-kr.html",
+      "booking_url": "https://www.hyatt.com/en-US/hotel/south-korea/park-hyatt-busan/busph",
       "star_rating": 5,
       "review_count": 2942,
       "amenities": [
@@ -11666,7 +11666,7 @@
       "name_en": "Shilla Stay Haeundae",
       "price_krw": 165000,
       "rating": 4.4,
-      "image_url": "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?auto=format&fit=crop&q=80&w=1080",
+      "image_url": "https://pix10.agoda.net/hotelImages/162/1622699/1622699_17031414430051532822.jpg?ca=6&ce=1&s=1024x768",
       "rooms_left": 5,
       "is_available": true,
       "hotel_type": {
@@ -11838,8 +11838,8 @@
         "nearby_spots": []
       },
       "platform": {
-        "name": "Hotels.com",
-        "booking_url": "https://www.hotels.com/ho-shilla-stay-haeundae/"
+        "name": "Direct/Official",
+        "booking_url": "https://www.shillastay.com/haeundae/index.do"
       },
       "booking_guide": {
         "steps_en": [
@@ -11883,7 +11883,7 @@
           "image_url": "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800"
         }
       ],
-      "booking_url": "https://www.agoda.com/ko-kr/shilla-stay-haeundae/hotel/busan-kr.html",
+      "booking_url": "https://www.shillastay.com/haeundae/index.do",
       "star_rating": 4,
       "review_count": 1588,
       "amenities": [
@@ -11902,7 +11902,7 @@
       "name_en": "Lotte Hotel Busan",
       "price_krw": 220000,
       "rating": 4.4,
-      "image_url": "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800",
+      "image_url": "https://www.lottehotel.com/content/dam/lotte-hotel/lotte/busan/main/180712-1-2000-main-busan-hotel.jpg.thumb.1920.1920.jpg",
       "rooms_left": 4,
       "is_available": true,
       "hotel_type": {
@@ -12076,8 +12076,8 @@
         "nearby_spots": []
       },
       "platform": {
-        "name": "Booking.com",
-        "booking_url": "https://www.booking.com/hotel/kr/lotte-busan.html"
+        "name": "Direct/Official",
+        "booking_url": "https://www.lottehotel.com/busan-hotel/en.html"
       },
       "booking_guide": {
         "steps_en": [
@@ -12121,7 +12121,7 @@
           "image_url": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800"
         }
       ],
-      "booking_url": "https://www.agoda.com/ko-kr/lotte-hotel-busan/hotel/busan-kr.html",
+      "booking_url": "https://www.lottehotel.com/busan-hotel/en.html",
       "star_rating": 5,
       "review_count": 2637,
       "amenities": [
@@ -13769,9 +13769,12 @@
       "rooms_left": 15,
       "price_krw": 165000,
       "price_tier": 3,
-      "platform": "Agoda",
-      "booking_url": "https://www.agoda.com/nine-tree-premier-hotel-insadong/hotel/seoul-kr.html",
-      "image_url": "https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&q=80&w=1080",
+      "platform": {
+        "name": "Direct/Official",
+        "booking_url": "https://www.ninetreehotels.com/nthINS/index.do"
+      },
+      "booking_url": "https://www.ninetreehotels.com/nthINS/index.do",
+      "image_url": "https://pix10.agoda.net/hotelImages/953/9536098/9536098_19092415510081467439.jpg?ca=9&ce=1&s=1024x768",
       "distance_km": 14.5,
       "lat": 37.5735,
       "lng": 126.987,
@@ -14111,7 +14114,7 @@
       "name_en": "Shilla Stay Gwanghwamun",
       "price_krw": 180000,
       "rating": 4.4,
-      "image_url": "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=800",
+      "image_url": "https://pix10.agoda.net/hotelImages/116/1161748/1161748_16061614260043588928.jpg?ca=6&ce=1&s=450x450",
       "rooms_left": 10,
       "is_available": true,
       "hotel_type": {
@@ -14179,8 +14182,8 @@
       },
       "map_detail": {},
       "platform": {
-        "name": "Agoda",
-        "booking_url": ""
+        "name": "Direct/Official",
+        "booking_url": "https://www.shillastay.com/gwanghwamun/index.do"
       },
       "booking_guide": {
         "steps_en": [],
@@ -14190,7 +14193,7 @@
       },
       "last_update": "2026-02-15",
       "nearby": [],
-      "booking_url": "",
+      "booking_url": "https://www.shillastay.com/gwanghwamun/index.do",
       "star_rating": 4,
       "review_count": 1824,
       "amenities": [
@@ -14206,7 +14209,7 @@
       "name_en": "Four Seasons Hotel Seoul",
       "price_krw": 650000,
       "rating": 4.9,
-      "image_url": "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=800",
+      "image_url": "https://images.fourseasons.com/is/image/fourseasons/SEO_034_aspect16x9?wid=1600&hei=900&scl=1",
       "rooms_left": 9,
       "is_available": true,
       "hotel_type": {
@@ -14274,8 +14277,8 @@
       },
       "map_detail": {},
       "platform": {
-        "name": "Agoda",
-        "booking_url": ""
+        "name": "Direct/Official",
+        "booking_url": "https://www.fourseasons.com/seoul/"
       },
       "booking_guide": {
         "steps_en": [],
@@ -14285,7 +14288,7 @@
       },
       "last_update": "2026-02-15",
       "nearby": [],
-      "booking_url": "",
+      "booking_url": "https://www.fourseasons.com/seoul/",
       "star_rating": 5,
       "review_count": 645,
       "amenities": [
@@ -14301,7 +14304,7 @@
       "name_en": "Somerset Palace Seoul",
       "price_krw": 220000,
       "rating": 4.5,
-      "image_url": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800",
+      "image_url": "https://pix10.agoda.net/hotelImages/698/69805/69805_15062410310029983935.jpg?ca=4&ce=1&s=1024x768",
       "rooms_left": 7,
       "is_available": true,
       "hotel_type": {
@@ -14369,8 +14372,8 @@
       },
       "map_detail": {},
       "platform": {
-        "name": "Agoda",
-        "booking_url": ""
+        "name": "Direct/Official",
+        "booking_url": "https://www.discoverasr.com/en/somerset-serviced-residence/south-korea/seoul/somerset-palace-seoul"
       },
       "booking_guide": {
         "steps_en": [],
@@ -14380,7 +14383,7 @@
       },
       "last_update": "2026-02-15",
       "nearby": [],
-      "booking_url": "",
+      "booking_url": "https://www.discoverasr.com/en/somerset-serviced-residence/south-korea/seoul/somerset-palace-seoul",
       "star_rating": 4,
       "review_count": 1105,
       "amenities": [
@@ -16676,7 +16679,7 @@
       "name_en": "Brown Dot Hotel Sajik Baseball Stadium",
       "price_krw": 75000,
       "rating": 4.5,
-      "image_url": "https://images.unsplash.com/photo-1590073242678-70ee3fc28e8e?w=800",
+      "image_url": "https://pix10.agoda.net/hotelImages/588/5886282/5886282_18090715360067860155.jpg?ca=7&ce=1&s=1024x768",
       "rooms_left": 8,
       "is_available": true,
       "hotel_type": {
@@ -16758,8 +16761,8 @@
         "nearby_spots": []
       },
       "platform": {
-        "name": "Yanolja",
-        "booking_url": ""
+        "name": "Direct/Official",
+        "booking_url": "https://www.yanolja.com/hotel/3009581"
       },
       "booking_guide": {
         "steps_en": [],
@@ -16769,7 +16772,7 @@
       },
       "last_update": "2026-02-15",
       "nearby": [],
-      "booking_url": "",
+      "booking_url": "https://www.yanolja.com/hotel/3009581",
       "star_rating": 3,
       "review_count": 120,
       "amenities": [
