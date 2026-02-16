@@ -1,16 +1,13 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { MapPin, ChevronRight, Star, Heart, List, Map as MapIcon, Utensils, Camera, X, TrendingUp, CheckCircle, Users, Timer, Calendar, Ticket, AlertCircle, Train, Footprints, Car } from 'lucide-react';
+import { motion } from 'motion/react';
+import { MapPin, ChevronRight, Star, Heart, List, Users, TrendingUp, Footprints, Car, Calendar, Ticket, Timer, CheckCircle } from 'lucide-react';
 import { ImageWithFallback } from '@/app/components/figma/ImageWithFallback';
 import { translations } from '@/translations';
 import { MapContainer, TileLayer, Marker, useMap, useMapEvents } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import { useAuth } from '@/app/context/AuthContext';
-import * as Popover from '@radix-ui/react-popover';
-import { DayPicker, DateRange } from 'react-day-picker';
+import { DateRange } from 'react-day-picker';
 import { format } from 'date-fns';
-import 'react-day-picker/dist/style.css';
 
 // Fix for default markers in Leaflet
 delete (L.Icon.Default.prototype as any)._getIconUrl;
@@ -61,6 +58,8 @@ interface ResultsProps {
   setDateRange?: (range: DateRange | undefined) => void;
   cityCounts?: Record<string, number>;
   searchQuery?: string;
+  bookmarks: Set<string>;
+  toggleBookmark: (id: string) => void;
 }
 
 type Category = 'all' | 'stay' | 'food' | 'spot';
@@ -229,7 +228,10 @@ const MapUpdater = ({ center }: { center: { lat: number; lng: number } }) => {
   return null;
 };
 
-export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'recommended', initialCity = 'goyang', viewMode, setViewMode, items, mapData, dateRange, setDateRange, cityCounts }: ResultsProps) => {
+
+
+export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'recommended', initialCity = 'goyang', viewMode, setViewMode, items, mapData, dateRange, setDateRange, cityCounts, searchQuery = '', bookmarks, toggleBookmark }: ResultsProps) => {
+
   const [activeCategory, setActiveCategory] = useState<Category>('all');
   const [activeCity, setActiveCity] = useState<City>(initialCity || 'goyang');
   const [selectedMarkerId, setSelectedMarkerId] = useState<string | null>(null);
@@ -288,7 +290,7 @@ export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'r
     ? `${format(dateRange.from, 'MMM d')}${dateRange.to ? ` - ${format(dateRange.to, 'MMM d')}` : ''}`
     : 'Select Dates';
 
-  const { bookmarks, toggleBookmark } = useAuth();
+
 
   useEffect(() => {
     if (initialSort) {
@@ -317,67 +319,8 @@ export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'r
     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
     return R * c;
   };
-  const [searchQuery, setSearchQuery] = useState<string>('');
-  const [suggestions, setSuggestions] = useState<string[]>([]);
-  const [showSuggestions, setShowSuggestions] = useState(false);
 
-  // Generate suggestions based on search query
-  useEffect(() => {
-    if (!searchQuery.trim()) {
-      setSuggestions([]);
-      return;
-    }
 
-    const query = searchQuery.toLowerCase().trim();
-    const scoredSuggestions = new Map<string, number>();
-
-    const addSuggestion = (text: string, score: number) => {
-      const lowerText = text.toLowerCase();
-      // Strict prefix matching for short queries (1 char) to reduce noise
-      if (query.length === 1 && !lowerText.startsWith(query)) return;
-
-      // General matching for longer queries
-      if (query.length > 1 && !lowerText.includes(query)) return;
-
-      // Bonus for starting with the query
-      if (lowerText.startsWith(query)) score += 50;
-
-      const currentScore = scoredSuggestions.get(text) || 0;
-      if (score > currentScore) {
-        scoredSuggestions.set(text, score);
-      }
-    };
-
-    items.forEach(item => {
-      // Hotel Names (Highest Priority)
-      if (item.name) addSuggestion(item.name, 100);
-      if (item.name_kr) addSuggestion(item.name_kr, 100);
-
-      // Locations (Medium Priority)
-      if (item.location) addSuggestion(item.location, 50);
-      if (item.address) addSuggestion(item.address, 40);
-
-      // Tags (Lower Priority)
-      if (item.tags) {
-        item.tags.forEach((tag: any) => {
-          if (typeof tag === 'string') {
-            addSuggestion(tag, 30);
-          }
-        });
-      }
-    });
-
-    // Convert Map to Array, sort by Score (desc), then Length (asc), and take top 5
-    const sortedSuggestions = Array.from(scoredSuggestions.entries())
-      .sort((a, b) => {
-        if (b[1] !== a[1]) return b[1] - a[1]; // Score desc
-        return a[0].length - b[0].length;      // Length asc (shorter match preferred)
-      })
-      .slice(0, 5)
-      .map(entry => entry[0]);
-
-    setSuggestions(sortedSuggestions);
-  }, [searchQuery, items]);
 
   // Filter items based on city, category, and search query
   const filteredItems = useMemo(() => {
@@ -580,6 +523,7 @@ export const Results = ({ onSelectHotel, t, currentLang = 'en', initialSort = 'r
                   const tags = rawTags.filter((tag: any): tag is string => typeof tag === 'string' && tag.length > 0);
 
                   const isLiked = bookmarks.has(hotel.id);
+                  // console.log(`Rendering hotel ${hotel.id}, isLiked: ${isLiked}, bookmarks:`, Array.from(bookmarks));
 
                   const nearestStation = (() => {
                     const stations = SPECIAL_LOCATIONS[activeCity]?.stations || [];

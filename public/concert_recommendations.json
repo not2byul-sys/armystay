@@ -256,7 +256,8 @@
       ],
       "distance_km": 16.7,
       "fan_match_score": 144.0,
-      "link": "https://www.agoda.com/search?text=Nine+Tree+Premier+Hotel"
+      "link": "https://www.agoda.com/search?text=Nine+Tree+Premier+Hotel",
+      "city": "seoul"
     },
     {
       "id": "hotel_99279",
@@ -508,7 +509,8 @@
       ],
       "distance_km": 17.1,
       "fan_match_score": 144.0,
-      "link": "https://www.agoda.com/search?text=Mercure+Ambassador+Seoul+Hongdae"
+      "link": "https://www.agoda.com/search?text=Mercure+Ambassador+Seoul+Hongdae",
+      "city": "seoul"
     },
     {
       "id": "hotel_20887",
@@ -763,7 +765,8 @@
       ],
       "distance_km": 17.3,
       "fan_match_score": 144.0,
-      "link": "https://www.booking.com/searchresults.html?ss=RYSE+Autograph+Collection"
+      "link": "https://www.booking.com/searchresults.html?ss=RYSE+Autograph+Collection",
+      "city": "seoul"
     },
     {
       "id": "hotel_41184",
@@ -1016,7 +1019,8 @@
       ],
       "distance_km": 17.3,
       "fan_match_score": 144.0,
-      "link": "https://www.agoda.com/search?text=L7+Hongdae+by+Lotte"
+      "link": "https://www.agoda.com/search?text=L7+Hongdae+by+Lotte",
+      "city": "seoul"
     },
     {
       "id": "hotel_43014",
@@ -1261,7 +1265,8 @@
       "name_ko": "24 게스트하우스 홍대",
       "distance_km": 17.3,
       "fan_match_score": 144.0,
-      "link": "https://www.agoda.com/search?text=24+Guesthouse+Hongdae"
+      "link": "https://www.agoda.com/search?text=24+Guesthouse+Hongdae",
+      "city": "seoul"
     },
     {
       "id": "hotel_21568",
@@ -1508,7 +1513,8 @@
       ],
       "distance_km": 17.3,
       "fan_match_score": 144.0,
-      "link": "https://www.agoda.com/search?text=Marigold+Hotel+Hongdae"
+      "link": "https://www.agoda.com/search?text=Marigold+Hotel+Hongdae",
+      "city": "seoul"
     },
     {
       "id": "hotel_18462",
@@ -1745,7 +1751,8 @@
       "name_ko": "준 게스트하우스 홍대",
       "distance_km": 17.4,
       "fan_match_score": 144.0,
-      "link": "https://www.agoda.com/search?text=Jun+Guesthouse+Hongdae"
+      "link": "https://www.agoda.com/search?text=Jun+Guesthouse+Hongdae",
+      "city": "seoul"
     },
     {
       "id": "hotel_66198",
@@ -1990,7 +1997,8 @@
       "name_ko": "홍대 셰프 게스트하우스",
       "distance_km": 17.4,
       "fan_match_score": 144.0,
-      "link": "https://www.agoda.com/search?text=Hongdae+Chef+Guesthouse"
+      "link": "https://www.agoda.com/search?text=Hongdae+Chef+Guesthouse",
+      "city": "seoul"
     },
     {
       "id": "hotel_70733",
@@ -2227,7 +2235,8 @@
       "name_ko": "홍대 스타일 게스트하우스",
       "distance_km": 17.4,
       "fan_match_score": 144.0,
-      "link": "https://www.agoda.com/search?text=Hongdae+Style+Guesthouse"
+      "link": "https://www.agoda.com/search?text=Hongdae+Style+Guesthouse",
+      "city": "seoul"
     },
     {
       "id": "hotel_47087",
@@ -2481,7 +2490,8 @@
       ],
       "distance_km": 17.5,
       "fan_match_score": 144.0,
-      "link": "https://www.agoda.com/search?text=Stanford+Hotel+Seoul"
+      "link": "https://www.agoda.com/search?text=Stanford+Hotel+Seoul",
+      "city": "seoul"
     },
     {
       "id": "hotel_38784",
@@ -2716,7 +2726,8 @@
       "name_ko": "광화문 게스트하우스 궁",
       "distance_km": 20.2,
       "fan_match_score": 144.0,
-      "link": "https://www.agoda.com/search?text=Goong+Guesthouse+Gwanghwamun"
+      "link": "https://www.agoda.com/search?text=Goong+Guesthouse+Gwanghwamun",
+      "city": "seoul"
     },
     {
       "id": "hotel_91729",
@@ -2957,7 +2968,8 @@
       ],
       "distance_km": 20.8,
       "fan_match_score": 144.0,
-      "link": "https://www.agoda.com/search?text=Fraser+Place+Central+Seoul"
+      "link": "https://www.agoda.com/search?text=Fraser+Place+Central+Seoul",
+      "city": "seoul"
     },
     {
       "id": "hotel_07871",
@@ -3203,7 +3215,8 @@
       ],
       "distance_km": 20.9,
       "fan_match_score": 144.0,
-      "link": "https://www.agoda.com/search?text=Lotte+Hotel+Seoul"
+      "link": "https://www.agoda.com/search?text=Lotte+Hotel+Seoul",
+      "city": "seoul"
     },
     {
       "id": "hotel_08635",
@@ -3451,7 +3464,8 @@
       ],
       "distance_km": 21.0,
       "fan_match_score": 144.0,
-      "link": "https://www.agoda.com/search?text=The+Westin+Chosun+Seoul"
+      "link": "https://www.agoda.com/search?text=The+Westin+Chosun+Seoul",
+      "city": "seoul"
     },
     {
       "id": "hotel_gw019",
@@ -3576,138 +3590,6 @@
       ],
       "type": "Hotel",
       "notes": "비즈니스 가성비",
-      "fan_match_score": 144.0,
-      "link": "https://www.agoda.com/search?text=Hotel+Biz+Jongno+Insadong"
-    },
-    {
-      "id": "hotel_99279",
-      "name_en": "Mercure Ambassador Seoul Hongdae",
-      "lat": 37.558,
-      "lng": 126.921,
-      "price_krw": 155000,
-      "booking_url": "https://www.agoda.com/ko-kr/mercure-ambassador-seoul-hongdae/hotel/seoul-kr.html",
-      "distance_km": 17.1,
-      "fan_match_score": 144.0,
-      "link": "https://www.agoda.com/search?text=Mercure+Ambassador+Seoul+Hongdae"
-    },
-    {
-      "id": "hotel_41184",
-      "name_en": "L7 Hongdae by Lotte",
-      "lat": 37.557,
-      "lng": 126.9235,
-      "price_krw": 175000,
-      "booking_url": "https://www.agoda.com/ko-kr/l7-hongdae-by-lotte/hotel/seoul-kr.html",
-      "distance_km": 17.3,
-      "fan_match_score": 144.0,
-      "link": "https://www.agoda.com/search?text=L7+Hongdae+by+Lotte"
-    },
-    {
-      "id": "hotel_43014",
-      "name_en": "24 Guesthouse Hongdae",
-      "lat": 37.5545,
-      "lng": 126.92,
-      "price_krw": 45000,
-      "booking_url": "https://www.agoda.com/ko-kr/24-guesthouse-hongdae/hotel/seoul-kr.html",
-      "distance_km": 17.3,
-      "fan_match_score": 144.0,
-      "link": "https://www.agoda.com/search?text=24+Guesthouse+Hongdae"
-    },
-    {
-      "id": "hotel_21568",
-      "name_en": "Marigold Hotel Hongdae",
-      "lat": 37.5535,
-      "lng": 126.9195,
-      "price_krw": 89000,
-      "booking_url": "https://www.agoda.com/ko-kr/marigold-hotel/hotel/seoul-kr.html",
-      "distance_km": 17.3,
-      "fan_match_score": 144.0,
-      "link": "https://www.agoda.com/search?text=Marigold+Hotel+Hongdae"
-    },
-    {
-      "id": "hotel_18462",
-      "name_en": "Jun Guesthouse Hongdae",
-      "lat": 37.556,
-      "lng": 126.924,
-      "price_krw": 55000,
-      "booking_url": "https://www.agoda.com/ko-kr/jun-guesthouse-hongdae/hotel/seoul-kr.html",
-      "distance_km": 17.4,
-      "fan_match_score": 144.0,
-      "link": "https://www.agoda.com/search?text=Jun+Guesthouse+Hongdae"
-    },
-    {
-      "id": "hotel_66198",
-      "name_en": "Hongdae Chef Guesthouse",
-      "lat": 37.555,
-      "lng": 126.9225,
-      "price_krw": 35000,
-      "booking_url": "https://www.agoda.com/hongdae-chef-guesthouse/hotel/seoul-kr.html",
-      "distance_km": 17.4,
-      "fan_match_score": 144.0,
-      "link": "https://www.agoda.com/search?text=Hongdae+Chef+Guesthouse"
-    },
-    {
-      "id": "hotel_70733",
-      "name_en": "Hongdae Style Guesthouse",
-      "lat": 37.554,
-      "lng": 126.9215,
-      "price_krw": 65000,
-      "booking_url": "https://www.agoda.com/hongdae-style-guesthouse_2/hotel/seoul-kr.html",
-      "distance_km": 17.4,
-      "fan_match_score": 144.0,
-      "link": "https://www.agoda.com/search?text=Hongdae+Style+Guesthouse"
-    },
-    {
-      "id": "hotel_38784",
-      "name_en": "Goong Guesthouse Gwanghwamun",
-      "lat": 37.575,
-      "lng": 126.9775,
-      "price_krw": 55000,
-      "booking_url": "https://www.agoda.com/ko-kr/goong-guesthouse-gwanghwamun/hotel/seoul-kr.html",
-      "distance_km": 20.2,
-      "fan_match_score": 144.0,
-      "link": "https://www.agoda.com/search?text=Goong+Guesthouse+Gwanghwamun"
-    },
-    {
-      "id": "hotel_gw019",
-      "name_en": "24 Guesthouse Seoul Jongno",
-      "lat": 37.571,
-      "lng": 126.99,
-      "price_krw": 45000,
-      "booking_url": "https://www.agoda.com/24-guesthouse-seoul-jongno/hotel/seoul-kr.html",
-      "distance_km": 21.4,
-      "fan_match_score": 144.0,
-      "link": "https://www.agoda.com/search?text=24+Guesthouse+Seoul+Jongno"
-    },
-    {
-      "id": "hotel_gw020",
-      "name_en": "G House Guesthouse Jongno",
-      "lat": 37.5705,
-      "lng": 126.9895,
-      "price_krw": 38000,
-      "booking_url": "https://www.agoda.com/g-house-guesthouse-jongno/hotel/seoul-kr.html",
-      "distance_km": 21.4,
-      "fan_match_score": 144.0,
-      "link": "https://www.agoda.com/search?text=G+House+Guesthouse+Jongno"
-    },
-    {
-      "id": "hotel_gw022",
-      "name_en": "Hostel Chloe Jongno",
-      "lat": 37.5698,
-      "lng": 126.9888,
-      "price_krw": 28000,
-      "booking_url": "https://www.agoda.com/hostel-chloe-jongno/hotel/seoul-kr.html",
-      "distance_km": 21.4,
-      "fan_match_score": 144.0,
-      "link": "https://www.agoda.com/search?text=Hostel+Chloe+Jongno"
-    },
-    {
-      "id": "hotel_gw027",
-      "name_en": "Hotel Biz Jongno Insadong",
-      "lat": 37.573,
-      "lng": 126.9875,
-      "price_krw": 78000,
-      "booking_url": "https://www.agoda.com/hotel-biz-jongno-insadong/hotel/seoul-kr.html",
-      "distance_km": 21.1,
       "fan_match_score": 144.0,
       "link": "https://www.agoda.com/search?text=Hotel+Biz+Jongno+Insadong"
     },
@@ -3977,7 +3859,8 @@
       "name_ko": "부티크호텔 K 일산",
       "distance_km": 0.2,
       "fan_match_score": 114.8,
-      "link": "https://www.agoda.com/search?text=Boutiquehotel+K+Ilsan"
+      "link": "https://www.agoda.com/search?text=Boutiquehotel+K+Ilsan",
+      "city": "goyang"
     },
     {
       "id": "hotel_69304",
@@ -4244,7 +4127,8 @@
       "name_ko": "어반이스트 호텔 고양",
       "distance_km": 0.2,
       "fan_match_score": 114.8,
-      "link": "https://www.agoda.com/search?text=Urban-Est+Hotel+Goyang"
+      "link": "https://www.agoda.com/search?text=Urban-Est+Hotel+Goyang",
+      "city": "goyang"
     },
     {
       "id": "hotel_41495",
@@ -4513,7 +4397,8 @@
       "name_ko": "일산 킨텍스 스위트룸",
       "distance_km": 0.2,
       "fan_match_score": 114.8,
-      "link": "https://www.agoda.com/search?text=Ilsan+Kintex+Suite+Room"
+      "link": "https://www.agoda.com/search?text=Ilsan+Kintex+Suite+Room",
+      "city": "goyang"
     },
     {
       "id": "hotel_19685",
@@ -4791,7 +4676,8 @@
       ],
       "distance_km": 0.3,
       "fan_match_score": 114.8,
-      "link": "https://www.booking.com/searchresults.html?ss=Sono+Calm+Goyang"
+      "link": "https://www.booking.com/searchresults.html?ss=Sono+Calm+Goyang",
+      "city": "goyang"
     },
     {
       "id": "hotel_71135",
@@ -5061,7 +4947,8 @@
       "name_ko": "앙띠브 호텔 일산",
       "distance_km": 0.3,
       "fan_match_score": 114.8,
-      "link": "https://www.agoda.com/search?text=Antives+Hotel+Ilsan"
+      "link": "https://www.agoda.com/search?text=Antives+Hotel+Ilsan",
+      "city": "goyang"
     },
     {
       "id": "hotel_72852",
@@ -5330,7 +5217,8 @@
       "name_ko": "고양 유지 호텔",
       "distance_km": 0.5,
       "fan_match_score": 114.8,
-      "link": "https://www.agoda.com/search?text=Goyang+Yuji+Hotel"
+      "link": "https://www.agoda.com/search?text=Goyang+Yuji+Hotel",
+      "city": "goyang"
     },
     {
       "id": "hotel_57882",
@@ -5602,7 +5490,8 @@
       "name_ko": "호텔 클레오 일산",
       "distance_km": 0.6,
       "fan_match_score": 114.8,
-      "link": "https://www.agoda.com/search?text=Hotel+Cleo+Ilsan"
+      "link": "https://www.agoda.com/search?text=Hotel+Cleo+Ilsan",
+      "city": "goyang"
     },
     {
       "id": "hotel_gy001",
@@ -5778,7 +5667,8 @@
       ],
       "distance_km": 0.3,
       "fan_match_score": 114.8,
-      "link": "https://www.agoda.com/search?text=Ramada+Encore+by+Wyndham+Goyang+Soho"
+      "link": "https://www.agoda.com/search?text=Ramada+Encore+by+Wyndham+Goyang+Soho",
+      "city": "goyang"
     },
     {
       "id": "hotel_gy003",
@@ -5932,7 +5822,8 @@
       ],
       "distance_km": 0.3,
       "fan_match_score": 114.8,
-      "link": "https://www.agoda.com/search?text=Stars+Hotel+Ilsan"
+      "link": "https://www.agoda.com/search?text=Stars+Hotel+Ilsan",
+      "city": "goyang"
     },
     {
       "id": "hotel_gy004",
@@ -6092,7 +5983,8 @@
       ],
       "distance_km": 0.6,
       "fan_match_score": 114.8,
-      "link": "https://www.agoda.com/search?text=Benikea+Premier+Hotel+Central+Plaza"
+      "link": "https://www.agoda.com/search?text=Benikea+Premier+Hotel+Central+Plaza",
+      "city": "goyang"
     },
     {
       "id": "hotel_gy005",
@@ -6247,7 +6139,8 @@
       ],
       "distance_km": 0.2,
       "fan_match_score": 114.8,
-      "link": "https://www.agoda.com/search?text=Hotel+Queen+Ilsan"
+      "link": "https://www.agoda.com/search?text=Hotel+Queen+Ilsan",
+      "city": "goyang"
     },
     {
       "id": "hotel_gy006",
@@ -6401,7 +6294,8 @@
       ],
       "distance_km": 0.6,
       "fan_match_score": 114.8,
-      "link": "https://www.agoda.com/search?text=Stay+Hotel+Goyang"
+      "link": "https://www.agoda.com/search?text=Stay+Hotel+Goyang",
+      "city": "goyang"
     },
     {
       "id": "hotel_gy007",
@@ -6556,7 +6450,8 @@
       ],
       "distance_km": 0.6,
       "fan_match_score": 114.8,
-      "link": "https://www.agoda.com/search?text=Kobos+Hotel+Ilsan"
+      "link": "https://www.agoda.com/search?text=Kobos+Hotel+Ilsan",
+      "city": "goyang"
     },
     {
       "id": "hotel_gy009",
@@ -6712,7 +6607,8 @@
       ],
       "distance_km": 0.2,
       "fan_match_score": 114.8,
-      "link": "https://www.agoda.com/search?text=Luce+Hotel+Ilsan"
+      "link": "https://www.agoda.com/search?text=Luce+Hotel+Ilsan",
+      "city": "goyang"
     },
     {
       "id": "hotel_gy011",
@@ -6867,7 +6763,8 @@
       ],
       "distance_km": 0.3,
       "fan_match_score": 114.8,
-      "link": "https://www.agoda.com/search?text=Hotel+Inspire+Ilsan"
+      "link": "https://www.agoda.com/search?text=Hotel+Inspire+Ilsan",
+      "city": "goyang"
     },
     {
       "id": "hotel_gy013",
@@ -7024,7 +6921,8 @@
       ],
       "distance_km": 0.8,
       "fan_match_score": 114.8,
-      "link": "https://www.agoda.com/search?text=Palace+Hotel+Ilsan"
+      "link": "https://www.agoda.com/search?text=Palace+Hotel+Ilsan",
+      "city": "goyang"
     },
     {
       "id": "hotel_gy014",
@@ -7178,194 +7076,8 @@
       ],
       "distance_km": 0.6,
       "fan_match_score": 114.8,
-      "link": "https://www.agoda.com/search?text=Hotel+Diamond+Ilsan"
-    },
-    {
-      "id": "hotel_50905",
-      "name_en": "Boutiquehotel K Ilsan",
-      "lat": 37.6575,
-      "lng": 126.7705,
-      "price_krw": 89000,
-      "booking_url": "https://www.agoda.com/ko-kr/boutiquehotel-k-ilsan/hotel/goyang-si-kr.html",
-      "distance_km": 0.2,
-      "fan_match_score": 114.8,
-      "link": "https://www.agoda.com/search?text=Boutiquehotel+K+Ilsan"
-    },
-    {
-      "id": "hotel_69304",
-      "name_en": "Urban-Est Hotel Goyang",
-      "lat": 37.654,
-      "lng": 126.773,
-      "price_krw": 75000,
-      "booking_url": "https://www.agoda.com/ko-kr/h31249339/hotel/goyang-si-kr.html",
-      "distance_km": 0.2,
-      "fan_match_score": 114.8,
-      "link": "https://www.agoda.com/search?text=Urban-Est+Hotel+Goyang"
-    },
-    {
-      "id": "hotel_41495",
-      "name_en": "Ilsan Kintex Suite Room",
-      "lat": 37.656,
-      "lng": 126.769,
-      "price_krw": 65000,
-      "booking_url": "https://www.agoda.com/ko-kr/ilsan-kintex-suite-room/hotel/goyang-si-kr.html",
-      "distance_km": 0.2,
-      "fan_match_score": 114.8,
-      "link": "https://www.agoda.com/search?text=Ilsan+Kintex+Suite+Room"
-    },
-    {
-      "id": "hotel_19685",
-      "name_en": "Sono Calm Goyang",
-      "lat": 37.658,
-      "lng": 126.77,
-      "price_krw": 165000,
-      "booking_url": "https://www.agoda.com/ko-kr/the-mvl-hotel-goyang/hotel/goyang-si-kr.html",
-      "distance_km": 0.3,
-      "fan_match_score": 114.8,
-      "link": "https://www.agoda.com/search?text=Sono+Calm+Goyang"
-    },
-    {
-      "id": "hotel_71135",
-      "name_en": "Antives Hotel Ilsan",
-      "lat": 37.6555,
-      "lng": 126.775,
-      "price_krw": 85000,
-      "booking_url": "https://www.agoda.com/ko-kr/antives-hotel-ilsan/hotel/goyang-si-kr.html",
-      "distance_km": 0.3,
-      "fan_match_score": 114.8,
-      "link": "https://www.agoda.com/search?text=Antives+Hotel+Ilsan"
-    },
-    {
-      "id": "hotel_72852",
-      "name_en": "Goyang Yuji Hotel",
-      "lat": 37.652,
-      "lng": 126.768,
-      "price_krw": 55000,
-      "booking_url": "https://www.agoda.com/ko-kr/goyang-yuji-hotel/hotel/goyang-si-kr.html",
-      "distance_km": 0.5,
-      "fan_match_score": 114.8,
-      "link": "https://www.agoda.com/search?text=Goyang+Yuji+Hotel"
-    },
-    {
-      "id": "hotel_57882",
-      "name_en": "Hotel Cleo Ilsan",
-      "lat": 37.6585,
-      "lng": 126.765,
-      "price_krw": 79000,
-      "booking_url": "https://www.agoda.com/cleopatra-hotel/hotel/goyang-si-kr.html",
-      "distance_km": 0.6,
-      "fan_match_score": 114.8,
-      "link": "https://www.agoda.com/search?text=Hotel+Cleo+Ilsan"
-    },
-    {
-      "id": "hotel_gy001",
-      "name_en": "Ramada Encore by Wyndham Goyang Soho",
-      "lat": 37.6543,
-      "lng": 126.7689,
-      "price_krw": 95000,
-      "booking_url": "https://www.agoda.com/ko-kr/ramada-encore-by-wyndham-goyang-soho/hotel/goyang-si-kr.html",
-      "distance_km": 0.3,
-      "fan_match_score": 114.8,
-      "link": "https://www.agoda.com/search?text=Ramada+Encore+by+Wyndham+Goyang+Soho"
-    },
-    {
-      "id": "hotel_gy003",
-      "name_en": "Stars Hotel Ilsan",
-      "lat": 37.6578,
-      "lng": 126.7732,
-      "price_krw": 68000,
-      "booking_url": "https://www.agoda.com/ko-kr/stars-hotel-ilsan/hotel/goyang-si-kr.html",
-      "distance_km": 0.3,
-      "fan_match_score": 114.8,
-      "link": "https://www.agoda.com/search?text=Stars+Hotel+Ilsan"
-    },
-    {
-      "id": "hotel_gy004",
-      "name_en": "Benikea Premier Hotel Central Plaza",
-      "lat": 37.6512,
-      "lng": 126.7756,
-      "price_krw": 110000,
-      "booking_url": "https://www.agoda.com/ko-kr/benikea-premier-central-plaza-hotel/hotel/goyang-si-kr.html",
-      "distance_km": 0.6,
-      "fan_match_score": 114.8,
-      "link": "https://www.agoda.com/search?text=Benikea+Premier+Hotel+Central+Plaza"
-    },
-    {
-      "id": "hotel_gy005",
-      "name_en": "Hotel Queen Ilsan",
-      "lat": 37.6567,
-      "lng": 126.7698,
-      "price_krw": 72000,
-      "booking_url": "https://www.agoda.com/ko-kr/hotel-queen-ilsan/hotel/goyang-si-kr.html",
-      "distance_km": 0.2,
-      "fan_match_score": 114.8,
-      "link": "https://www.agoda.com/search?text=Hotel+Queen+Ilsan"
-    },
-    {
-      "id": "hotel_gy006",
-      "name_en": "Stay Hotel Goyang",
-      "lat": 37.6598,
-      "lng": 126.7665,
-      "price_krw": 59000,
-      "booking_url": "https://www.agoda.com/ko-kr/stay-hotel-goyang/hotel/goyang-si-kr.html",
-      "distance_km": 0.6,
-      "fan_match_score": 114.8,
-      "link": "https://www.agoda.com/search?text=Stay+Hotel+Goyang"
-    },
-    {
-      "id": "hotel_gy007",
-      "name_en": "Kobos Hotel Ilsan",
-      "lat": 37.6545,
-      "lng": 126.7778,
-      "price_krw": 78000,
-      "booking_url": "https://www.agoda.com/ko-kr/kobos-hotel/hotel/goyang-si-kr.html",
-      "distance_km": 0.6,
-      "fan_match_score": 114.8,
-      "link": "https://www.agoda.com/search?text=Kobos+Hotel+Ilsan"
-    },
-    {
-      "id": "hotel_gy009",
-      "name_en": "Luce Hotel Ilsan",
-      "lat": 37.6534,
-      "lng": 126.7712,
-      "price_krw": 82000,
-      "booking_url": "https://www.agoda.com/ko-kr/luce-hotel-ilsan/hotel/goyang-si-kr.html",
-      "distance_km": 0.2,
-      "fan_match_score": 114.8,
-      "link": "https://www.agoda.com/search?text=Luce+Hotel+Ilsan"
-    },
-    {
-      "id": "hotel_gy011",
-      "name_en": "Hotel Inspire Ilsan",
-      "lat": 37.6556,
-      "lng": 126.7745,
-      "price_krw": 75000,
-      "booking_url": "https://www.agoda.com/ko-kr/hotel-inspire-ilsan/hotel/goyang-si-kr.html",
-      "distance_km": 0.3,
-      "fan_match_score": 114.8,
-      "link": "https://www.agoda.com/search?text=Hotel+Inspire+Ilsan"
-    },
-    {
-      "id": "hotel_gy013",
-      "name_en": "Palace Hotel Ilsan",
-      "lat": 37.6523,
-      "lng": 126.7801,
-      "price_krw": 88000,
-      "booking_url": "https://www.agoda.com/ko-kr/palace-hotel-ilsan/hotel/goyang-si-kr.html",
-      "distance_km": 0.8,
-      "fan_match_score": 114.8,
-      "link": "https://www.agoda.com/search?text=Palace+Hotel+Ilsan"
-    },
-    {
-      "id": "hotel_gy014",
-      "name_en": "Hotel Diamond Ilsan",
-      "lat": 37.6601,
-      "lng": 126.7678,
-      "price_krw": 69000,
-      "booking_url": "https://www.agoda.com/ko-kr/hotel-diamond-ilsan/hotel/goyang-si-kr.html",
-      "distance_km": 0.6,
-      "fan_match_score": 114.8,
-      "link": "https://www.agoda.com/search?text=Hotel+Diamond+Ilsan"
+      "link": "https://www.agoda.com/search?text=Hotel+Diamond+Ilsan",
+      "city": "goyang"
     },
     {
       "id": "hotel_48482",
@@ -7631,7 +7343,8 @@
       "name_ko": "글로스터호텔 킨텍스",
       "distance_km": 1.2,
       "fan_match_score": 97.2,
-      "link": "https://www.agoda.com/search?text=Gloucester+Hotel+Kintex"
+      "link": "https://www.agoda.com/search?text=Gloucester+Hotel+Kintex",
+      "city": "goyang"
     },
     {
       "id": "hotel_22827",
@@ -7898,7 +7611,8 @@
       "name_ko": "MVL 호텔 고양",
       "distance_km": 2.0,
       "fan_match_score": 97.2,
-      "link": "https://www.agoda.com/search?text=The+MVL+Hotel+Goyang"
+      "link": "https://www.agoda.com/search?text=The+MVL+Hotel+Goyang",
+      "city": "goyang"
     },
     {
       "id": "hotel_55221",
@@ -8164,7 +7878,8 @@
       "name_ko": "MVL 호텔 킨텍스",
       "distance_km": 2.6,
       "fan_match_score": 97.2,
-      "link": "https://www.agoda.com/search?text=The+MVL+Hotel+Kintex"
+      "link": "https://www.agoda.com/search?text=The+MVL+Hotel+Kintex",
+      "city": "goyang"
     },
     {
       "id": "hotel_19004",
@@ -8441,7 +8156,8 @@
       ],
       "distance_km": 2.7,
       "fan_match_score": 97.2,
-      "link": "https://www.agoda.com/search?text=Kintex+by+K-Tree"
+      "link": "https://www.agoda.com/search?text=Kintex+by+K-Tree",
+      "city": "goyang"
     },
     {
       "id": "hotel_89931",
@@ -8722,7 +8438,8 @@
       ],
       "distance_km": 2.9,
       "fan_match_score": 97.2,
-      "link": "https://www.agoda.com/search?text=MVL+Hotel+Kintex"
+      "link": "https://www.agoda.com/search?text=MVL+Hotel+Kintex",
+      "city": "goyang"
     },
     {
       "id": "hotel_gy002",
@@ -8878,7 +8595,8 @@
       ],
       "distance_km": 2.4,
       "fan_match_score": 97.2,
-      "link": "https://www.agoda.com/search?text=N+Hotel+Kintex"
+      "link": "https://www.agoda.com/search?text=N+Hotel+Kintex",
+      "city": "goyang"
     },
     {
       "id": "hotel_gy008",
@@ -9032,7 +8750,8 @@
       ],
       "distance_km": 1.2,
       "fan_match_score": 97.2,
-      "link": "https://www.agoda.com/search?text=Hotel+Morning+Calm+Goyang"
+      "link": "https://www.agoda.com/search?text=Hotel+Morning+Calm+Goyang",
+      "city": "goyang"
     },
     {
       "id": "hotel_gy010",
@@ -9189,7 +8908,8 @@
       ],
       "distance_km": 2.0,
       "fan_match_score": 97.2,
-      "link": "https://www.agoda.com/search?text=Hotel+M+Kintex"
+      "link": "https://www.agoda.com/search?text=Hotel+M+Kintex",
+      "city": "goyang"
     },
     {
       "id": "hotel_gy012",
@@ -9350,7 +9070,8 @@
       ],
       "distance_km": 2.6,
       "fan_match_score": 97.2,
-      "link": "https://www.agoda.com/search?text=Kintex+Hotel"
+      "link": "https://www.agoda.com/search?text=Kintex+Hotel",
+      "city": "goyang"
     },
     {
       "id": "hotel_gy015",
@@ -9513,117 +9234,8 @@
       ],
       "distance_km": 1.5,
       "fan_match_score": 97.2,
-      "link": "https://www.agoda.com/search?text=Grand+Hotel+Goyang"
-    },
-    {
-      "id": "hotel_48482",
-      "name_en": "Gloucester Hotel Kintex",
-      "lat": 37.662,
-      "lng": 126.76,
-      "price_krw": 125000,
-      "booking_url": "https://www.agoda.com/ko-kr/kintex-by-k-tree/hotel/goyang-si-kr.html",
-      "distance_km": 1.2,
-      "fan_match_score": 97.2,
-      "link": "https://www.agoda.com/search?text=Gloucester+Hotel+Kintex"
-    },
-    {
-      "id": "hotel_22827",
-      "name_en": "The MVL Hotel Goyang",
-      "lat": 37.665,
-      "lng": 126.752,
-      "price_krw": 155000,
-      "booking_url": "https://www.agoda.com/ko-kr/the-mvl-hotel-goyang/hotel/goyang-si-kr.html",
-      "distance_km": 2.0,
-      "fan_match_score": 97.2,
-      "link": "https://www.agoda.com/search?text=The+MVL+Hotel+Goyang"
-    },
-    {
-      "id": "hotel_55221",
-      "name_en": "The MVL Hotel Kintex",
-      "lat": 37.6715,
-      "lng": 126.7495,
-      "price_krw": 145000,
-      "booking_url": "https://www.agoda.com/en-ie/the-mvl-hotel-kintex-h73813327/hotel/goyang-si-kr.html",
-      "distance_km": 2.6,
-      "fan_match_score": 97.2,
-      "link": "https://www.agoda.com/search?text=The+MVL+Hotel+Kintex"
-    },
-    {
-      "id": "hotel_19004",
-      "name_en": "Kintex by K-Tree",
-      "lat": 37.6693,
-      "lng": 126.7458,
-      "price_krw": 89000,
-      "booking_url": "https://www.agoda.com/ko-kr/kintex-by-k-tree/hotel/goyang-si-kr.html",
-      "distance_km": 2.7,
-      "fan_match_score": 97.2,
-      "link": "https://www.agoda.com/search?text=Kintex+by+K-Tree"
-    },
-    {
-      "id": "hotel_89931",
-      "name_en": "MVL Hotel Kintex",
-      "lat": 37.6701,
-      "lng": 126.7445,
-      "price_krw": 195000,
-      "booking_url": "https://www.agoda.com/ko-kr/the-mvl-hotel-kintex/hotel/goyang-si-kr.html",
-      "distance_km": 2.9,
-      "fan_match_score": 97.2,
-      "link": "https://www.agoda.com/search?text=MVL+Hotel+Kintex"
-    },
-    {
-      "id": "hotel_gy002",
-      "name_en": "N Hotel Kintex",
-      "lat": 37.6685,
-      "lng": 126.7502,
-      "price_krw": 85000,
-      "booking_url": "https://www.agoda.com/ko-kr/n-hotel-kintex/hotel/goyang-si-kr.html",
-      "distance_km": 2.4,
-      "fan_match_score": 97.2,
-      "link": "https://www.agoda.com/search?text=N+Hotel+Kintex"
-    },
-    {
-      "id": "hotel_gy008",
-      "name_en": "Hotel Morning Calm Goyang",
-      "lat": 37.6489,
-      "lng": 126.7823,
-      "price_krw": 65000,
-      "booking_url": "https://www.agoda.com/ko-kr/hotel-morning-calm-goyang/hotel/goyang-si-kr.html",
-      "distance_km": 1.2,
-      "fan_match_score": 97.2,
-      "link": "https://www.agoda.com/search?text=Hotel+Morning+Calm+Goyang"
-    },
-    {
-      "id": "hotel_gy010",
-      "name_en": "Hotel M Kintex",
-      "lat": 37.6672,
-      "lng": 126.7534,
-      "price_krw": 98000,
-      "booking_url": "https://www.agoda.com/ko-kr/hotel-m-kintex/hotel/goyang-si-kr.html",
-      "distance_km": 2.0,
-      "fan_match_score": 97.2,
-      "link": "https://www.agoda.com/search?text=Hotel+M+Kintex"
-    },
-    {
-      "id": "hotel_gy012",
-      "name_en": "Kintex Hotel",
-      "lat": 37.6698,
-      "lng": 126.7478,
-      "price_krw": 105000,
-      "booking_url": "https://www.agoda.com/ko-kr/kintex-hotel/hotel/goyang-si-kr.html",
-      "distance_km": 2.6,
-      "fan_match_score": 97.2,
-      "link": "https://www.agoda.com/search?text=Kintex+Hotel"
-    },
-    {
-      "id": "hotel_gy015",
-      "name_en": "Grand Hotel Goyang",
-      "lat": 37.6478,
-      "lng": 126.7856,
-      "price_krw": 125000,
-      "booking_url": "https://www.agoda.com/ko-kr/grand-hotel-goyang/hotel/goyang-si-kr.html",
-      "distance_km": 1.5,
-      "fan_match_score": 97.2,
-      "link": "https://www.agoda.com/search?text=Grand+Hotel+Goyang"
+      "link": "https://www.agoda.com/search?text=Grand+Hotel+Goyang",
+      "city": "goyang"
     },
     {
       "id": "hotel_85853",
@@ -9843,7 +9455,8 @@
       "name_ko": "게스트하우스 DMZ 스테이",
       "distance_km": 7.8,
       "fan_match_score": 84.0,
-      "link": "https://www.agoda.com/search?text=The+Guesthouse+DMZ+Stay"
+      "link": "https://www.agoda.com/search?text=The+Guesthouse+DMZ+Stay",
+      "city": "paju"
     },
     {
       "id": "hotel_55660",
@@ -10068,7 +9681,8 @@
       "name_ko": "DMZ 호텔 & 투어 가이드",
       "distance_km": 8.5,
       "fan_match_score": 84.0,
-      "link": "https://www.agoda.com/search?text=DMZ+Hotel+&+Tour+Guide"
+      "link": "https://www.agoda.com/search?text=DMZ+Hotel+&+Tour+Guide",
+      "city": "paju"
     },
     {
       "id": "hotel_10820",
@@ -10292,228 +9906,8 @@
       "name_ko": "그라찌에 호텔 파주",
       "distance_km": 8.9,
       "fan_match_score": 84.0,
-      "link": "https://www.agoda.com/search?text=GRAZIE+Hotel+Paju"
-    },
-    {
-      "id": "hotel_35387",
-      "name_en": "DMZ Hotel & Tour Guide",
-      "price_krw": 95000,
-      "rating": 4.4,
-      "image_url": "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800",
-      "rooms_left": 3,
-      "is_available": true,
-      "hotel_type": {
-        "label_en": "Resort",
-        "color": "#2E8B57"
-      },
-      "cancellation": {
-        "type": "unknown",
-        "label_en": "Check Policy",
-        "label_kr": "정책 확인",
-        "is_refundable": null
-      },
-      "tags": {
-        "list_en": [],
-        "list_kr": [],
-        "display_en": "",
-        "display_kr": ""
-      },
-      "lat": 37.73,
-      "lng": 126.71,
-      "location": {
-        "area_en": "Paju",
-        "area_kr": "파주",
-        "address_en": "Paju, Gyeonggi-do",
-        "address_kr": "경기도 파주"
-      },
-      "city_key": "paju",
-      "army_density": {
-        "value": 45,
-        "level_en": "Low",
-        "level_kr": "낮음",
-        "label_en": "ARMY 45%",
-        "label_kr": "아미 45%"
-      },
-      "distance": {
-        "type": "car",
-        "display_en": "Drive 19min",
-        "minutes": 19,
-        "distance_km": 9.9
-      },
-      "transport": {
-        "station_en": "Jeongbalsan",
-        "line_en": "Line 3",
-        "line_color": "#EF7C1C",
-        "display_en": "Jeongbalsan (Line 3)"
-      },
-      "safe_return": {
-        "venue_en": "Goyang Stadium",
-        "route_en": "Goyang Stadium → Jeongbalsan (Line 3) → Hotel",
-        "transport": "subway",
-        "time_min": 54,
-        "last_train": "23:50",
-        "taxi_krw": 0
-      },
-      "army_local_guide": {
-        "bts": [
-          {
-            "name_en": "MBC Sangam",
-            "spot_tag": "Music Show",
-            "description_en": "Music show filming",
-            "distance_km": 23.2,
-            "lat": 37.5786,
-            "lng": 126.8918
-          },
-          {
-            "name_en": "Hongdae Busking Street",
-            "spot_tag": "Trainee Memory",
-            "description_en": "Pre-debut busking spot",
-            "distance_km": 26.9,
-            "lat": 37.5563,
-            "lng": 126.922
-          },
-          {
-            "name_en": "Gwangjang Market",
-            "spot_tag": "Debut Memory",
-            "description_en": "2013 debut location",
-            "distance_km": 31.8,
-            "lat": 37.57,
-            "lng": 127.0098
-          }
-        ],
-        "restaurant": [
-          {
-            "name_en": "Western Dom Food Court",
-            "spot_tag": "Food Court",
-            "description_en": "Food court",
-            "distance_km": 8.7,
-            "lat": 37.663,
-            "lng": 126.762
-          },
-          {
-            "name_en": "Ilsan Food Street",
-            "spot_tag": "Local Eats",
-            "description_en": "Local food street",
-            "distance_km": 9.7,
-            "lat": 37.658,
-            "lng": 126.772
-          },
-          {
-            "name_en": "La Festa Restaurants",
-            "spot_tag": "Dining Hub",
-            "description_en": "Restaurant complex",
-            "distance_km": 9.7,
-            "lat": 37.6575,
-            "lng": 126.7705
-          }
-        ],
-        "cafe": [
-          {
-            "name_en": "Ilsan Lake Park Cafe Street",
-            "spot_tag": "Lake View",
-            "description_en": "Scenic cafes",
-            "distance_km": 9.0,
-            "lat": 37.659,
-            "lng": 126.76
-          },
-          {
-            "name_en": "La Festa Cafes",
-            "spot_tag": "Trendy Cafe",
-            "description_en": "Trendy cafes",
-            "distance_km": 9.7,
-            "lat": 37.6572,
-            "lng": 126.771
-          }
-        ],
-        "hotspot": [
-          {
-            "name_en": "One Mount",
-            "spot_tag": "Entertainment",
-            "description_en": "Theme park",
-            "distance_km": 8.1,
-            "lat": 37.665,
-            "lng": 126.751
-          },
-          {
-            "name_en": "Ilsan Lake Park",
-            "spot_tag": "Must Visit",
-            "description_en": "Beautiful lake park",
-            "distance_km": 9.1,
-            "lat": 37.658,
-            "lng": 126.759
-          },
-          {
-            "name_en": "Starfield Goyang",
-            "spot_tag": "Shopping",
-            "description_en": "Shopping mall",
-            "distance_km": 18.8,
-            "lat": 37.645,
-            "lng": 126.895
-          }
-        ]
-      },
-      "map_detail": {
-        "hotel": {
-          "name_en": "DMZ Resort Paju",
-          "lat": 37.73,
-          "lng": 126.71
-        },
-        "venue": {
-          "name_en": "Goyang Stadium",
-          "lat": 37.6556,
-          "lng": 126.7714
-        },
-        "nearby_spots": []
-      },
-      "platform": "Agoda",
-      "booking_guide": {
-        "steps_en": [
-          "1. Select dates and search",
-          "2. Choose room, click 'Book Now'",
-          "3. Enter passport name",
-          "4. Pay with credit card or PayPal",
-          "5. Get instant confirmation"
-        ],
-        "tips_en": [
-          "Pay at Hotel option available",
-          "Check cancellation policy"
-        ],
-        "payment_methods": [
-          "Credit Card",
-          "PayPal",
-          "Pay at Hotel"
-        ],
-        "foreigner_friendly": true
-      },
-      "last_update": "2026-01-30 17:29:28",
-      "nearby": [
-        {
-          "id": "hotel_10820",
-          "name_en": "Paju Heyri Art Valley Hotel",
-          "price_krw": 98000,
-          "distance_km": 1.0,
-          "image_url": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800"
-        },
-        {
-          "id": "hotel_55660",
-          "name_en": "Lotte Premium Outlet Paju",
-          "price_krw": 145000,
-          "distance_km": 1.4,
-          "image_url": "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800"
-        },
-        {
-          "id": "hotel_85853",
-          "name_en": "Paju Farm Stay",
-          "price_krw": 78000,
-          "distance_km": 2.1,
-          "image_url": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800"
-        }
-      ],
-      "booking_url": "https://www.agoda.com/dmz-stay-guide-center-dmz/hotel/paju-si-kr.html",
-      "name_ko": "DMZ 호텔 & 투어 가이드",
-      "distance_km": 9.9,
-      "fan_match_score": 84.0,
-      "link": "https://www.agoda.com/search?text=DMZ+Hotel+&+Tour+Guide"
+      "link": "https://www.agoda.com/search?text=GRAZIE+Hotel+Paju",
+      "city": "paju"
     },
     {
       "id": "hotel_72150",
@@ -10772,7 +10166,8 @@
       ],
       "distance_km": 27.7,
       "fan_match_score": 84.0,
-      "link": "https://www.booking.com/searchresults.html?ss=Glad+Live+Gangnam"
+      "link": "https://www.booking.com/searchresults.html?ss=Glad+Live+Gangnam",
+      "city": "seoul"
     },
     {
       "id": "hotel_42100",
@@ -11033,7 +10428,8 @@
       ],
       "distance_km": 27.9,
       "fan_match_score": 84.0,
-      "link": "https://www.agoda.com/search?text=Hotel+Cappuccino+Seongsu"
+      "link": "https://www.agoda.com/search?text=Hotel+Cappuccino+Seongsu",
+      "city": "seoul"
     },
     {
       "id": "hotel_05084",
@@ -11278,7 +10674,8 @@
       "name_ko": "호텔 포코 성수",
       "distance_km": 27.9,
       "fan_match_score": 84.0,
-      "link": "https://www.agoda.com/search?text=Hotel+POCO+Seongsu"
+      "link": "https://www.agoda.com/search?text=Hotel+POCO+Seongsu",
+      "city": "seoul"
     },
     {
       "id": "hotel_56387",
@@ -11527,7 +10924,8 @@
       "name_ko": "게스트하우스 수 서울",
       "distance_km": 27.9,
       "fan_match_score": 84.0,
-      "link": "https://www.agoda.com/search?text=Guesthouse+Soo+Seoul"
+      "link": "https://www.agoda.com/search?text=Guesthouse+Soo+Seoul",
+      "city": "seoul"
     },
     {
       "id": "hotel_64879",
@@ -11773,7 +11171,8 @@
       "name_ko": "H 에비뉴 호텔 건대 성수",
       "distance_km": 28.0,
       "fan_match_score": 84.0,
-      "link": "https://www.agoda.com/search?text=H+Avenue+Hotel+Kondae+Seongsu"
+      "link": "https://www.agoda.com/search?text=H+Avenue+Hotel+Kondae+Seongsu",
+      "city": "seoul"
     },
     {
       "id": "hotel_43665",
@@ -12019,7 +11418,8 @@
       "name_ko": "잠실 게스트하우스 서울",
       "distance_km": 28.0,
       "fan_match_score": 84.0,
-      "link": "https://www.agoda.com/search?text=Jamsil+Guesthouse+Seoul"
+      "link": "https://www.agoda.com/search?text=Jamsil+Guesthouse+Seoul",
+      "city": "seoul"
     },
     {
       "id": "hotel_55132",
@@ -12081,12 +11481,12 @@
         "display_en": "Jeongbalsan (Line 3)"
       },
       "safe_return": {
-        "venue_en": "Goyang Stadium",
-        "route_en": "Taxi from Goyang Stadium → Hotel",
+        "venue_en": "Busan Asiad Main Stadium",
+        "route_en": "Taxi from Busan Asiad Main Stadium → Hotel",
         "transport": "taxi",
-        "time_min": 700,
+        "time_min": 27,
         "last_train": "23:50",
-        "taxi_krw": 425007
+        "taxi_krw": 15621
       },
       "army_local_guide": {
         "bts": [
@@ -12193,9 +11593,9 @@
           "lng": 129.1636
         },
         "venue": {
-          "name_en": "Goyang Stadium",
-          "lat": 37.6556,
-          "lng": 126.7714
+          "name_en": "Busan Asiad Main Stadium",
+          "lat": 35.19,
+          "lng": 129.07
         },
         "nearby_spots": []
       },
@@ -12258,7 +11658,8 @@
       ],
       "distance_km": 350.2,
       "fan_match_score": 84.0,
-      "link": "https://www.agoda.com/search?text=Park+Hyatt+Busan"
+      "link": "https://www.agoda.com/search?text=Park+Hyatt+Busan",
+      "city": "busan"
     },
     {
       "id": "hotel_82865",
@@ -12318,12 +11719,12 @@
         "display_en": "Jeongbalsan (Line 3)"
       },
       "safe_return": {
-        "venue_en": "Goyang Stadium",
-        "route_en": "Taxi from Goyang Stadium → Hotel",
+        "venue_en": "Busan Asiad Main Stadium",
+        "route_en": "Taxi from Busan Asiad Main Stadium → Hotel",
         "transport": "taxi",
-        "time_min": 700,
+        "time_min": 27,
         "last_train": "23:50",
-        "taxi_krw": 425217
+        "taxi_krw": 15814
       },
       "army_local_guide": {
         "bts": [
@@ -12430,9 +11831,9 @@
           "lng": 129.165
         },
         "venue": {
-          "name_en": "Goyang Stadium",
-          "lat": 37.6556,
-          "lng": 126.7714
+          "name_en": "Busan Asiad Main Stadium",
+          "lat": 35.19,
+          "lng": 129.07
         },
         "nearby_spots": []
       },
@@ -12493,7 +11894,8 @@
       ],
       "distance_km": 350.3,
       "fan_match_score": 84.0,
-      "link": "https://www.agoda.com/search?text=Shilla+Stay+Haeundae"
+      "link": "https://www.agoda.com/search?text=Shilla+Stay+Haeundae",
+      "city": "busan"
     },
     {
       "id": "hotel_46786",
@@ -12555,12 +11957,12 @@
         "display_en": "Jeongbalsan (Line 3)"
       },
       "safe_return": {
-        "venue_en": "Goyang Stadium",
-        "route_en": "Taxi from Goyang Stadium → Hotel",
+        "venue_en": "Busan Asiad Main Stadium",
+        "route_en": "Taxi from Busan Asiad Main Stadium → Hotel",
         "transport": "taxi",
-        "time_min": 700,
+        "time_min": 27,
         "last_train": "23:50",
-        "taxi_krw": 425171
+        "taxi_krw": 15683
       },
       "army_local_guide": {
         "bts": [
@@ -12667,9 +12069,9 @@
           "lng": 129.1635
         },
         "venue": {
-          "name_en": "Goyang Stadium",
-          "lat": 37.6556,
-          "lng": 126.7714
+          "name_en": "Busan Asiad Main Stadium",
+          "lat": 35.19,
+          "lng": 129.07
         },
         "nearby_spots": []
       },
@@ -12731,7 +12133,8 @@
       ],
       "distance_km": 350.3,
       "fan_match_score": 84.0,
-      "link": "https://www.booking.com/searchresults.html?ss=Lotte+Hotel+Busan"
+      "link": "https://www.booking.com/searchresults.html?ss=Lotte+Hotel+Busan",
+      "city": "busan"
     },
     {
       "id": "hotel_39528",
@@ -12791,12 +12194,12 @@
         "display_en": "Jeongbalsan (Line 3)"
       },
       "safe_return": {
-        "venue_en": "Goyang Stadium",
-        "route_en": "Taxi from Goyang Stadium → Hotel",
+        "venue_en": "Busan Asiad Main Stadium",
+        "route_en": "Taxi from Busan Asiad Main Stadium → Hotel",
         "transport": "taxi",
-        "time_min": 700,
+        "time_min": 27,
         "last_train": "23:50",
-        "taxi_krw": 425233
+        "taxi_krw": 15603
       },
       "army_local_guide": {
         "bts": [
@@ -12903,9 +12306,9 @@
           "lng": 129.162
         },
         "venue": {
-          "name_en": "Goyang Stadium",
-          "lat": 37.6556,
-          "lng": 126.7714
+          "name_en": "Busan Asiad Main Stadium",
+          "lat": 35.19,
+          "lng": 129.07
         },
         "nearby_spots": []
       },
@@ -12964,7 +12367,8 @@
       ],
       "distance_km": 350.4,
       "fan_match_score": 84.0,
-      "link": "https://www.booking.com/searchresults.html?ss=Toyoko+Inn+Busan+Haeundae"
+      "link": "https://www.booking.com/searchresults.html?ss=Toyoko+Inn+Busan+Haeundae",
+      "city": "busan"
     },
     {
       "id": "hotel_70763",
@@ -13026,12 +12430,12 @@
         "display_en": "Jeongbalsan (Line 3)"
       },
       "safe_return": {
-        "venue_en": "Goyang Stadium",
-        "route_en": "Taxi from Goyang Stadium → Hotel",
+        "venue_en": "Busan Asiad Main Stadium",
+        "route_en": "Taxi from Busan Asiad Main Stadium → Hotel",
         "transport": "taxi",
-        "time_min": 700,
+        "time_min": 27,
         "last_train": "23:50",
-        "taxi_krw": 425258
+        "taxi_krw": 15758
       },
       "army_local_guide": {
         "bts": [
@@ -13138,9 +12542,9 @@
           "lng": 129.164
         },
         "venue": {
-          "name_en": "Goyang Stadium",
-          "lat": 37.6556,
-          "lng": 126.7714
+          "name_en": "Busan Asiad Main Stadium",
+          "lat": 35.19,
+          "lng": 129.07
         },
         "nearby_spots": []
       },
@@ -13203,7 +12607,8 @@
       ],
       "distance_km": 350.4,
       "fan_match_score": 84.0,
-      "link": "https://www.agoda.com/search?text=Novotel+Ambassador+Busan"
+      "link": "https://www.agoda.com/search?text=Novotel+Ambassador+Busan",
+      "city": "busan"
     },
     {
       "id": "hotel_30919",
@@ -13258,12 +12663,12 @@
         "display_en": "Jeongbalsan (Line 3)"
       },
       "safe_return": {
-        "venue_en": "Goyang Stadium",
-        "route_en": "Taxi from Goyang Stadium → Hotel",
+        "venue_en": "Busan Asiad Main Stadium",
+        "route_en": "Taxi from Busan Asiad Main Stadium → Hotel",
         "transport": "taxi",
-        "time_min": 700,
+        "time_min": 28,
         "last_train": "23:50",
-        "taxi_krw": 425229
+        "taxi_krw": 15894
       },
       "army_local_guide": {
         "bts": [
@@ -13370,9 +12775,9 @@
           "lng": 129.166
         },
         "venue": {
-          "name_en": "Goyang Stadium",
-          "lat": 37.6556,
-          "lng": 126.7714
+          "name_en": "Busan Asiad Main Stadium",
+          "lat": 35.19,
+          "lng": 129.07
         },
         "nearby_spots": []
       },
@@ -13424,7 +12829,8 @@
       "name_ko": "해운대 그랜드 호텔",
       "distance_km": 350.4,
       "fan_match_score": 84.0,
-      "link": "https://www.agoda.com/search?text=Haeundae+Grand+Hotel"
+      "link": "https://www.agoda.com/search?text=Haeundae+Grand+Hotel",
+      "city": "busan"
     },
     {
       "id": "hotel_10776",
@@ -13484,12 +12890,12 @@
         "display_en": "Jeongbalsan (Line 3)"
       },
       "safe_return": {
-        "venue_en": "Goyang Stadium",
-        "route_en": "Taxi from Goyang Stadium → Hotel",
+        "venue_en": "Busan Asiad Main Stadium",
+        "route_en": "Taxi from Busan Asiad Main Stadium → Hotel",
         "transport": "taxi",
-        "time_min": 700,
+        "time_min": 27,
         "last_train": "23:50",
-        "taxi_krw": 425319
+        "taxi_krw": 15678
       },
       "army_local_guide": {
         "bts": [
@@ -13596,9 +13002,9 @@
           "lng": 129.1625
         },
         "venue": {
-          "name_en": "Goyang Stadium",
-          "lat": 37.6556,
-          "lng": 126.7714
+          "name_en": "Busan Asiad Main Stadium",
+          "lat": 35.19,
+          "lng": 129.07
         },
         "nearby_spots": []
       },
@@ -13658,7 +13064,8 @@
       ],
       "distance_km": 350.4,
       "fan_match_score": 84.0,
-      "link": "https://www.agoda.com/search?text=Haeundae+Seacloud+Hotel"
+      "link": "https://www.agoda.com/search?text=Haeundae+Seacloud+Hotel",
+      "city": "busan"
     },
     {
       "id": "hotel_21259",
@@ -13717,12 +13124,12 @@
         "display_en": "Jeongbalsan (Line 3)"
       },
       "safe_return": {
-        "venue_en": "Goyang Stadium",
-        "route_en": "Taxi from Goyang Stadium → Hotel",
+        "venue_en": "Busan Asiad Main Stadium",
+        "route_en": "Taxi from Busan Asiad Main Stadium → Hotel",
         "transport": "taxi",
-        "time_min": 700,
+        "time_min": 27,
         "last_train": "23:50",
-        "taxi_krw": 425381
+        "taxi_krw": 15604
       },
       "army_local_guide": {
         "bts": [
@@ -13829,9 +13236,9 @@
           "lng": 129.161
         },
         "venue": {
-          "name_en": "Goyang Stadium",
-          "lat": 37.6556,
-          "lng": 126.7714
+          "name_en": "Busan Asiad Main Stadium",
+          "lat": 35.19,
+          "lng": 129.07
         },
         "nearby_spots": []
       },
@@ -13882,7 +13289,8 @@
       "name_ko": "김치 해운대 게스트하우스",
       "distance_km": 350.5,
       "fan_match_score": 84.0,
-      "link": "https://www.agoda.com/search?text=Kimchee+Haeundae+Guesthouse"
+      "link": "https://www.agoda.com/search?text=Kimchee+Haeundae+Guesthouse",
+      "city": "busan"
     },
     {
       "id": "hotel_86273",
@@ -13943,12 +13351,12 @@
         "display_en": "Jeongbalsan (Line 3)"
       },
       "safe_return": {
-        "venue_en": "Goyang Stadium",
-        "route_en": "Taxi from Goyang Stadium → Hotel",
+        "venue_en": "Busan Asiad Main Stadium",
+        "route_en": "Taxi from Busan Asiad Main Stadium → Hotel",
         "transport": "taxi",
-        "time_min": 700,
+        "time_min": 27,
         "last_train": "23:50",
-        "taxi_krw": 425344
+        "taxi_krw": 15833
       },
       "army_local_guide": {
         "bts": [
@@ -14055,9 +13463,9 @@
           "lng": 129.1645
         },
         "venue": {
-          "name_en": "Goyang Stadium",
-          "lat": 37.6556,
-          "lng": 126.7714
+          "name_en": "Busan Asiad Main Stadium",
+          "lat": 35.19,
+          "lng": 129.07
         },
         "nearby_spots": []
       },
@@ -14109,7 +13517,8 @@
       "name_ko": "마마 게스트하우스 해운대",
       "distance_km": 350.5,
       "fan_match_score": 84.0,
-      "link": "https://www.agoda.com/search?text=MAMA+Guesthouse+Haeundae"
+      "link": "https://www.agoda.com/search?text=MAMA+Guesthouse+Haeundae",
+      "city": "busan"
     },
     {
       "id": "hotel_91771",
@@ -14169,12 +13578,12 @@
         "display_en": "Jeongbalsan (Line 3)"
       },
       "safe_return": {
-        "venue_en": "Goyang Stadium",
-        "route_en": "Taxi from Goyang Stadium → Hotel",
+        "venue_en": "Busan Asiad Main Stadium",
+        "route_en": "Taxi from Busan Asiad Main Stadium → Hotel",
         "transport": "taxi",
-        "time_min": 701,
+        "time_min": 28,
         "last_train": "23:50",
-        "taxi_krw": 425733
+        "taxi_krw": 16261
       },
       "army_local_guide": {
         "bts": [
@@ -14281,9 +13690,9 @@
           "lng": 129.168
         },
         "venue": {
-          "name_en": "Goyang Stadium",
-          "lat": 37.6556,
-          "lng": 126.7714
+          "name_en": "Busan Asiad Main Stadium",
+          "lat": 35.19,
+          "lng": 129.07
         },
         "nearby_spots": []
       },
@@ -14346,7 +13755,8 @@
       ],
       "distance_km": 350.8,
       "fan_match_score": 84.0,
-      "link": "https://www.agoda.com/search?text=Paradise+Hotel+Busan"
+      "link": "https://www.agoda.com/search?text=Paradise+Hotel+Busan",
+      "city": "busan"
     },
     {
       "id": "hotel_gw004",
@@ -14697,418 +14107,6 @@
       "link": "https://www.agoda.com/search?text=Insadong+Crown+Hotel"
     },
     {
-      "id": "hotel_85853",
-      "name_en": "The Guesthouse DMZ Stay",
-      "lat": 37.715,
-      "lng": 126.725,
-      "price_krw": 65000,
-      "booking_url": "https://www.agoda.com/the-guesthouse-dmz-stay/hotel/paju-si-kr.html",
-      "distance_km": 7.8,
-      "fan_match_score": 84.0,
-      "link": "https://www.agoda.com/search?text=The+Guesthouse+DMZ+Stay"
-    },
-    {
-      "id": "hotel_55660",
-      "name_en": "DMZ Hotel & Tour Guide",
-      "lat": 37.718,
-      "lng": 126.715,
-      "price_krw": 85000,
-      "booking_url": "https://www.agoda.com/dmz-stay-guide-center-dmz/hotel/paju-si-kr.html",
-      "distance_km": 8.5,
-      "fan_match_score": 84.0,
-      "link": "https://www.agoda.com/search?text=DMZ+Hotel+&+Tour+Guide"
-    },
-    {
-      "id": "hotel_10820",
-      "name_en": "GRAZIE Hotel Paju",
-      "lat": 37.725,
-      "lng": 126.72,
-      "price_krw": 75000,
-      "booking_url": "https://www.agoda.com/grazie-hotel/hotel/paju-si-kr.html",
-      "distance_km": 8.9,
-      "fan_match_score": 84.0,
-      "link": "https://www.agoda.com/search?text=GRAZIE+Hotel+Paju"
-    },
-    {
-      "id": "hotel_35387",
-      "name_en": "DMZ Hotel & Tour Guide",
-      "lat": 37.73,
-      "lng": 126.71,
-      "price_krw": 95000,
-      "booking_url": "https://www.agoda.com/dmz-stay-guide-center-dmz/hotel/paju-si-kr.html",
-      "distance_km": 9.9,
-      "fan_match_score": 84.0,
-      "link": "https://www.agoda.com/search?text=DMZ+Hotel+&+Tour+Guide"
-    },
-    {
-      "id": "hotel_62824",
-      "name_en": "Nine Tree Premier Hotel",
-      "lat": 37.56,
-      "lng": 126.918,
-      "price_krw": 145000,
-      "booking_url": "https://www.agoda.com/ko-kr/nine-tree-premier-hotel-insadong/hotel/seoul-kr.html",
-      "distance_km": 16.7,
-      "fan_match_score": 84.0,
-      "image_url": "https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&q=80&w=1080",
-      "link": "https://www.agoda.com/search?text=Nine+Tree+Premier+Hotel"
-    },
-    {
-      "id": "hotel_20887",
-      "name_en": "RYSE Autograph Collection",
-      "lat": 37.5563,
-      "lng": 126.922,
-      "price_krw": 250000,
-      "booking_url": "https://www.agoda.com/ko-kr/ryse-autograph-collection_2/hotel/seoul-kr.html",
-      "distance_km": 17.3,
-      "fan_match_score": 84.0,
-      "link": "https://www.agoda.com/search?text=RYSE+Autograph+Collection"
-    },
-    {
-      "id": "hotel_47087",
-      "name_en": "Stanford Hotel Seoul",
-      "lat": 37.5555,
-      "lng": 126.925,
-      "price_krw": 138000,
-      "booking_url": "https://www.agoda.com/ko-kr/stanford-hotel-seoul/hotel/seoul-kr.html",
-      "distance_km": 17.5,
-      "fan_match_score": 84.0,
-      "link": "https://www.agoda.com/search?text=Stanford+Hotel+Seoul"
-    },
-    {
-      "id": "hotel_91729",
-      "name_en": "Fraser Place Central Seoul",
-      "lat": 37.5665,
-      "lng": 126.9795,
-      "price_krw": 195000,
-      "booking_url": "https://www.agoda.com/ko-kr/fraser-place-central-seoul-residence/hotel/seoul-kr.html",
-      "distance_km": 20.8,
-      "fan_match_score": 84.0,
-      "link": "https://www.agoda.com/search?text=Fraser+Place+Central+Seoul"
-    },
-    {
-      "id": "hotel_07871",
-      "name_en": "Lotte Hotel Seoul",
-      "lat": 37.5659,
-      "lng": 126.9805,
-      "price_krw": 280000,
-      "booking_url": "https://www.agoda.com/ko-kr/lotte-hotel-seoul/hotel/seoul-kr.html",
-      "distance_km": 20.9,
-      "fan_match_score": 84.0,
-      "link": "https://www.agoda.com/search?text=Lotte+Hotel+Seoul"
-    },
-    {
-      "id": "hotel_08635",
-      "name_en": "The Westin Chosun Seoul",
-      "lat": 37.5658,
-      "lng": 126.9813,
-      "price_krw": 310000,
-      "booking_url": "https://www.agoda.com/ko-kr/the-westin-chosun-seoul/hotel/seoul-kr.html",
-      "distance_km": 21.0,
-      "fan_match_score": 84.0,
-      "link": "https://www.agoda.com/search?text=The+Westin+Chosun+Seoul"
-    },
-    {
-      "id": "hotel_72150",
-      "name_en": "Glad Live Gangnam",
-      "lat": 37.546,
-      "lng": 127.054,
-      "price_krw": 155000,
-      "booking_url": "https://www.agoda.com/ko-kr/glad-live-gangnam_2/hotel/seoul-kr.html",
-      "distance_km": 27.7,
-      "fan_match_score": 84.0,
-      "link": "https://www.agoda.com/search?text=Glad+Live+Gangnam"
-    },
-    {
-      "id": "hotel_42100",
-      "name_en": "Hotel Cappuccino Seongsu",
-      "lat": 37.5443,
-      "lng": 127.0557,
-      "price_krw": 95000,
-      "booking_url": "https://www.agoda.com/ko-kr/hotel-cappuccino-seoul/hotel/seoul-kr.html",
-      "distance_km": 27.9,
-      "fan_match_score": 84.0,
-      "link": "https://www.agoda.com/search?text=Hotel+Cappuccino+Seongsu"
-    },
-    {
-      "id": "hotel_05084",
-      "name_en": "Hotel POCO Seongsu",
-      "lat": 37.5435,
-      "lng": 127.055,
-      "price_krw": 125000,
-      "booking_url": "https://www.agoda.com/ko-kr/hotel-poco/hotel/seoul-kr.html",
-      "distance_km": 27.9,
-      "fan_match_score": 84.0,
-      "link": "https://www.agoda.com/search?text=Hotel+POCO+Seongsu"
-    },
-    {
-      "id": "hotel_56387",
-      "name_en": "Guesthouse Soo Seoul",
-      "lat": 37.544,
-      "lng": 127.0545,
-      "price_krw": 48000,
-      "booking_url": "https://www.agoda.com/ko-kr/guesthouse-soo/hotel/seoul-kr.html",
-      "distance_km": 27.9,
-      "fan_match_score": 84.0,
-      "link": "https://www.agoda.com/search?text=Guesthouse+Soo+Seoul"
-    },
-    {
-      "id": "hotel_64879",
-      "name_en": "H Avenue Hotel Kondae Seongsu",
-      "lat": 37.545,
-      "lng": 127.0565,
-      "price_krw": 95000,
-      "booking_url": "https://www.agoda.com/h-avenue-hotel-kondae-seongsu/hotel/seoul-kr.html",
-      "distance_km": 28.0,
-      "fan_match_score": 84.0,
-      "link": "https://www.agoda.com/search?text=H+Avenue+Hotel+Kondae+Seongsu"
-    },
-    {
-      "id": "hotel_43665",
-      "name_en": "Jamsil Guesthouse Seoul",
-      "lat": 37.5455,
-      "lng": 127.057,
-      "price_krw": 65000,
-      "booking_url": "https://www.agoda.com/ko-kr/jamsil-guesthouse-seoul/hotel/seoul-kr.html",
-      "distance_km": 28.0,
-      "fan_match_score": 84.0,
-      "link": "https://www.agoda.com/search?text=Jamsil+Guesthouse+Seoul"
-    },
-    {
-      "id": "hotel_55132",
-      "name_en": "Park Hyatt Busan",
-      "lat": 35.1631,
-      "lng": 129.1636,
-      "price_krw": 380000,
-      "booking_url": "https://www.agoda.com/ko-kr/park-hyatt-busan/hotel/busan-kr.html",
-      "distance_km": 350.2,
-      "fan_match_score": 84.0,
-      "link": "https://www.agoda.com/search?text=Park+Hyatt+Busan"
-    },
-    {
-      "id": "hotel_82865",
-      "name_en": "Shilla Stay Haeundae",
-      "lat": 35.162,
-      "lng": 129.165,
-      "price_krw": 165000,
-      "booking_url": "https://www.agoda.com/ko-kr/shilla-stay-haeundae/hotel/busan-kr.html",
-      "distance_km": 350.3,
-      "fan_match_score": 84.0,
-      "image_url": "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?auto=format&fit=crop&q=80&w=1080",
-      "link": "https://www.agoda.com/search?text=Shilla+Stay+Haeundae"
-    },
-    {
-      "id": "hotel_46786",
-      "name_en": "Lotte Hotel Busan",
-      "lat": 35.1615,
-      "lng": 129.1635,
-      "price_krw": 220000,
-      "booking_url": "https://www.agoda.com/ko-kr/lotte-hotel-busan/hotel/busan-kr.html",
-      "distance_km": 350.3,
-      "fan_match_score": 84.0,
-      "link": "https://www.agoda.com/search?text=Lotte+Hotel+Busan"
-    },
-    {
-      "id": "hotel_39528",
-      "name_en": "Toyoko Inn Busan Haeundae",
-      "lat": 35.16,
-      "lng": 129.162,
-      "price_krw": 75000,
-      "booking_url": "https://www.agoda.com/ko-kr/toyoko-inn-busan-haeundae-1_4/hotel/busan-kr.html",
-      "distance_km": 350.4,
-      "fan_match_score": 84.0,
-      "link": "https://www.agoda.com/search?text=Toyoko+Inn+Busan+Haeundae"
-    },
-    {
-      "id": "hotel_70763",
-      "name_en": "Novotel Ambassador Busan",
-      "lat": 35.161,
-      "lng": 129.164,
-      "price_krw": 180000,
-      "booking_url": "https://www.agoda.com/ko-kr/novotel-ambassador-busan_8/hotel/busan-kr.html",
-      "distance_km": 350.4,
-      "fan_match_score": 84.0,
-      "link": "https://www.agoda.com/search?text=Novotel+Ambassador+Busan"
-    },
-    {
-      "id": "hotel_30919",
-      "name_en": "Haeundae Grand Hotel",
-      "lat": 35.1625,
-      "lng": 129.166,
-      "price_krw": 185000,
-      "booking_url": "https://www.agoda.com/ko-kr/haeundae-grand-hotel/hotel/busan-kr.html",
-      "distance_km": 350.4,
-      "fan_match_score": 84.0,
-      "link": "https://www.agoda.com/search?text=Haeundae+Grand+Hotel"
-    },
-    {
-      "id": "hotel_10776",
-      "name_en": "Haeundae Seacloud Hotel",
-      "lat": 35.1595,
-      "lng": 129.1625,
-      "price_krw": 165000,
-      "booking_url": "https://www.agoda.com/ko-kr/haeundae-seacloud-hotel-residence/hotel/busan-kr.html",
-      "distance_km": 350.4,
-      "fan_match_score": 84.0,
-      "link": "https://www.agoda.com/search?text=Haeundae+Seacloud+Hotel"
-    },
-    {
-      "id": "hotel_21259",
-      "name_en": "Kimchee Haeundae Guesthouse",
-      "lat": 35.158,
-      "lng": 129.161,
-      "price_krw": 28000,
-      "booking_url": "https://www.agoda.com/ko-kr/kimchee-haeundae-guesthouse_2/hotel/busan-kr.html",
-      "distance_km": 350.5,
-      "fan_match_score": 84.0,
-      "link": "https://www.agoda.com/search?text=Kimchee+Haeundae+Guesthouse"
-    },
-    {
-      "id": "hotel_86273",
-      "name_en": "MAMA Guesthouse Haeundae",
-      "lat": 35.1605,
-      "lng": 129.1645,
-      "price_krw": 45000,
-      "booking_url": "https://www.agoda.com/ko-kr/mama-guesthouse-haeundae/hotel/busan-kr.html",
-      "distance_km": 350.5,
-      "fan_match_score": 84.0,
-      "link": "https://www.agoda.com/search?text=MAMA+Guesthouse+Haeundae"
-    },
-    {
-      "id": "hotel_91771",
-      "name_en": "Paradise Hotel Busan",
-      "lat": 35.159,
-      "lng": 129.168,
-      "price_krw": 280000,
-      "booking_url": "https://www.agoda.com/ko-kr/paradise-hotel-busan/hotel/busan-kr.html",
-      "distance_km": 350.8,
-      "fan_match_score": 84.0,
-      "link": "https://www.agoda.com/search?text=Paradise+Hotel+Busan"
-    },
-    {
-      "id": "hotel_gw004",
-      "name_en": "Nine Tree Premier Hotel Insadong",
-      "lat": 37.5735,
-      "lng": 126.987,
-      "price_krw": 165000,
-      "booking_url": "https://www.agoda.com/nine-tree-premier-hotel-insadong/hotel/seoul-kr.html",
-      "distance_km": 21.1,
-      "fan_match_score": 84.0,
-      "image_url": "https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&q=80&w=1080",
-      "link": "https://www.agoda.com/search?text=Nine+Tree+Premier+Hotel+Insadong"
-    },
-    {
-      "id": "hotel_gw005",
-      "name_en": "Sunbee Hotel Insadong Seoul",
-      "lat": 37.5728,
-      "lng": 126.9865,
-      "price_krw": 95000,
-      "booking_url": "https://www.agoda.com/sunbee-hotel-insadong-seoul/hotel/seoul-kr.html",
-      "distance_km": 21.1,
-      "fan_match_score": 84.0,
-      "link": "https://www.agoda.com/search?text=Sunbee+Hotel+Insadong+Seoul"
-    },
-    {
-      "id": "hotel_gw006",
-      "name_en": "Center Mark Hotel (AMID Hotel Seoul)",
-      "lat": 37.5701,
-      "lng": 126.9875,
-      "price_krw": 145000,
-      "booking_url": "https://www.agoda.com/center-mark-hotel/hotel/seoul-kr.html",
-      "distance_km": 21.3,
-      "fan_match_score": 84.0,
-      "image_url": "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&q=80&w=1080",
-      "link": "https://www.agoda.com/search?text=Center+Mark+Hotel+(AMID+Hotel+Seoul)"
-    },
-    {
-      "id": "hotel_gw009",
-      "name_en": "President Hotel",
-      "lat": 37.568,
-      "lng": 126.9775,
-      "price_krw": 145000,
-      "booking_url": "https://www.agoda.com/president-hotel/hotel/seoul-kr.html",
-      "distance_km": 20.6,
-      "fan_match_score": 84.0,
-      "link": "https://www.agoda.com/search?text=President+Hotel"
-    },
-    {
-      "id": "hotel_gw010",
-      "name_en": "Prima Hotel Seoul",
-      "lat": 37.5715,
-      "lng": 126.9895,
-      "price_krw": 125000,
-      "booking_url": "https://www.agoda.com/prima-hotel/hotel/seoul-kr.html",
-      "distance_km": 21.4,
-      "fan_match_score": 84.0,
-      "link": "https://www.agoda.com/search?text=Prima+Hotel+Seoul"
-    },
-    {
-      "id": "hotel_gw012",
-      "name_en": "GRID INN Hotel",
-      "lat": 37.5705,
-      "lng": 126.989,
-      "price_krw": 85000,
-      "booking_url": "https://www.agoda.com/grid-inn/hotel/seoul-kr.html",
-      "distance_km": 21.4,
-      "fan_match_score": 84.0,
-      "link": "https://www.agoda.com/search?text=GRID+INN+Hotel"
-    },
-    {
-      "id": "hotel_gw015",
-      "name_en": "Hanok Hotel Daam",
-      "lat": 37.579,
-      "lng": 126.9845,
-      "price_krw": 165000,
-      "booking_url": "https://www.agoda.com/hotel-daam/hotel/seoul-kr.html",
-      "distance_km": 20.6,
-      "fan_match_score": 84.0,
-      "image_url": "https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&q=80&w=1080",
-      "link": "https://www.agoda.com/search?text=Hanok+Hotel+Daam"
-    },
-    {
-      "id": "hotel_gw016",
-      "name_en": "Nouvelle Hotel and Spa Jongro by Aank",
-      "lat": 37.572,
-      "lng": 126.9905,
-      "price_krw": 95000,
-      "booking_url": "https://www.agoda.com/nouvelle-hotel-and-spa-seoul-jongno/hotel/seoul-kr.html",
-      "distance_km": 21.4,
-      "fan_match_score": 84.0,
-      "link": "https://www.agoda.com/search?text=Nouvelle+Hotel+and+Spa+Jongro+by+Aank"
-    },
-    {
-      "id": "hotel_gw023",
-      "name_en": "Goodstay Saewha Hostel",
-      "lat": 37.5692,
-      "lng": 126.988,
-      "price_krw": 25000,
-      "booking_url": "https://www.agoda.com/goodstay-saewha-hostel/hotel/seoul-kr.html",
-      "distance_km": 21.4,
-      "fan_match_score": 84.0,
-      "link": "https://www.agoda.com/search?text=Goodstay+Saewha+Hostel"
-    },
-    {
-      "id": "hotel_gw025",
-      "name_en": "Hostel Korea Original",
-      "lat": 37.5708,
-      "lng": 126.9898,
-      "price_krw": 30000,
-      "booking_url": "https://www.agoda.com/hostel-korea-original/hotel/seoul-kr.html",
-      "distance_km": 21.4,
-      "fan_match_score": 84.0,
-      "link": "https://www.agoda.com/search?text=Hostel+Korea+Original"
-    },
-    {
-      "id": "hotel_gw026",
-      "name_en": "Insadong Crown Hotel",
-      "lat": 37.574,
-      "lng": 126.986,
-      "price_krw": 105000,
-      "booking_url": "https://www.agoda.com/insadong-crown-hotel/hotel/seoul-kr.html",
-      "distance_km": 21.0,
-      "fan_match_score": 84.0,
-      "link": "https://www.agoda.com/search?text=Insadong+Crown+Hotel"
-    },
-    {
       "id": "hotel_gw_01",
       "name_en": "Shilla Stay Gwanghwamun",
       "price_krw": 180000,
@@ -15200,7 +14198,8 @@
         "AC"
       ],
       "distance_km": 0.5,
-      "fan_match_score": 100.0
+      "fan_match_score": 100.0,
+      "city": "seoul"
     },
     {
       "id": "hotel_gw_02",
@@ -15294,7 +14293,8 @@
         "AC"
       ],
       "distance_km": 0.5,
-      "fan_match_score": 163.0
+      "fan_match_score": 163.0,
+      "city": "seoul"
     },
     {
       "id": "hotel_gw_03",
@@ -15388,7 +14388,8 @@
         "AC"
       ],
       "distance_km": 0.5,
-      "fan_match_score": 181.0
+      "fan_match_score": 181.0,
+      "city": "seoul"
     },
     {
       "id": "hotel_gw_04",
@@ -15482,7 +14483,8 @@
         "AC"
       ],
       "distance_km": 0.5,
-      "fan_match_score": 170.0
+      "fan_match_score": 170.0,
+      "city": "seoul"
     },
     {
       "id": "hotel_gw_05",
@@ -15576,7 +14578,8 @@
         "AC"
       ],
       "distance_km": 0.5,
-      "fan_match_score": 136.0
+      "fan_match_score": 136.0,
+      "city": "seoul"
     },
     {
       "id": "hotel_gw_06",
@@ -15670,7 +14673,8 @@
         "AC"
       ],
       "distance_km": 0.5,
-      "fan_match_score": 186.0
+      "fan_match_score": 186.0,
+      "city": "seoul"
     },
     {
       "id": "hotel_gw_07",
@@ -15764,7 +14768,8 @@
         "AC"
       ],
       "distance_km": 0.5,
-      "fan_match_score": 105.0
+      "fan_match_score": 105.0,
+      "city": "seoul"
     },
     {
       "id": "hotel_gw_08",
@@ -15858,7 +14863,8 @@
         "AC"
       ],
       "distance_km": 0.5,
-      "fan_match_score": 104.0
+      "fan_match_score": 104.0,
+      "city": "seoul"
     },
     {
       "id": "hotel_gw_09",
@@ -15952,7 +14958,8 @@
         "AC"
       ],
       "distance_km": 0.5,
-      "fan_match_score": 134.0
+      "fan_match_score": 134.0,
+      "city": "seoul"
     },
     {
       "id": "hotel_gw_10",
@@ -16046,7 +15053,8 @@
         "AC"
       ],
       "distance_km": 0.5,
-      "fan_match_score": 110.0
+      "fan_match_score": 110.0,
+      "city": "seoul"
     },
     {
       "id": "hotel_gw_11",
@@ -16140,7 +15148,8 @@
         "AC"
       ],
       "distance_km": 0.5,
-      "fan_match_score": 126.0
+      "fan_match_score": 126.0,
+      "city": "seoul"
     },
     {
       "id": "hotel_gw_12",
@@ -16234,7 +15243,8 @@
         "AC"
       ],
       "distance_km": 0.5,
-      "fan_match_score": 179.0
+      "fan_match_score": 179.0,
+      "city": "seoul"
     },
     {
       "id": "hotel_gw_13",
@@ -16328,7 +15338,8 @@
         "AC"
       ],
       "distance_km": 0.5,
-      "fan_match_score": 172.0
+      "fan_match_score": 172.0,
+      "city": "seoul"
     },
     {
       "id": "hotel_gw_14",
@@ -16422,7 +15433,8 @@
         "AC"
       ],
       "distance_km": 0.5,
-      "fan_match_score": 160.0
+      "fan_match_score": 160.0,
+      "city": "seoul"
     },
     {
       "id": "hotel_gw_15",
@@ -16516,7 +15528,8 @@
         "AC"
       ],
       "distance_km": 0.5,
-      "fan_match_score": 192.0
+      "fan_match_score": 192.0,
+      "city": "seoul"
     },
     {
       "id": "hotel_gw_16",
@@ -16610,7 +15623,8 @@
         "AC"
       ],
       "distance_km": 0.5,
-      "fan_match_score": 114.0
+      "fan_match_score": 114.0,
+      "city": "seoul"
     },
     {
       "id": "hotel_gw_17",
@@ -16704,7 +15718,8 @@
         "AC"
       ],
       "distance_km": 0.5,
-      "fan_match_score": 157.0
+      "fan_match_score": 157.0,
+      "city": "seoul"
     },
     {
       "id": "hotel_gw_18",
@@ -16798,7 +15813,8 @@
         "AC"
       ],
       "distance_km": 0.5,
-      "fan_match_score": 126.0
+      "fan_match_score": 126.0,
+      "city": "seoul"
     },
     {
       "id": "hotel_gw_19",
@@ -16892,7 +15908,8 @@
         "AC"
       ],
       "distance_km": 0.5,
-      "fan_match_score": 156.0
+      "fan_match_score": 156.0,
+      "city": "seoul"
     },
     {
       "id": "hotel_gw_20",
@@ -16986,7 +16003,8 @@
         "AC"
       ],
       "distance_km": 0.5,
-      "fan_match_score": 138.0
+      "fan_match_score": 138.0,
+      "city": "seoul"
     },
     {
       "id": "hotel_gw_21",
@@ -17080,7 +16098,8 @@
         "AC"
       ],
       "distance_km": 0.5,
-      "fan_match_score": 139.0
+      "fan_match_score": 139.0,
+      "city": "seoul"
     },
     {
       "id": "hotel_gw_22",
@@ -17174,7 +16193,8 @@
         "AC"
       ],
       "distance_km": 0.5,
-      "fan_match_score": 147.0
+      "fan_match_score": 147.0,
+      "city": "seoul"
     },
     {
       "id": "hotel_gw_23",
@@ -17268,7 +16288,8 @@
         "AC"
       ],
       "distance_km": 0.5,
-      "fan_match_score": 196.0
+      "fan_match_score": 196.0,
+      "city": "seoul"
     },
     {
       "id": "hotel_gw_24",
@@ -17362,7 +16383,8 @@
         "AC"
       ],
       "distance_km": 0.5,
-      "fan_match_score": 167.0
+      "fan_match_score": 167.0,
+      "city": "seoul"
     },
     {
       "id": "hotel_gw_25",
@@ -17456,7 +16478,8 @@
         "AC"
       ],
       "distance_km": 0.5,
-      "fan_match_score": 190.0
+      "fan_match_score": 190.0,
+      "city": "seoul"
     },
     {
       "id": "hotel_gw_26",
@@ -17550,7 +16573,8 @@
         "AC"
       ],
       "distance_km": 0.5,
-      "fan_match_score": 133.0
+      "fan_match_score": 133.0,
+      "city": "seoul"
     },
     {
       "id": "hotel_gw_27",
@@ -17644,7 +16668,118 @@
         "AC"
       ],
       "distance_km": 0.5,
-      "fan_match_score": 152.0
+      "fan_match_score": 152.0,
+      "city": "seoul"
+    },
+    {
+      "id": "hotel_busan_sajik_01",
+      "name_en": "Brown Dot Hotel Sajik Baseball Stadium",
+      "price_krw": 75000,
+      "rating": 4.5,
+      "image_url": "https://images.unsplash.com/photo-1590073242678-70ee3fc28e8e?w=800",
+      "rooms_left": 8,
+      "is_available": true,
+      "hotel_type": {
+        "label_en": "Boutique Hotel",
+        "label_kr": "부띠끄 호텔",
+        "color": "#FF69B4"
+      },
+      "cancellation": {
+        "type": "free",
+        "label_en": "Free Cancellation",
+        "label_kr": "무료 취소",
+        "is_refundable": true
+      },
+      "tags": {
+        "list_en": [
+          "#WalkingDistance",
+          "#Budget"
+        ],
+        "list_kr": [
+          "#도보이동",
+          "#가성비"
+        ],
+        "display_en": "#WalkingDistance #Budget",
+        "display_kr": "#도보이동 #가성비"
+      },
+      "lat": 35.1995,
+      "lng": 129.065,
+      "location": {
+        "area_en": "Sajik (Near Venue)",
+        "area_kr": "사직 (공연장 인근)",
+        "address_en": "Sajik-dong, Dongnae-gu, Busan",
+        "address_kr": "부산 동래구 사직동"
+      },
+      "city_key": "busan_sajik",
+      "army_density": {
+        "value": 95,
+        "level_en": "High",
+        "level_kr": "높음",
+        "label_en": "ARMY 95%",
+        "label_kr": "아미 95%"
+      },
+      "distance": {
+        "type": "walk",
+        "display_en": "Walk 12min",
+        "minutes": 12,
+        "distance_km": 1.2
+      },
+      "transport": {
+        "station_en": "Sajik Station",
+        "line_en": "Line 3",
+        "line_color": "#D2691E",
+        "display_en": "Sajik (Line 3)"
+      },
+      "safe_return": {
+        "venue_en": "Busan Asiad Main Stadium",
+        "route_en": "Walk from Venue",
+        "transport": "walk",
+        "time_min": 12,
+        "last_train": "N/A",
+        "taxi_krw": 0
+      },
+      "army_local_guide": {
+        "bts": [],
+        "restaurant": [],
+        "cafe": [],
+        "hotspot": []
+      },
+      "map_detail": {
+        "hotel": {
+          "name_en": "Brown Dot Hotel Sajik",
+          "lat": 35.1995,
+          "lng": 129.065
+        },
+        "venue": {
+          "name_en": "Busan Asiad Main Stadium",
+          "lat": 35.19,
+          "lng": 129.07
+        },
+        "nearby_spots": []
+      },
+      "platform": {
+        "name": "Yanolja",
+        "booking_url": ""
+      },
+      "booking_guide": {
+        "steps_en": [],
+        "tips_en": [],
+        "payment_methods": [],
+        "foreigner_friendly": true
+      },
+      "last_update": "2026-02-15",
+      "nearby": [],
+      "booking_url": "",
+      "star_rating": 3,
+      "review_count": 120,
+      "amenities": [
+        "Free WiFi",
+        "Netflix"
+      ],
+      "distance_km": 1.2,
+      "fan_match_score": 98.0,
+      "link": "",
+      "city": "busan"
     }
   ]
 }

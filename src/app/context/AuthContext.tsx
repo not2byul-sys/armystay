@@ -207,12 +207,37 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       toast.success("Password updated (Demo Mode)");
     }
   };
+  // Load bookmarks from localStorage on mount
+  useEffect(() => {
+    const saved = localStorage.getItem('bookmarks');
+    if (saved) {
+      try {
+        const parsed = JSON.parse(saved);
+        if (Array.isArray(parsed)) {
+          setBookmarks(new Set(parsed));
+        }
+      } catch (e) {
+        console.error("Failed to parse local bookmarks", e);
+      }
+    }
+  }, []);
+
+  // Sync bookmarks to localStorage whenever they change
+  useEffect(() => {
+    localStorage.setItem('bookmarks', JSON.stringify(Array.from(bookmarks)));
+  }, [bookmarks]);
 
   const toggleBookmark = async (id: string) => {
+    console.log("toggleBookmark called for:", id);
+
+    // Allow bookmarking even if not strictly "logged in" for demo purposes, 
+    // or ensure we treat "activeUser" as the gatekeeper but keep state local.
     if (!activeUser) {
+      console.log("No active user, showing login modal");
       setShowLoginModal(true);
       return;
     }
+
     const newBookmarks = new Set(bookmarks);
     if (newBookmarks.has(id)) {
       newBookmarks.delete(id);
@@ -221,7 +246,32 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       newBookmarks.add(id);
       toast.success("Added to bookmarks");
     }
+
     setBookmarks(newBookmarks);
+
+    // Attempt server sync silently
+    try {
+      const { data: { session } } = await supabase.auth.getSession();
+      const token = session?.access_token;
+
+      if (token) {
+        const method = newBookmarks.has(id) ? 'POST' : 'DELETE';
+        const url = newBookmarks.has(id)
+          ? `${SERVER_URL}/bookmarks`
+          : `${SERVER_URL}/bookmarks?hotel_id=${id}`;
+
+        await fetch(url, {
+          method,
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+          },
+          body: newBookmarks.has(id) ? JSON.stringify({ hotel_id: id }) : undefined
+        });
+      }
+    } catch (error) {
+      console.warn("Server sync failed, but local state preserved.", error);
+    }
   };
 
   return (
@@ -250,10 +300,12 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   );
 };
 
+
+
 export const useAuth = () => {
   const context = useContext(AuthContext);
   if (context === undefined) {
-    console.error('CRITICAL: useAuth used outside of AuthProvider.');
+    // console.error('CRITICAL: useAuth used outside of AuthProvider.');
     return {
       user: null,
       isAuthenticated: false,

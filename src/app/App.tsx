@@ -343,6 +343,7 @@ function ArmyStayContent() {
       const detectCity = () => {
         if (item.city_key) {
           const ck = item.city_key.toLowerCase();
+          if (ck === 'gwanghwamun') return 'near_gwanghwamun';
           if (ck === 'seongsu') return 'seoul';
           if (['seoul', 'busan', 'paju', 'goyang'].includes(ck)) return ck;
         }
@@ -676,6 +677,8 @@ function ArmyStayContent() {
               setDateRange={setDateRange}
               cityCounts={processedDataStats.cityCounts}
               searchQuery={searchQuery}
+              bookmarks={bookmarks}
+              toggleBookmark={toggleBookmark}
             />
           )}
 
