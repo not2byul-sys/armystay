@@ -32,9 +32,10 @@ const DATA_URL = "/concert_recommendations.json";
 
 const cities: { id: City; label: string }[] = [
   { id: 'near_gwanghwamun', label: 'Gwanghwamun' },
+  { id: 'seoul', label: 'Seoul' },
   { id: 'goyang', label: 'Goyang' },
-  { id: 'busan', label: 'Busan' },
   { id: 'paju', label: 'Paju' },
+  { id: 'busan', label: 'Busan' },
   { id: 'other', label: 'Other Cities' }
 ];
 

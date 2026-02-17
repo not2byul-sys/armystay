@@ -122,9 +122,10 @@ const CONCERT_DATES: Record<City, DateRange> = {
 
 const cities: { id: City; label: string; dates: string }[] = [
   { id: 'near_gwanghwamun', label: 'Gwanghwamun', dates: 'Jun 13-14' },
-  { id: 'goyang', label: 'Goyang', dates: 'Jun 14-15' },
-  { id: 'busan', label: 'Busan', dates: 'Jun 15-16' },
   { id: 'seoul', label: 'Seoul', dates: 'Jun 13-14' },
+  { id: 'goyang', label: 'Goyang', dates: 'Jun 14-15' },
+  { id: 'paju', label: 'Paju', dates: 'Jun 14-15' },
+  { id: 'busan', label: 'Busan', dates: 'Jun 15-16' },
 ];
 
 const createVenueIcon = () => L.divIcon({
