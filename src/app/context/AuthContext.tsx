@@ -55,14 +55,33 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   };
 
   useEffect(() => {
-    // 1. Initial Session Check
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      if (session) {
-        setUser(session.user);
-        fetchBookmarks(session.access_token);
+    // 1. Initial Session Check with Timeout
+    const checkSession = async () => {
+      try {
+        // Create a timeout promise that rejects after 5 seconds
+        const timeoutPromise = new Promise((_, reject) => {
+          setTimeout(() => reject(new Error('Session check timed out')), 5000);
+        });
+
+        // Race between actual session check and timeout
+        const { data } = await Promise.race([
+          supabase.auth.getSession(),
+          timeoutPromise
+        ]) as any;
+
+        if (data?.session) {
+          setUser(data.session.user);
+          fetchBookmarks(data.session.access_token);
+        }
+      } catch (error) {
+        console.warn("Auth initialization bypassed (offline/timeout):", error);
+        // Fallback: Check local storage for a "demo" flag or just let them use demo mode
+      } finally {
+        setIsLoading(false);
       }
-      setIsLoading(false);
-    });
+    };
+
+    checkSession();
 
     // 2. Listen for Auth Changes
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
