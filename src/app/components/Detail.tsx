@@ -139,10 +139,17 @@ export const Detail = ({ onBack, t, hotelId, items, onSelectHotel, isBookmarked,
                   : 'Check the venue distance and plan your transportation in advance.',
               'This hotel accepts international cards (Visa/Mastercard) — no Korean phone number needed!',
               'Save the hotel address in Korean for taxi drivers: they may not understand English addresses.',
-            ].map((tip, i) => (
+              (hotel as any).official_site ? `Official Website: ${(hotel as any).official_site}` : null,
+            ].filter(Boolean).map((tip, i) => (
               <div key={i} className="flex gap-2.5 items-start">
                 <div className="w-1.5 h-1.5 rounded-full bg-purple-400 mt-2 shrink-0" />
-                <p className="text-sm text-gray-600 leading-relaxed">{tip}</p>
+                {typeof tip === 'string' && tip.startsWith('Official Website: ') ? (
+                  <p className="text-sm text-gray-600 leading-relaxed">
+                    Official Website: <a href={tip.replace('Official Website: ', '')} target="_blank" rel="noopener noreferrer" className="text-purple-600 underline hover:text-purple-800 break-all">{tip.replace('Official Website: ', '')}</a>
+                  </p>
+                ) : (
+                  <p className="text-sm text-gray-600 leading-relaxed">{tip}</p>
+                )}
               </div>
             ))}
           </div>
