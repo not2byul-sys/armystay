@@ -15,7 +15,7 @@
       "name_en": "Nine Tree Premier Hotel",
       "price_krw": 145000,
       "rating": 4.2,
-      "image_url": "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800",
+      "image_url": "/images/hotels/seoul_ninetree_myeongdong.jpg",
       "rooms_left": 0,
       "is_available": false,
       "hotel_type": {
@@ -500,7 +500,7 @@
           "name_en": "Nine Tree Premier Hotel",
           "price_krw": 145000,
           "distance_km": 0.3,
-          "image_url": "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800"
+          "image_url": "/images/hotels/seoul_ninetree_myeongdong.jpg"
         }
       ],
       "booking_url": "https://www.agoda.com/mercure-ambassador-seoul-hongdae/hotel/seoul-kr.html",
@@ -2725,14 +2725,14 @@
           "name_en": "Four Seasons Hotel Seoul",
           "price_krw": 420000,
           "distance_km": 0.1,
-          "image_url": "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800"
+          "image_url": "/images/hotels/seoul_four_seasons.jpg"
         },
         {
           "id": "hotel_99082",
           "name_en": "Somerset Palace Seoul",
           "price_krw": 250000,
           "distance_km": 0.1,
-          "image_url": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800"
+          "image_url": "/images/hotels/seoul_somerset_palace.jpg"
         },
         {
           "id": "hotel_07871",
@@ -2974,7 +2974,7 @@
           "name_en": "Somerset Palace Seoul",
           "price_krw": 250000,
           "distance_km": 1.0,
-          "image_url": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800"
+          "image_url": "/images/hotels/seoul_somerset_palace.jpg"
         }
       ],
       "booking_url": "https://www.agoda.com/ko-kr/fraser-place-central-seoul-residence/hotel/seoul-kr.html",
@@ -3469,7 +3469,7 @@
           "name_en": "Somerset Palace Seoul",
           "price_krw": 250000,
           "distance_km": 1.1,
-          "image_url": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800"
+          "image_url": "/images/hotels/seoul_somerset_palace.jpg"
         }
       ],
       "booking_url": "https://www.agoda.com/ko-kr/the-westin-chosun-seoul/hotel/seoul-kr.html",
@@ -11456,7 +11456,7 @@
       "name_en": "Park Hyatt Busan",
       "price_krw": 380000,
       "rating": 4.6,
-      "image_url": "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800",
+      "image_url": "/images/hotels/busan_park_hyatt.jpg",
       "rooms_left": 2,
       "is_available": true,
       "hotel_type": {
@@ -11659,21 +11659,21 @@
           "name_en": "Shilla Stay Haeundae",
           "price_krw": 185000,
           "distance_km": 0.2,
-          "image_url": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800"
+          "image_url": "/images/hotels/busan_shilla_stay_haeundae.jpg"
         },
         {
           "id": "hotel_70763",
           "name_en": "Novotel Ambassador Busan",
           "price_krw": 220000,
           "distance_km": 0.2,
-          "image_url": "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800"
+          "image_url": "/images/hotels/busan_novotel.jpg"
         },
         {
           "id": "hotel_30919",
           "name_en": "Haeundae Grand Hotel",
           "price_krw": 145000,
           "distance_km": 0.2,
-          "image_url": "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800"
+          "image_url": "/images/hotels/busan_grand_hotel.jpg"
         }
       ],
       "booking_url": "https://www.agoda.com/park-hyatt-busan-hotel/hotel/busan-kr.html",
@@ -11701,7 +11701,7 @@
       "name_en": "Shilla Stay Haeundae",
       "price_krw": 165000,
       "rating": 4.4,
-      "image_url": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800",
+      "image_url": "/images/hotels/busan_shilla_stay_haeundae.jpg",
       "rooms_left": 5,
       "is_available": true,
       "hotel_type": {
@@ -11901,21 +11901,21 @@
           "name_en": "Novotel Ambassador Busan",
           "price_krw": 220000,
           "distance_km": 0.1,
-          "image_url": "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800"
+          "image_url": "/images/hotels/busan_novotel.jpg"
         },
         {
           "id": "hotel_30919",
           "name_en": "Haeundae Grand Hotel",
           "price_krw": 145000,
           "distance_km": 0.1,
-          "image_url": "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800"
+          "image_url": "/images/hotels/busan_grand_hotel.jpg"
         },
         {
           "id": "hotel_46786",
           "name_en": "Lotte Hotel Busan",
           "price_krw": 265000,
           "distance_km": 0.1,
-          "image_url": "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800"
+          "image_url": "/images/hotels/busan_lotte_hotel.jpg"
         }
       ],
       "booking_url": "https://www.agoda.com/shilla-stay-haeundae/hotel/busan-kr.html",
@@ -11942,7 +11942,7 @@
       "name_en": "Lotte Hotel Busan",
       "price_krw": 220000,
       "rating": 4.4,
-      "image_url": "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800",
+      "image_url": "/images/hotels/busan_lotte_hotel.jpg",
       "rooms_left": 4,
       "is_available": true,
       "hotel_type": {
@@ -12144,14 +12144,14 @@
           "name_en": "Shilla Stay Haeundae",
           "price_krw": 185000,
           "distance_km": 0.1,
-          "image_url": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800"
+          "image_url": "/images/hotels/busan_shilla_stay_haeundae.jpg"
         },
         {
           "id": "hotel_70763",
           "name_en": "Novotel Ambassador Busan",
           "price_krw": 220000,
           "distance_km": 0.1,
-          "image_url": "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800"
+          "image_url": "/images/hotels/busan_novotel.jpg"
         },
         {
           "id": "hotel_86273",
@@ -12186,7 +12186,7 @@
       "name_en": "Toyoko Inn Busan Haeundae",
       "price_krw": 75000,
       "rating": 3.9,
-      "image_url": "https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=800",
+      "image_url": "/images/hotels/busan_toyoko_inn.jpg",
       "rooms_left": 15,
       "is_available": true,
       "hotel_type": {
@@ -12393,14 +12393,14 @@
           "name_en": "Novotel Ambassador Busan",
           "price_krw": 220000,
           "distance_km": 0.2,
-          "image_url": "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800"
+          "image_url": "/images/hotels/busan_novotel.jpg"
         },
         {
           "id": "hotel_46786",
           "name_en": "Lotte Hotel Busan",
           "price_krw": 265000,
           "distance_km": 0.2,
-          "image_url": "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800"
+          "image_url": "/images/hotels/busan_lotte_hotel.jpg"
         }
       ],
       "booking_url": "https://www.agoda.com/ko-kr/toyoko-inn-busan-haeundae-1_4/hotel/busan-kr.html",
@@ -12420,7 +12420,7 @@
       "name_en": "Novotel Ambassador Busan",
       "price_krw": 180000,
       "rating": 4.2,
-      "image_url": "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800",
+      "image_url": "/images/hotels/busan_novotel.jpg",
       "rooms_left": 6,
       "is_available": true,
       "hotel_type": {
@@ -12623,14 +12623,14 @@
           "name_en": "Shilla Stay Haeundae",
           "price_krw": 185000,
           "distance_km": 0.1,
-          "image_url": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800"
+          "image_url": "/images/hotels/busan_shilla_stay_haeundae.jpg"
         },
         {
           "id": "hotel_46786",
           "name_en": "Lotte Hotel Busan",
           "price_krw": 265000,
           "distance_km": 0.1,
-          "image_url": "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800"
+          "image_url": "/images/hotels/busan_lotte_hotel.jpg"
         },
         {
           "id": "hotel_86273",
@@ -12660,7 +12660,7 @@
       "name_en": "Haeundae Grand Hotel",
       "price_krw": 185000,
       "rating": 4.2,
-      "image_url": "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800",
+      "image_url": "/images/hotels/busan_grand_hotel.jpg",
       "rooms_left": 8,
       "is_available": true,
       "hotel_type": {
@@ -12853,21 +12853,21 @@
           "name_en": "Shilla Stay Haeundae",
           "price_krw": 185000,
           "distance_km": 0.1,
-          "image_url": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800"
+          "image_url": "/images/hotels/busan_shilla_stay_haeundae.jpg"
         },
         {
           "id": "hotel_55132",
           "name_en": "Park Hyatt Busan",
           "price_krw": 350000,
           "distance_km": 0.2,
-          "image_url": "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800"
+          "image_url": "/images/hotels/busan_park_hyatt.jpg"
         },
         {
           "id": "hotel_70763",
           "name_en": "Novotel Ambassador Busan",
           "price_krw": 220000,
           "distance_km": 0.2,
-          "image_url": "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800"
+          "image_url": "/images/hotels/busan_novotel.jpg"
         }
       ],
       "booking_url": "https://www.agoda.com/ko-kr/haeundae-grand-hotel/hotel/busan-kr.html",
@@ -13082,21 +13082,21 @@
           "name_en": "Toyoko Inn Busan Haeundae",
           "price_krw": 65000,
           "distance_km": 0.1,
-          "image_url": "https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=800"
+          "image_url": "/images/hotels/busan_toyoko_inn.jpg"
         },
         {
           "id": "hotel_70763",
           "name_en": "Novotel Ambassador Busan",
           "price_krw": 220000,
           "distance_km": 0.2,
-          "image_url": "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800"
+          "image_url": "/images/hotels/busan_novotel.jpg"
         },
         {
           "id": "hotel_46786",
           "name_en": "Lotte Hotel Busan",
           "price_krw": 265000,
           "distance_km": 0.2,
-          "image_url": "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800"
+          "image_url": "/images/hotels/busan_lotte_hotel.jpg"
         }
       ],
       "booking_url": "https://www.agoda.com/ko-kr/haeundae-seacloud-hotel-residence/hotel/busan-kr.html",
@@ -13313,7 +13313,7 @@
           "name_en": "Toyoko Inn Busan Haeundae",
           "price_krw": 65000,
           "distance_km": 0.2,
-          "image_url": "https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=800"
+          "image_url": "/images/hotels/busan_toyoko_inn.jpg"
         },
         {
           "id": "hotel_10776",
@@ -13327,7 +13327,7 @@
           "name_en": "Novotel Ambassador Busan",
           "price_krw": 220000,
           "distance_km": 0.4,
-          "image_url": "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800"
+          "image_url": "/images/hotels/busan_novotel.jpg"
         }
       ],
       "booking_url": "https://www.agoda.com/ko-kr/kimchee-haeundae-guesthouse_2/hotel/busan-kr.html",
@@ -13541,21 +13541,21 @@
           "name_en": "Novotel Ambassador Busan",
           "price_krw": 220000,
           "distance_km": 0.1,
-          "image_url": "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800"
+          "image_url": "/images/hotels/busan_novotel.jpg"
         },
         {
           "id": "hotel_46786",
           "name_en": "Lotte Hotel Busan",
           "price_krw": 265000,
           "distance_km": 0.1,
-          "image_url": "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800"
+          "image_url": "/images/hotels/busan_lotte_hotel.jpg"
         },
         {
           "id": "hotel_82865",
           "name_en": "Shilla Stay Haeundae",
           "price_krw": 185000,
           "distance_km": 0.2,
-          "image_url": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800"
+          "image_url": "/images/hotels/busan_shilla_stay_haeundae.jpg"
         }
       ],
       "booking_url": "https://www.agoda.com/ko-kr/mama-guesthouse-haeundae/hotel/busan-kr.html",
@@ -13570,7 +13570,7 @@
       "name_en": "Paradise Hotel Busan",
       "price_krw": 280000,
       "rating": 4.3,
-      "image_url": "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=800",
+      "image_url": "/images/hotels/busan_paradise.jpg",
       "rooms_left": 3,
       "is_available": true,
       "hotel_type": {
@@ -13771,21 +13771,21 @@
           "name_en": "Shilla Stay Haeundae",
           "price_krw": 185000,
           "distance_km": 0.4,
-          "image_url": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800"
+          "image_url": "/images/hotels/busan_shilla_stay_haeundae.jpg"
         },
         {
           "id": "hotel_70763",
           "name_en": "Novotel Ambassador Busan",
           "price_krw": 220000,
           "distance_km": 0.4,
-          "image_url": "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800"
+          "image_url": "/images/hotels/busan_novotel.jpg"
         },
         {
           "id": "hotel_30919",
           "name_en": "Haeundae Grand Hotel",
           "price_krw": 145000,
           "distance_km": 0.4,
-          "image_url": "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800"
+          "image_url": "/images/hotels/busan_grand_hotel.jpg"
         }
       ],
       "booking_url": "https://www.agoda.com/ko-kr/paradise-hotel-busan/hotel/busan-kr.html",
@@ -13819,7 +13819,7 @@
         "booking_url": "https://www.agoda.com/nine-tree-premier-hotel-insadong/hotel/seoul-kr.html"
       },
       "booking_url": "https://www.agoda.com/nine-tree-premier-hotel-insadong/hotel/seoul-kr.html",
-      "image_url": "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=800",
+      "image_url": "/images/hotels/seoul_ninetree_insadong.jpg",
       "distance_km": 14.5,
       "lat": 37.5735,
       "lng": 126.987,
@@ -14164,7 +14164,7 @@
       "name_en": "Shilla Stay Gwanghwamun",
       "price_krw": 180000,
       "rating": 4.4,
-      "image_url": "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800",
+      "image_url": "/images/hotels/seoul_shilla_stay_gwanghwamun.jpg",
       "rooms_left": 10,
       "is_available": true,
       "hotel_type": {
@@ -14264,7 +14264,7 @@
       "name_en": "Four Seasons Hotel Seoul",
       "price_krw": 650000,
       "rating": 4.9,
-      "image_url": "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800",
+      "image_url": "/images/hotels/seoul_four_seasons.jpg",
       "rooms_left": 9,
       "is_available": true,
       "hotel_type": {
@@ -14364,7 +14364,7 @@
       "name_en": "Somerset Palace Seoul",
       "price_krw": 220000,
       "rating": 4.5,
-      "image_url": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800",
+      "image_url": "/images/hotels/seoul_somerset_palace.jpg",
       "rooms_left": 7,
       "is_available": true,
       "hotel_type": {
@@ -14464,7 +14464,7 @@
       "name_en": "Nine Tree by Parnas Seoul Insadong",
       "price_krw": 150000,
       "rating": 4.6,
-      "image_url": "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=800",
+      "image_url": "/images/hotels/seoul_ninetree_parnas.jpg",
       "rooms_left": 2,
       "is_available": true,
       "hotel_type": {
@@ -15509,7 +15509,7 @@
       "name_en": "Nostalgia Hanok Hotel",
       "price_krw": 250000,
       "rating": 4.8,
-      "image_url": "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800",
+      "image_url": "/images/hotels/seoul_nostalgia_hanok.jpg",
       "rooms_left": 3,
       "is_available": true,
       "hotel_type": {
@@ -15889,7 +15889,7 @@
       "name_en": "Hotel Midcity Myeongdong",
       "price_krw": 135000,
       "rating": 4.5,
-      "image_url": "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800",
+      "image_url": "/images/hotels/seoul_midcity_myeongdong.jpg",
       "rooms_left": 5,
       "is_available": true,
       "hotel_type": {
@@ -16744,7 +16744,7 @@
       "name_en": "Brown Dot Hotel Sajik Baseball Stadium",
       "price_krw": 75000,
       "rating": 4.5,
-      "image_url": "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=800",
+      "image_url": "/images/hotels/busan_browndot_sajik.jpg",
       "rooms_left": 8,
       "is_available": true,
       "hotel_type": {
